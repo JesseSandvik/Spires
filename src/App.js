@@ -14,11 +14,6 @@ const App = () => {
                 path={route.path}
                 exact={route.exact}
                 element={route.element}
-                render={() => (
-                  <route.component
-                    name={route.name} 
-                  />
-                )}
               />
             )
           })}
