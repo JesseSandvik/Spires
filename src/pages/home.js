@@ -1,17 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { listUsers } from '../utils/api';
+import AuthenticationButton from '../components/buttons/authenticationButton';
+import { useAuth0 } from '@auth0/auth0-react';
+import UserProfile from '../views/profile';
 
 const HomePage = props => {
-    const initialUserState = {
-        "first_name": "",
-        "last_name": "",
-        "user_name": "",
-        "password": "",
-        "created_at": "",
-        "updated_at": "",
-    };
+    const { isAuthenticated } = useAuth0();
 
-    const [users, setUsers] = useState({...initialUserState});
+    const [users, setUsers] = useState([]);
 
     useEffect(() => {
         listUsers()
@@ -21,7 +17,8 @@ const HomePage = props => {
     return (
         <div>
             <h1>Welcome To JobSeeker!</h1>
-            {console.log(JSON.stringify(users))}
+            <AuthenticationButton />
+            {isAuthenticated && <UserProfile />}
         </div>
     );
 }
