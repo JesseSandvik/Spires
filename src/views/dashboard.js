@@ -1,10 +1,9 @@
 import React from 'react';
-import UserProfile from './profile';
 
-const Dashboard = props => {
+const Dashboard = () => {
     return (
         <div>
-            <UserProfile user={props.user}/>
+            <h2>Dashboard</h2>
         </div>
     );
 }
