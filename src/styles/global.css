@@ -61,6 +61,10 @@ body {
   margin: 0 0 1vh;
 }
 
+.app header .siteTitle h1 i {
+  padding: 0 1.5rem 0 0;
+}
+
 .app header button {
   background-color: #C9C5BA;
   border: 3px solid #000000;
