@@ -1,16 +1,18 @@
 import React from 'react';
-import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
+import { withAuthenticationRequired } from '@auth0/auth0-react';
 
-const UserProfile = () => {
-    const { user } = useAuth0();
-    const { name, picture, email } = user;
+const UserProfile = props => {
+    const { email, given_name, name, picture } = props.user;
 
     return (
         <div>
-            <img src={picture} alt="Profile" />
-            <h2>{name}</h2>
+            <p>Welcome, {given_name}!</p>
+            <img
+                src={picture}
+                alt="Profile"
+            />
+            <p>{name}</p>
             <p>{email}</p>
-            <p>{JSON.stringify(user)}</p>
         </div>
     );
 }

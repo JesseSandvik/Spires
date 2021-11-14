@@ -1,6 +1,6 @@
 {
-  "short_name": "JobSeeker",
-  "name": "JobSeeker Dashboard",
+  "short_name": "Froggy",
+  "name": "Froggy Bug Tracker",
   "icons": [],
   "start_url": ".",
   "display": "standalone",
