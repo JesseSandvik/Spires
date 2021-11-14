@@ -1,0 +1,78 @@
+@import './config';
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: $primary-color;
+    color: $secondary-color;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.app {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    width: 100vw;
+
+    header {
+        align-items: center;
+        background-color: $accent-color-two;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        grid-row: 1 / 1;
+        justify-content: space-between;
+        padding: 1rem;
+        width: 100vw;
+
+        .siteTitle {
+            color: $primary-color;
+            display: flex;
+            flex-direction: column;
+
+            h1 {
+                font-size: 2.5rem;
+                letter-spacing: .1rem;
+                margin: 0 0 1vh;
+            }
+
+        }
+
+        button {
+            background-color: $accent-color-one;
+            border: 3px solid $secondary-color;
+            border-radius: 5px;
+            color: $secondary-color;
+            cursor: pointer;
+            font-weight: 600;
+            letter-spacing: .2rem;
+            padding: 1rem;
+            text-transform: uppercase;
+        }
+    }
+
+    main {
+        align-items: flex-start;
+        border: 1px solid white;
+        display: flex;
+        justify-content: center;
+        grid-row: 2 / 2;
+        text-align: center;
+    }
+
+    footer {
+        align-items: center;
+        background-color: $accent-color-two;
+        color: $primary-color;
+        display: flex;
+        flex-direction: column;
+        grid-row: 3 / -1;
+        justify-content: center;
+        text-align: center;
+        width: 100vw;
+    }
+}

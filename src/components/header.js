@@ -1,12 +1,11 @@
 import React from 'react';
 import AuthenticationButton from './buttons/authenticationButton';
+import SiteTitle from './siteTitle';
 
 const Header = () => {
     return (
         <header>
-            <h1>Froggy.</h1>
-            <small>Those darn bugs never stood a chance</small>
-            <br />
+            <SiteTitle />
             <AuthenticationButton />
         </header>
     );
