@@ -7,7 +7,6 @@ import Footer from './components/footer';
 import routes from './config/routes';
 
 const App = () => {
-
   return (
     <div className="app">
       <Router>

@@ -1,7 +1,9 @@
-import React from 'react';
+import React from "react";
 
 const Loading = () => (
-    <h5>Loading...</h5>
+  <div className="spinner">
+    <i className="fas fa-spinner"></i>
+  </div>
 );
 
 export default Loading;

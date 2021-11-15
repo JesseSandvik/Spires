@@ -2,9 +2,10 @@ import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import Dashboard from '../views/dashboard';
 import UserProfile from '../views/profile';
+import Loading from '../components/loading';
 
 const HomePage = () => {
-    const { isAuthenticated, user } = useAuth0();
+    const { isAuthenticated, isLoading, user } = useAuth0();
 
     if (isAuthenticated) {
         return (
@@ -17,6 +18,10 @@ const HomePage = () => {
                 </div>
             </>
         );
+    } else if (isLoading) {
+        return (<div className="loading">
+                    <Loading />
+                </div>);
     } else {
         return (
             <div className="non-auth">
