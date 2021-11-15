@@ -21,7 +21,7 @@ body {
 
     header {
         align-items: center;
-        background-color: $accent-color-two;
+        background-color: $secondary-color;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -36,48 +36,92 @@ body {
             flex-direction: column;
 
             h1 {
+                font-size: 2.5rem;
+                letter-spacing: .1rem;
+                margin: 0 0 1vh;
 
                 i {
                     padding: 0 1.5rem 0 0;
                 }
-                font-size: 2.5rem;
-                letter-spacing: .1rem;
-                margin: 0 0 1vh;
             }
 
         }
 
         button {
-            background-color: $button-bg-color;
-            border: 3px solid $secondary-color;
+            background-color: $primary-color;
+            box-shadow: outset 0 0 0 5px rgba(255,255,255,0.1);
             border-radius: 5px;
             color: $secondary-color;
             cursor: pointer;
+            font-family: Arial, Helvetica, sans-serif;
             font-weight: 600;
             letter-spacing: .2rem;
-            padding: 1rem;
+            margin: 1rem;
+            padding: .5rem;
+
+            &:hover {
+                opacity: 0.9;
+            }
         }
     }
 
     main {
+        background: url("../images/Forest-Frog-Rain.jpg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
         display: grid;
         grid-template-columns: auto 1fr;
         grid-row: 2 / 2;
 
         .item {
             align-items: center;
-            border: 5px groove $accent-color-two;
+            background-color: $primary-color;
+            border: 5px solid $secondary-color;
             display: flex;
             flex-direction: column;
             margin: 1rem;
+            opacity: 0.9;
             padding: 1rem;
             text-align: center;
+
+            &.item1 {
+                font-weight: 600;
+                grid-column: 1 / 1;
+
+                img {
+                    border: 5px solid $secondary-color;
+                    border-radius: 50%;
+                }
+            }
+
+            &.item2 {
+                grid-column: 2 / -1;
+            }
+        }
+
+        .non-auth {
+            align-items: center;
+            color: $primary-color;
+            display: flex;
+            flex-direction: column;
+            grid-column: 1 / -1;
+            justify-content: flex-start;
+            text-align: center;
+
+            .intro {
+                background-color: $secondary-color;
+                border: 3px solid $primary-color;
+                margin: 10vh 0 0 0;
+                opacity: 0.8;
+                padding: 1rem;
+            }
         }
     }
 
     footer {
         align-items: center;
-        background-color: $accent-color-two;
+        background-color: $secondary-color;
         color: $primary-color;
         display: flex;
         flex-direction: column;

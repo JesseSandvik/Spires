@@ -4,8 +4,8 @@
 }
 
 body {
-  background: #97B1A6;
-  color: #000000;
+  background: #F8F8FF;
+  color: #283618;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   letter-spacing: .1rem;
   margin: 0;
@@ -25,7 +25,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #370926;
+  background-color: #283618;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -45,7 +45,7 @@ body {
 }
 
 .app header .siteTitle {
-  color: #97B1A6;
+  color: #F8F8FF;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -66,17 +66,28 @@ body {
 }
 
 .app header button {
-  background-color: #C9C5BA;
-  border: 3px solid #000000;
+  background-color: #F8F8FF;
+  -webkit-box-shadow: outset 0 0 0 5px rgba(255, 255, 255, 0.1);
+          box-shadow: outset 0 0 0 5px rgba(255, 255, 255, 0.1);
   border-radius: 5px;
-  color: #000000;
+  color: #283618;
   cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
   letter-spacing: .2rem;
-  padding: 1rem;
+  margin: 1rem;
+  padding: .5rem;
+}
+
+.app header button:hover {
+  opacity: 0.9;
 }
 
 .app main {
+  background: url("../images/Forest-Frog-Rain.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: auto 1fr;
@@ -89,7 +100,8 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border: 5px groove #370926;
+  background-color: #F8F8FF;
+  border: 5px solid #283618;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -98,16 +110,59 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   margin: 1rem;
+  opacity: 0.9;
   padding: 1rem;
   text-align: center;
+}
+
+.app main .item.item1 {
+  font-weight: 600;
+  -ms-grid-column: 1;
+  grid-column: 1 / 1;
+}
+
+.app main .item.item1 img {
+  border: 5px solid #283618;
+  border-radius: 50%;
+}
+
+.app main .item.item2 {
+  grid-column: 2 / -1;
+}
+
+.app main .non-auth {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #F8F8FF;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  grid-column: 1 / -1;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  text-align: center;
+}
+
+.app main .non-auth .intro {
+  background-color: #283618;
+  border: 3px solid #F8F8FF;
+  margin: 10vh 0 0 0;
+  opacity: 0.8;
+  padding: 1rem;
 }
 
 .app footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #370926;
-  color: #97B1A6;
+  background-color: #283618;
+  color: #F8F8FF;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

@@ -4,7 +4,7 @@ const SiteTitle = () => {
     return (
         <div className="siteTitle">
             <h1><i className="fas fa-frog"></i>Froggy.</h1>
-            <small>Those bugs never stood a chance.</small>
+            <small>Catch Bugs. Swim Towards Success.</small>
         </div>
     );
 }
