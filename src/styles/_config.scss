@@ -1,2 +1,11 @@
 $primary-color: #F8F8FF;
 $secondary-color: #283618;
+$bg-default-color: #000000;
+
+@mixin transition-ease {
+    transition: 0.6s ease-in-out;
+}
+
+@mixin transition-ease-delay-one {
+    transition: 0.6s ease-in-out 0.1s;
+}

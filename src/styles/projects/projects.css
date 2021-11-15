@@ -1,0 +1,33 @@
+.projectsList {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  text-align: center;
+}
+
+.projectsList .project {
+  background-color: #283618;
+  color: #F8F8FF;
+  margin: 0.5rem;
+  padding: 1rem;
+}
+
+.projectsList .project h4 {
+  text-decoration: underline;
+  text-transform: uppercase;
+}
+
+.projectsList .project p {
+  text-transform: lowercase;
+}
+/*# sourceMappingURL=projects.css.map */
