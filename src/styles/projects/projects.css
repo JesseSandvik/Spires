@@ -1,4 +1,4 @@
-.projectsList {
+.projects {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -9,25 +9,36 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
   text-align: center;
+  width: 100%;
 }
 
-.projectsList .project {
+.projects .project {
   background-color: #283618;
   color: #F8F8FF;
-  margin: 0.5rem;
+  cursor: pointer;
+  margin: 1rem;
+  opacity: 1;
   padding: 1rem;
+  width: 25vw;
 }
 
-.projectsList .project h4 {
+.projects .project:hover {
+  opacity: 0.9;
+}
+
+.projects .project h4 {
   text-decoration: underline;
   text-transform: uppercase;
 }
 
-.projectsList .project p {
+.projects .project p {
   text-transform: lowercase;
 }
 /*# sourceMappingURL=projects.css.map */
