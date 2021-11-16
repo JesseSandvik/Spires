@@ -1,9 +1,8 @@
-import '../../styles/projects/projects.css';
 import React, { useEffect, useState } from 'react';
-import { listProjects } from '../../utils/api';
-import Project from './project';
+import { listProjects } from '../utils/api';
+import Project from '../views/project/project';
 
-const ProjectsList = () => {
+const Projects = () => {
     const [projects, setProjects] = useState([]);
 
     useEffect(() => {
@@ -16,7 +15,7 @@ const ProjectsList = () => {
             }
         }
         fetchProjectsFromAPI();
-    }, [projects])
+    }, []);
 
     const projectsList = projects.map((project) => <li key={project.project_id}><Project project={project} /></li>)
 
@@ -28,4 +27,4 @@ const ProjectsList = () => {
     );
 }
 
-export default ProjectsList;
+export default Projects;

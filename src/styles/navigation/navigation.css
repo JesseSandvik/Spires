@@ -1,0 +1,40 @@
+nav {
+  background-color: #283618;
+  border: 3px solid #283618;
+  border-radius: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  opacity: 1;
+  text-align: center;
+  width: 100%;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+}
+
+nav ul li {
+  margin: 1.5rem;
+}
+
+nav ul li a {
+  color: #F8F8FF;
+}
+
+nav ul li a:hover {
+  opacity: 0.9;
+}
+/*# sourceMappingURL=navigation.css.map */

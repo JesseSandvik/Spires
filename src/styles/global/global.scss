@@ -82,6 +82,7 @@ li {
         display: grid;
         grid-template-columns: auto 1fr;
         grid-row: 2 / 2;
+        height: 100%;
         @include transition-ease-delay-one;
 
         .loading {
@@ -120,6 +121,7 @@ li {
                 h2 {
                     border-bottom: 3px solid $secondary-color;
                     padding: 0 0 1rem 0;
+                    width: 100%;
                 }
             }
         }
@@ -129,8 +131,8 @@ li {
             color: $primary-color;
             display: flex;
             flex-direction: column;
-            grid-column: 1 / -1;
-            justify-content: flex-start;
+            grid-column: 2 / -1;
+            justify-content: center;
             text-align: center;
 
             .intro {
