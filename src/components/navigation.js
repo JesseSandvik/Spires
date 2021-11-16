@@ -1,25 +1,30 @@
 import '../styles/navigation/navigation.css';
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const Navigation = () => {
     return (
         <nav>
             <ul>
-                <li>
+                <motion.li
+                    whileHover={{ scale: 1.1 }}
+                >
                     <Link
                         to="/dashboard"
                     >
                         Dashboard
                     </Link>
-                </li>
-                <li>
+                </motion.li>
+                <motion.li
+                    whileHover={{ scale: 1.1 }}
+                >
                     <Link
                         to="/projects"
                     >
                         Projects
                     </Link>
-                </li>
+                </motion.li>
             </ul>
         </nav>
     );

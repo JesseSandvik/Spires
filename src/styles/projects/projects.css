@@ -21,8 +21,10 @@
 
 .projects .project {
   background-color: #283618;
+  border-radius: 10px;
   color: #F8F8FF;
   cursor: pointer;
+  letter-spacing: .1rem;
   margin: 1rem;
   opacity: 1;
   padding: 1rem;
@@ -34,7 +36,7 @@
 }
 
 .projects .project h4 {
-  text-decoration: underline;
+  border-bottom: 1px solid #F8F8FF;
   text-transform: uppercase;
 }
 

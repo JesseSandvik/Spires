@@ -1,23 +1,24 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import ViewProject from './viewProject';
 
 const Project = props => {
-    const navigate = useNavigate();
-    const { project_id, project_name, project_description } = props.project;
+    const { project } = props;
 
-    const projectViewButtonHandler = (event) => {
+    const viewProjectClickHandler = (event) => {
         event.preventDefault();
-        navigate(`/projects/${project_id}`);
+        return <ViewProject project={project} />
     }
 
     return (
-        <button
+        <motion.button
             className="project"
-            onClick={projectViewButtonHandler}
+            onClick={viewProjectClickHandler}
+            whileHover={{ scale: 1.05 }}
         >
-            <h4>{project_name}</h4>
-            <p>{project_description}</p>
-        </button>
+            <h4>{project.project_name}</h4>
+            <p>{project.project_description}</p>
+        </motion.button>
     );
 }
 

@@ -10,6 +10,7 @@ const Main = () => {
     const { isAuthenticated, user } = useAuth0();
 
     const transition = {
+        duration: 0.6,
         ease: [1.0, 0.01, -0.05, 0.9],
     };
     
