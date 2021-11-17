@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { withAuthenticationRequired } from '@auth0/auth0-react';
 import { listBugs, listCards } from '../utils/api';
+import Bugs from '../views/bugs/bugs';
+import Cards from '../views/cards/cards';
 
 const ProjectById = props => {
     const { projects } = props;
@@ -59,9 +61,8 @@ const ProjectById = props => {
                     </button>
                     {currentProject.project_name}
                 </h2>
-                {JSON.stringify(bugsForCurrentProject)}
-                {JSON.stringify(cardsForCurrentProject)}
-                {console.log(toggleBugsAndCards)}
+                <Cards cards={cardsForCurrentProject} />
+                {toggleBugsAndCards === "bugs" && <Bugs bugs={bugsForCurrentProject} />}
             </section>
         </>
     );
