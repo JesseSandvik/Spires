@@ -1,13 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import { motion } from 'framer-motion';
+import { listProjects } from '../utils/api';
+
+import HomePage from '../pages/home';
+import Projects from '../pages/projects';
+import ProjectById from '../pages/projectById';
 import Navigation from './navigation';
-import routes from '../config/routes';
 import UserProfile from '../views/user/profile';
 
 const Main = () => {
     const { isAuthenticated, user } = useAuth0();
+    const [projects, setProjects] = useState([]);
+
+    useEffect(() => {
+        setProjects([]);
+        const abortController = new AbortController();
+
+        async function fetchProjectsFromAPI() {
+            try {
+                const response = await listProjects(abortController.signal);
+                setProjects(response);
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        fetchProjectsFromAPI();
+        return () => abortController.abort();
+    }, []);
 
     const transition = {
         duration: 0.6,
@@ -39,17 +60,21 @@ const Main = () => {
                 <Navigation />
             </div>}
             <Routes>
-              {routes.map((route, index) => {
-                return (
                     <Route
-                      key={index}
-                      path={route.path}
-                      exact={route.exact}
-                      element={route.element}
-                      render={() => route.element}
+                      path="/"
+                      exact={true}
+                      element={<HomePage />}
                     />
-                )
-              })}
+                    <Route
+                      path="/projects"
+                      exact={true}
+                      element={<Projects projects={projects} />}
+                    />
+                    <Route
+                      path="/projects/:id"
+                      exact={true}
+                      element={<ProjectById projects={projects} />}
+                    />
             </Routes>
         </motion.main>
     );

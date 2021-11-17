@@ -1,28 +1,17 @@
 import '../styles/projects/projects.css';
-import React, { useEffect, useState } from 'react';
-import { listProjects } from '../utils/api';
+import React from 'react';
 import Project from '../views/project/project';
+import { withAuthenticationRequired } from '@auth0/auth0-react';
 
-const Projects = () => {
-    const [projects, setProjects] = useState([]);
+const Projects = props => {
 
-    useEffect(() => {
-        async function fetchProjectsFromAPI() {
-            try {
-                const response = await listProjects();
-                setProjects(response);
-            } catch (error) {
-                console.log(error)
-            }
-        }
-        fetchProjectsFromAPI();
-    }, []);
+    const { projects } = props;
 
     const projectsList = projects.map((project) => <li key={project.project_id}><Project project={project} /></li>)
 
     return (
         <section className="item item2">
-            <h2>Current Active Projects</h2>
+            <h2>Available Projects</h2>
             <div className="projects">
                 {projectsList}
             </div>
@@ -30,4 +19,4 @@ const Projects = () => {
     );
 }
 
-export default Projects;
+export default withAuthenticationRequired(Projects);

@@ -7,16 +7,7 @@ const Navigation = () => {
     return (
         <nav>
             <ul>
-                <motion.li
-                    whileHover={{ scale: 1.1 }}
-                >
-                    <Link
-                        to="/dashboard"
-                    >
-                        Dashboard
-                    </Link>
-                </motion.li>
-                <motion.li
+            <motion.li
                     whileHover={{ scale: 1.1 }}
                 >
                     <Link

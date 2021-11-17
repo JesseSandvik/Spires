@@ -1,13 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router';
 import { motion } from 'framer-motion';
-import ViewProject from './viewProject';
 
 const Project = props => {
+    const navigate = useNavigate();
     const { project } = props;
 
     const viewProjectClickHandler = (event) => {
         event.preventDefault();
-        return <ViewProject project={project} />
+        navigate(`${project.project_id}`);
     }
 
     return (

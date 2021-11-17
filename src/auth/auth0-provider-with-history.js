@@ -9,7 +9,7 @@ const Auth0ProviderWithHistory = ({ children }) => {
   const audience = process.env.REACT_APP_AUTH0_AUDIENCE;
 
   const onRedirectCallback = (appState) => {
-    navigate(appState?.returnTo || '/dashboard');
+    navigate(appState?.returnTo || '/projects');
   };
 
   return (
