@@ -2,33 +2,31 @@ import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import { motion } from 'framer-motion';
-import { listProjects } from '../utils/api';
 
 import HomePage from '../pages/home';
 import Projects from '../pages/projects';
 import ProjectById from '../pages/projectById';
 import Navigation from './navigation';
 import UserProfile from '../views/user/profile';
+import { listProjects } from '../utils/api';
 
 const Main = () => {
     const { isAuthenticated, user } = useAuth0();
     const [projects, setProjects] = useState([]);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
-        setProjects([]);
-        const abortController = new AbortController();
-
-        async function fetchProjectsFromAPI() {
-            try {
-                const response = await listProjects(abortController.signal);
-                setProjects(response);
-            } catch (error) {
-                console.log(error)
-            }
-        }
-        fetchProjectsFromAPI();
-        return () => abortController.abort();
+        loadProjects();
     }, []);
+
+    function loadProjects() {
+        setError(null);
+        const abortController = new AbortController();
+        listProjects(abortController.signal)
+            .then(setProjects)
+            .catch(setError);
+        return () => abortController.abort();
+    }
 
     const transition = {
         duration: 0.6,
@@ -61,18 +59,15 @@ const Main = () => {
             </div>}
             <Routes>
                     <Route
-                      path="/"
-                      exact={true}
+                      exact path="/"
                       element={<HomePage />}
                     />
                     <Route
-                      path="/projects"
-                      exact={true}
+                      exact path="/projects"
                       element={<Projects projects={projects} />}
                     />
                     <Route
-                      path="/projects/:id"
-                      exact={true}
+                      exact path="/projects/:projectId"
                       element={<ProjectById projects={projects} />}
                     />
             </Routes>
