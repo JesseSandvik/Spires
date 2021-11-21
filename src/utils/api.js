@@ -45,6 +45,17 @@ async function fetchJson(url, options, onCancel) {
   }
 }
 
+export async function createProject(project, signal) {
+  const url = `${API_BASE_URL}/projects`;
+  const options = {
+    method: "POST",
+    headers,
+    body: JSON.stringify({ project }),
+    signal,
+  };
+  return await fetchJson(url, options);
+}
+
 export async function listBugs(signal) {
   const url = new URL(`${API_BASE_URL}/bugs`);
   return await fetchJson(url, { headers, signal }, []);

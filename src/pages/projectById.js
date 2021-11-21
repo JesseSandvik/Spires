@@ -36,10 +36,9 @@ const ProjectById = props => {
     if (project) {
         return (
             <section className="item item2">
-                <h2>
-                    <div className="dash-title">{project.project_name}</div>
-                    <small className="dash-description">{project.project_description}</small>
-                </h2>
+                <div className="heading">
+                    <h2>{project.project_name}</h2>
+                </div>
                 <div>
                     {cards && <KanbanBoard cards={cards} />}
                     {error && <p>{error}</p>}
