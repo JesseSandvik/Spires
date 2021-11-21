@@ -64,11 +64,11 @@ const Main = () => {
                     />
                     <Route
                       exact path="/projects"
-                      element={<Projects projects={projects} />}
+                      element={<Projects projects={projects} error={error} />}
                     />
                     <Route
                       exact path="/projects/:projectId"
-                      element={<ProjectById projects={projects} />}
+                      element={<ProjectById projects={projects} error={error} />}
                     />
             </Routes>
         </motion.main>

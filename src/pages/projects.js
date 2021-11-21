@@ -11,6 +11,7 @@ const Projects = props => {
     return (
         <section className="item item2">
             <h2>Available Projects</h2>
+            {props.error && <p>{props.error}</p>}
             <div className="projects">
                 {projectsList}
             </div>

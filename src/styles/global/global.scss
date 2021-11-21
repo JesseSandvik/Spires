@@ -123,6 +123,15 @@ li {
                     padding: 0 0 1rem 0;
                     width: 100%;
                 }
+
+                .kanban {
+                    display: flex;
+                    flex-direction: row;
+
+                    h3 {
+                        border-bottom: 3px solid $secondary-color;
+                    }
+                }
             }
         }
 

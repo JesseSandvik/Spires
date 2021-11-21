@@ -45,17 +45,13 @@ async function fetchJson(url, options, onCancel) {
   }
 }
 
-/** GET a project from the database
-  *
-  * @param projectId
-  *  the id of the desired project
-  * @param signal
-  *  optional AbortController.signal
-  * @returns {Promise<project>}
-  *  a promise that resolves the saved project
-  */
-export async function readProject(projectId, signal) {
-  const url = new URL(`${API_BASE_URL}/projects/${projectId}`);
+export async function listBugs(signal) {
+  const url = new URL(`${API_BASE_URL}/bugs`);
+  return await fetchJson(url, { headers, signal }, []);
+}
+
+export async function listCards(signal) {
+  const url = new URL(`${API_BASE_URL}/cards`);
   return await fetchJson(url, { headers, signal }, []);
 }
 
