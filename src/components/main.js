@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 
 import HomePage from '../pages/home';
 import Projects from '../pages/projects';
+import ProjectById from '../pages/projectById';
 import Navigation from './navigation';
 import NewProject from '../pages/newProject';
 import UserProfile from '../views/user/profile';
@@ -49,6 +50,10 @@ const Main = () => {
                     <Route
                       exact path="/projects"
                       element={<Projects />}
+                    />
+                    <Route
+                      exact path="/projects/:projectId"
+                      element={<ProjectById />}
                     />
                     <Route
                       exact path="/projects/new"

@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
 import { createProject } from '../utils/api';
 import CancelButton from '../components/buttons/cancelButton';
+import SubmitButton from '../components/buttons/submitButton';
 
-function NewProject() {
+const NewProject = () => {
+    const navigate = useNavigate();
+
     const { user } = useAuth0();
     const initialProjectState = {
         title: "",
@@ -13,6 +17,7 @@ function NewProject() {
     }
 
     const [project, setProject] = useState({...initialProjectState});
+    const [error, setError] = useState(null);
 
     const createProjectChangeHandler = ({ target }) => {
         setProject({
@@ -33,13 +38,16 @@ function NewProject() {
             creator_name: user.name,
             creator_email: user.email,
             completed: false,
-        });
-        setProject({...initialProjectState});
+        })
+            .then((createdProject) => navigate(`/projects/${createdProject.project_id}`))
+            .catch((error) => setError(error));
+        setProject({...initialProjectState})
     }
     return (
         <section className="item item2">
             <h2>Create A New Project</h2>
             <small>Project Creator: {user.name}</small>
+            {error && <p>{error}</p>}
             <form onSubmit={createProjectSubmitHandler}>
             <label>Project title:</label>
             <input
@@ -76,10 +84,9 @@ function NewProject() {
                 />
             <br />
             <div>
-                <button type="submit">Submit</button>
+                <SubmitButton />
                 <CancelButton cancelHandler={createProjectCancelHandler} />
             </div>
-            {console.log(user)}
         </form>
         </section>
     );

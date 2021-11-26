@@ -38,3 +38,13 @@ export async function createProject(data, signal) {
   console.log(options.body)
   return await fetchJson(url, options);
 }
+
+export async function readProject(projectId, signal) {
+  const url = new URL(`${API_BASE_URL}/projects/${projectId}`);
+  return await fetchJson(url, { headers, signal }, {});
+}
+
+export async function listProjects(signal) {
+  const url = new URL(`${API_BASE_URL}/projects`);
+  return await fetchJson(url, { headers, signal }, []);
+}

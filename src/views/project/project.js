@@ -33,8 +33,9 @@ const Project = props => {
                 className="project"
                 whileHover={{ scale: 1.05 }}
             >
-                <h4>{project.project_name}</h4>
-                <p>{project.project_description}</p>
+                <h4>{project.title}</h4>
+                <small>Due By: {formatCompleteByDate(project.due_date)}</small>
+                <p>{project.description}</p>
             </motion.div>
         </Link>
     );
