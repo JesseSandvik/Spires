@@ -1,14 +1,14 @@
 import React from 'react';
+import Available from './available';
 import Complete from './complete';
 import InProgress from './inProgress';
-import ToDo from './toDo';
 
 const KanbanBoard = props => {
     const { cards } = props;
 
     return (
         <div className="kanban">
-            <ToDo cards={cards} />
+            <Available cards={cards} />
             <InProgress cards={cards} />
             <Complete cards={cards} />
         </div>

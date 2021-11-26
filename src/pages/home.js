@@ -1,6 +1,6 @@
 import React from 'react';
 
-const HomePage = () => {
+function HomePage() {
     return (
         <div className="non-auth">
             <div className="intro">

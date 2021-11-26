@@ -1,32 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import { motion } from 'framer-motion';
 
 import HomePage from '../pages/home';
 import Projects from '../pages/projects';
-import ProjectById from '../pages/projectById';
 import Navigation from './navigation';
+import NewProject from '../pages/newProject';
 import UserProfile from '../views/user/profile';
-import { listProjects } from '../utils/api';
 
 const Main = () => {
     const { isAuthenticated, user } = useAuth0();
-    const [projects, setProjects] = useState([]);
-    const [error, setError] = useState(null);
-
-    useEffect(() => {
-        loadProjects();
-    }, []);
-
-    function loadProjects() {
-        setError(null);
-        const abortController = new AbortController();
-        listProjects(abortController.signal)
-            .then(setProjects)
-            .catch(setError);
-        return () => abortController.abort();
-    }
 
     const transition = {
         duration: 0.6,
@@ -64,11 +48,11 @@ const Main = () => {
                     />
                     <Route
                       exact path="/projects"
-                      element={<Projects projects={projects} error={error} />}
+                      element={<Projects />}
                     />
                     <Route
-                      exact path="/projects/:projectId"
-                      element={<ProjectById projects={projects} error={error} />}
+                      exact path="/projects/new"
+                      element={<NewProject />}
                     />
             </Routes>
         </motion.main>

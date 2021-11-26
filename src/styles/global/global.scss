@@ -124,6 +124,19 @@ li {
                     width: 100%;
                 }
 
+                form {
+                    align-items: center;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    text-align: center;
+
+                    label {
+                        font-size: 1.2rem;
+                        margin: 2rem 0 0;
+                    }
+                }
+
                 .kanban {
                     display: flex;
                     flex-direction: row;

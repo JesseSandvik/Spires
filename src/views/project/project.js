@@ -34,7 +34,6 @@ const Project = props => {
                 whileHover={{ scale: 1.05 }}
             >
                 <h4>{project.project_name}</h4>
-                <small>Complete By: {formatCompleteByDate(project.required_by_date)}</small>
                 <p>{project.project_description}</p>
             </motion.div>
         </Link>

@@ -7,13 +7,22 @@ const Navigation = () => {
     return (
         <nav>
             <ul>
-            <motion.li
+                <motion.li
+                    whileHover={{ scale: 1.1 }}
+                >
+                    <Link
+                        to="/projects/new"
+                    >
+                        New Project
+                    </Link>
+                </motion.li>
+                <motion.li
                     whileHover={{ scale: 1.1 }}
                 >
                     <Link
                         to="/projects"
                     >
-                        Projects
+                        All Projects
                     </Link>
                 </motion.li>
             </ul>
