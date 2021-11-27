@@ -2,7 +2,7 @@ import '../styles/projects/projects.css';
 import React, { useEffect, useState } from 'react';
 import { withAuthenticationRequired } from '@auth0/auth0-react';
 import { listProjects } from '../utils/api';
-import Project from '../views/project/project';
+import Project from '../views/projects/project';
 
 const Projects = () => {
 
@@ -28,6 +28,7 @@ const Projects = () => {
         <section className="item item2">
             <h2>Available Projects</h2>
             <div className="projects">
+                {error && <p>{error}</p>}
                 {projectsList}
             </div>
         </section>

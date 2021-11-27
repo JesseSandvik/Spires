@@ -1,16 +1,16 @@
 import React from 'react';
 import Available from './available';
-import Complete from './complete';
+import Completed from './completed';
 import InProgress from './inProgress';
 
 const KanbanBoard = props => {
-    const { cards } = props;
+    const { tasks } = props;
 
     return (
         <div className="kanban">
-            <Available cards={cards} />
-            <InProgress cards={cards} />
-            <Complete cards={cards} />
+            <Available tasks={tasks} />
+            <InProgress tasks={tasks} />
+            <Completed tasks={tasks} />
         </div>
     );
 }

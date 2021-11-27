@@ -27,6 +27,14 @@ async function fetchJson(url, options, onCancel) {
   }
 }
 
+function populateTasks(signal) {
+  return async (project) => {
+    const url = `${API_BASE_URL}/projects/${project.project_id}/tasks`;
+    project.tasks = await fetchJson(url, { headers, signal }, []);
+    return project;
+  };
+}
+
 export async function createProject(data, signal) {
   const url = `${API_BASE_URL}/projects`;
   const options = {
@@ -35,16 +43,17 @@ export async function createProject(data, signal) {
     body: JSON.stringify({ data }),
     signal,
   };
-  console.log(options.body)
   return await fetchJson(url, options);
-}
-
-export async function readProject(projectId, signal) {
-  const url = new URL(`${API_BASE_URL}/projects/${projectId}`);
-  return await fetchJson(url, { headers, signal }, {});
 }
 
 export async function listProjects(signal) {
   const url = new URL(`${API_BASE_URL}/projects`);
   return await fetchJson(url, { headers, signal }, []);
+}
+
+export async function readProject(projectId, signal) {
+  const url = new URL(`${API_BASE_URL}/projects/${projectId}`);
+  const addTasks = populateTasks(signal);
+  return await fetchJson(url, { headers, signal }, {})
+    .then(addTasks);
 }

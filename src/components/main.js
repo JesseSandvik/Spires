@@ -8,7 +8,7 @@ import Projects from '../pages/projects';
 import ProjectById from '../pages/projectById';
 import Navigation from './navigation';
 import NewProject from '../pages/newProject';
-import UserProfile from '../views/user/profile';
+import UserProfile from '../views/users/profile';
 
 const Main = () => {
     const { isAuthenticated, user } = useAuth0();

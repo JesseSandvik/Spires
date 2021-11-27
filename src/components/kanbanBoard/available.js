@@ -1,12 +1,16 @@
 import React from 'react';
-import Cards from '../../views/cards/cards';
+import Task from '../../views/tasks/task';
 
 const Available = props => {
-    const { cards } = props;
+    const { tasks } = props;
+
+    const availableTasks = tasks.filter((task) => task.status === "available");
+    const availableTaskList = availableTasks.map((task) => <li key={task.task_id}><Task task={task} /></li>);
+
     return (
         <div className="item">
             <h3>Available</h3>
-            <Cards cards={cards} />
+            <ul>{availableTaskList}</ul>
         </div>
     );
 }

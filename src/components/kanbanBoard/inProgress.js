@@ -1,12 +1,16 @@
 import React from 'react';
-import Cards from '../../views/cards/cards';
+import Task from '../../views/tasks/task';
 
 const InProgress = props => {
-    const { cards } = props;
+    const { tasks } = props;
+
+    const inProgressTasks = tasks.filter((task) => task.status === "in progress");
+    const inProgressTaskList = inProgressTasks.map((task) => <li key={task.task_id}><Task task={task} /></li>);
+
     return (
         <div className="item">
             <h3>In Progress</h3>
-            <Cards cards={cards} />
+            <ul>{inProgressTaskList}</ul>
         </div>
     );
 }
