@@ -9,10 +9,22 @@ import KanbanBoard from '../components/kanbanBoard/kanbanBoard';
 const ProjectById = () => {
     const { projectId } = useParams();
 
-    const [project, setProject] = useState({});
+    const initialProjectData = {
+        title: "",
+        description: "",
+        due_date: "",
+        due_time: "",
+        creator_name: "",
+        creator_email: "",
+        complete: false,
+        created_at: "",
+        updated_at: "",
+        comments: [],
+        tasks: [],
+    }
+
+    const [project, setProject] = useState({...initialProjectData});
     const [viewComments, setViewComments] = useState(false);
-    const [comments, setComments] = useState([]);
-    const [tasks, setTasks] = useState([]);
     const [error, setError] = useState(null);
 
     useEffect(() => {
@@ -32,8 +44,9 @@ const ProjectById = () => {
                         complete: response.complete,
                         created_at: response.created_at,
                         updated_at: response.updated_at,
+                        comments: response.comments,
+                        tasks: response.tasks,
                     });
-                    setTasks(response.tasks);
                 })
                 .catch((error) => setError(error));
         }
@@ -61,10 +74,10 @@ const ProjectById = () => {
             </div>
             <div className="body">
                 {error && <p>{error}</p>}
-                <KanbanBoard tasks={tasks} />
-                {viewComments && <CommentsInterface comments={comments}/>}
+                <KanbanBoard tasks={project.tasks} />
+                {viewComments && <CommentsInterface comments={project.comments}/>}
             </div>
-            {console.log(viewComments)}
+            {console.log(project.comments, viewComments)}
         </section>
     );
 }

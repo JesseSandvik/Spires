@@ -27,6 +27,14 @@ async function fetchJson(url, options, onCancel) {
   }
 }
 
+function populateComments(signal) {
+  return async (project) => {
+    const url = `${API_BASE_URL}/projects/${project.project_id}/comments`;
+    project.comments = await fetchJson(url, { headers, signal }, []);
+    return project;
+  };
+}
+
 function populateTasks(signal) {
   return async (project) => {
     const url = `${API_BASE_URL}/projects/${project.project_id}/tasks`;
@@ -53,7 +61,9 @@ export async function listProjects(signal) {
 
 export async function readProject(projectId, signal) {
   const url = new URL(`${API_BASE_URL}/projects/${projectId}`);
+  const addComments = populateComments(signal);
   const addTasks = populateTasks(signal);
   return await fetchJson(url, { headers, signal }, {})
+    .then(addComments)
     .then(addTasks);
 }
