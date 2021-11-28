@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 
 const Project = props => {
     const { project } = props;
@@ -29,14 +28,8 @@ const Project = props => {
 
     return (
         <Link to={`/projects/${project.project_id}`}>
-            <motion.div
-                className="project"
-                whileHover={{ scale: 1.05 }}
-            >
-                <h4>{project.title}</h4>
+                <h5>{project.title}</h5>
                 <small>Due By: {formatCompleteByDate(project.due_date)}</small>
-                <p>{project.description}</p>
-            </motion.div>
         </Link>
     );
 }

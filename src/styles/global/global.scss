@@ -5,11 +5,12 @@
 }
 
 body {
-    background-color: $bg-default-color;
-    color: $primary-color;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    letter-spacing: .1rem;
+    background-color: $primary-color;
+    color: $secondary-color;
+    font-family: Marvel, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: .2rem;
     margin: 0;
+    overflow-x: hidden;
     padding: 0;
 }
 
@@ -22,162 +23,427 @@ li {
     list-style: none;
 }
 
+ul {
+    margin: 0;
+    padding: 0;
+}
+
 .app {
     display: grid;
+    grid-template-columns: auto 1fr auto;
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
     width: 100vw;
 
     header {
         align-items: center;
-        background-color: $secondary-color;
         display: flex;
         flex-direction: row;
-        flex-wrap: wrap;
+        grid-column: 1 / -1;
         grid-row: 1 / 1;
         justify-content: space-between;
-        padding: 1rem;
-        width: 100vw;
-        @include transition-ease;
+        text-align: center;
 
         .siteTitle {
-            color: $primary-color;
-            display: flex;
-            flex-direction: column;
+            font-family: Genos, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 0 0 1rem;
+            width: 15vw;
 
             h1 {
-                font-size: 2.5rem;
-                letter-spacing: .1rem;
-                margin: 0 0 1vh;
-
+                margin: 0;
+                padding: 1rem 1rem 0;
+                text-transform: capitalize;
+    
                 i {
-                    padding: 0 1.5rem 0 0;
+                    color: $muted-color;
+                    text-shadow: 0 0 10px $accent-color-one;
                 }
             }
 
+            small {
+                text-transform: capitalize;
+            }
         }
 
-        button {
-            background-color: $primary-color;
-            border-radius: 10px;
-            color: $secondary-color;
-            cursor: pointer;
-            font-family: Arial, Helvetica, sans-serif;
-            font-weight: 600;
-            letter-spacing: .1rem;
-            margin: 1rem;
-            padding: .5rem;
+        .logbtn {
+            width: 15vw;
 
-            &:hover {
-                opacity: 0.9;
+            button {
+                background-color: $primary-color;
+                border: 3px solid $muted-color;
+                border-radius: 5px;
+                color: $secondary-color;
+                cursor: pointer;
+                padding: 0.5rem;
+                text-transform: uppercase;
+                @include transition-ease;
+
+                &:hover {
+                    opacity: 0.9;
+                    border: 3px solid $accent-color-one;
+                    @include transition-ease;
+                }
             }
         }
     }
 
     main {
-        background: url("../../images/Forest-Frog-Rain.jpg");
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
         display: grid;
-        grid-template-columns: auto 1fr;
         grid-row: 2 / 2;
-        height: 100%;
-        @include transition-ease-delay-one;
+        grid-template-columns: auto 1fr auto;
 
-        .loading {
+        .home {
             align-items: center;
-            display: flex;
-            color: $primary-color;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .item {
-            align-items: center;
-            background-color: $primary-color;
-            border: 5px solid $secondary-color;
-            color: $secondary-color;
+            background-image:
+                linear-gradient(to right,
+                rgba($secondary-color, 0.1),
+                rgba($secondary-color, 0.1)),
+                url('../../images/spires-manhattan-1.jpg');
+            background-size: cover;
+            background-position: top;
+            background-repeat: no-repeat;
+            border: 3px solid $primary-color;
+            box-shadow: inset 0 0 0 5px $accent-color-one;
             display: flex;
             flex-direction: column;
-            margin: 1rem;
-            opacity: 0.9;
-            padding: 1rem;
+            height: 100%;
+            justify-content: center;
             text-align: center;
+            width: 100vw;
 
-            &.item1 {
-                font-weight: 600;
-                grid-column: 1 / 1;
-
-                img {
-                    border: 5px solid $secondary-color;
-                    border-radius: 50%;
-                }
+            &.auth {
+                width: 69.65vw;
             }
 
-            &.item2 {
-                grid-column: 2 / -1;
+            .intro {
+                background-color: $muted-color;
+                border: 3px solid $accent-color-one;
+                border-radius: 10px;
+                color: $accent-color-one;
+                opacity: 0.9;
+                padding: 5rem;
 
-                h2 {
-                    border-bottom: 3px solid $secondary-color;
-                    padding: 0 0 1rem 0;
-                    width: 100%;
+                p {
+                    font-family: Genos, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    font-size: 1.2rem;
+                    letter-spacing: .3rem;
+                    padding: 1rem;
                 }
+            }
+        }
 
-                form {
+        .itemOne {
+            align-items: center;
+            background-color: $muted-color;
+            border: 3px solid $primary-color;
+            box-shadow: inset 0 0 0 5px $accent-color-one;
+            color: $primary-color;
+            display: flex;
+            flex-direction: column;
+            grid-column: 1 / 1;
+            justify-content: flex-start;
+            padding: 3vh 0 0;
+            text-align: center;
+            width: 15vw;
+
+            img {
+                border: 3px solid $secondary-color;
+                border-radius: 50%;
+            }
+
+            nav {
+                height: 100%;
+                width: 100%;
+
+                ul {
                     align-items: center;
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
                     text-align: center;
 
-                    label {
-                        font-size: 1.2rem;
-                        margin: 2rem 0 0;
-                    }
-                }
+                    li {
+                        margin: 0.5rem;
+                        padding: 0.5rem;
 
-                .kanban {
-                    display: flex;
-                    flex-direction: row;
+                        a {
+                            border-bottom: 1px solid $accent-color-one;
+                            border-radius: 5px;
+                            padding: 0.5rem;
+                            @include transition-ease;
 
-                    h3 {
-                        border-bottom: 3px solid $secondary-color;
+                            &:hover {
+                                border: 1px solid $accent-color-one;
+                                @include transition-ease;
+                            }
+                        }
                     }
                 }
             }
         }
 
-        .non-auth {
+        .itemTwo {
+            background-image:
+                linear-gradient(to right,
+                rgba($secondary-color, 0.5),
+                rgba($secondary-color, 0.5)),
+                url('../../images/spires-manhattan-1.jpg');
+            background-size: cover;
+            background-position: top;
+            background-repeat: no-repeat;
+            border: 3px solid $primary-color;
+            box-shadow: inset 0 0 0 5px $accent-color-one;
+            display: grid;
+            grid-column: 2 / 2;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: auto 1fr;
+            width: 70vw;
+
+            h2 {
+                align-items: center;
+                background-color: $muted-color;
+                border: 3px solid $accent-color-one;
+                color: $accent-color-one;
+                display: flex;
+                grid-column: 1 / -1;
+                grid-row: 1 / 1;
+                justify-content: center;
+                letter-spacing: .3rem;
+                margin: 0;
+                padding: 1rem;
+                text-align: center;
+                text-transform: uppercase;
+                width: 69.6vw;
+            }
+
+            form {
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                padding: 1vh 0 0;
+                text-align: center;
+                width: 69.65vw;
+
+                label {
+                    font-weight: 700;
+                    letter-spacing: .15rem;
+                    margin: 1rem;
+                    text-transform: uppercase;
+                    width: 100%;
+                }
+
+                input {
+                    background-color: $accent-color-one;
+                    border: 3px solid $muted-color;
+                    font-family: Genos, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    font-size: 1.2rem;
+                    margin: 0.5rem;
+                    padding: 1rem;
+                    width: 50%;
+                }
+
+                textarea {
+                    background-color: $accent-color-one;
+                    border: 3px solid $muted-color;
+                    font-family: Genos, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    font-size: 1.2rem;
+                    padding: 1rem;
+                    width: 50%;
+                }
+
+                .form-dateTime {
+                    align-items: center;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    margin: 1rem;
+                    text-align: center;
+                    width: 50%;
+
+                    .item {
+                        align-items: center;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        text-align: center;
+                        width: 50%;
+                    }
+                }
+
+                .form-btns{
+                    border: 1px solid black;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-around;
+                    width: 50%;
+
+                    button {
+                        background-color: $primary-color;
+                        border: 3px solid $muted-color;
+                        border-radius: 5px;
+                        color: $secondary-color;
+                        cursor: pointer;
+                        margin: 0.5rem;
+                        padding: 0.5rem;
+                        text-transform: uppercase;
+                        @include transition-ease;
+        
+                        &:hover {
+                            opacity: 0.9;
+                            border: 3px solid $accent-color-one;
+                            @include transition-ease;
+                        }
+                    }
+                }
+            }
+
+            .body {
+                display: grid;
+                grid-gap: 0.5rem;
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr) );
+                grid-template-rows: repeat(auto-fit, minmax(100px, 1fr) );
+                width: 69.65vw;
+
+                a {
+                    align-items: center;
+                    background-color: $muted-color;
+                    border: 3px solid $muted-color;
+                    border-radius: 10px;
+                    color: $primary-color;
+                    cursor: pointer;
+                    display: flex;
+                    flex-direction: column;
+                    font-family: Genos, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    font-size: 1.2rem;
+                    justify-content: center;
+                    letter-spacing: .3rem;
+                    margin: 0.5rem;
+                    padding: 2rem;
+                    text-align: center;
+                    @include transition-ease;
+
+                    h5 {
+                        font-size: 1.2rem;
+                        margin: 0.5rem;
+                    }
+
+                    &:hover {
+                        border: 3px solid $accent-color-one;
+                        color: $accent-color-one;
+                        @include transition-ease;
+                    }
+                }
+
+                .kanban {
+                    align-items: flex-start;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-around;
+                    text-align: center;
+
+                    .item {
+                        border: 3px solid $accent-color-one;
+                        box-shadow: inset 0 0 0 5px rgba(255,255,255,0.1);
+                        height: 100%;
+                        width: 33%;
+
+                        h3 {
+                            background-color: $accent-color-one;
+                            font-family: Genos, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                            letter-spacing: .3rem;
+                            margin: 0;
+                            padding: 1rem;
+                            text-transform: uppercase;
+                        }
+
+                        .task {
+                            align-items: center;
+                            background-color: $muted-color;
+                            border-radius: 10px;
+                            color: $primary-color;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-evenly;
+                            margin: 0.5rem;
+                            padding: 0.5rem;
+                            text-align: center;
+                            @include transition-ease;
+
+                            &-title {
+                                align-items: center;
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: space-evenly;
+                                width: 100%;
+
+                                span {
+                                    display: flex;
+                                    flex-direction: column;
+                                }
+                            }
+
+                            &-body {
+                                color: $muted-color;
+                                font-size: 0;
+                                opacity: 0;
+                                @include transition-ease;
+
+                                &.open {
+                                    color: $primary-color;
+                                    font-size: 1rem;
+                                    opacity: 1;
+                                    @include transition-ease;
+                                }
+                            }
+
+                            i {
+                                cursor: pointer;
+                                font-size: 1.5rem;
+                                @include transition-ease;
+
+                                &.open {
+                                    transform: rotate(180deg);
+                                    @include transition-ease;
+                                }
+
+                                &:hover {
+                                    color: $accent-color-one;
+                                    @include transition-ease;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .itemThree {
             align-items: center;
+            background-color: $muted-color;
+            border: 3px solid $primary-color;
+            box-shadow: inset 0 0 0 5px $accent-color-one;
             color: $primary-color;
             display: flex;
             flex-direction: column;
-            grid-column: 2 / -1;
-            justify-content: center;
+            grid-column: 3 / -1;
+            justify-content: flex-start;
             text-align: center;
-
-            .intro {
-                background-color: $secondary-color;
-                border: 3px solid $primary-color;
-                margin: 10vh 0 0 0;
-                opacity: 0.8;
-                padding: 1rem;
-            }
+            width: 15vw;
         }
     }
 
     footer {
         align-items: center;
-        background-color: $secondary-color;
-        color: $primary-color;
+        background-color: $muted-color;
+        border: 3px solid $primary-color;
+        box-shadow: inset 0 0 0 5px $accent-color-one;
+        color: $accent-color-one;
         display: flex;
         flex-direction: column;
-        font-weight: 600;
+        grid-column: 1 / -1;
         grid-row: 3 / -1;
         justify-content: center;
         text-align: center;
-        width: 100vw;
-        @include transition-ease;
     }
 }

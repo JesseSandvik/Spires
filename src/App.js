@@ -2,9 +2,7 @@ import './styles/global/global.css';
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Auth0ProviderWithHistory from './auth/auth0-provider-with-history';
-import Footer from './components/footer';
-import Header from './components/header';
-import Main from './components/main';
+import Layout from './layout/layout';
 
 const App = () => {
 
@@ -14,9 +12,7 @@ const App = () => {
     <div className="app">
       <Router>
         <Auth0ProviderWithHistory>
-          <Header />
-          <Main />
-          <Footer />
+          <Layout />
         </Auth0ProviderWithHistory>
       </Router>
     </div>

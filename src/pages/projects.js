@@ -1,4 +1,3 @@
-import '../styles/projects/projects.css';
 import React, { useEffect, useState } from 'react';
 import { withAuthenticationRequired } from '@auth0/auth0-react';
 import { listProjects } from '../utils/api';
@@ -25,9 +24,9 @@ const Projects = () => {
     const projectsList = projects.map((project) => <li key={project.project_id}><Project project={project} /></li>)
 
     return (
-        <section className="item item2">
+        <section className="itemTwo">
             <h2>Available Projects</h2>
-            <div className="projects">
+            <div className="body">
                 {error && <p>{error}</p>}
                 {projectsList}
             </div>

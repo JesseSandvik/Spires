@@ -44,12 +44,11 @@ const NewProject = () => {
         setProject({...initialProjectState})
     }
     return (
-        <section className="item item2">
+        <section className="itemTwo">
             <h2>Create A New Project</h2>
-            <small>Project Creator: {user.name}</small>
             {error && <p>{error}</p>}
             <form onSubmit={createProjectSubmitHandler}>
-            <label>Project title:</label>
+            <label>Project Title:</label>
             <input
                 name="title"
                 type="text"
@@ -66,24 +65,29 @@ const NewProject = () => {
                 onChange={createProjectChangeHandler}
                 defaultValue=""
             />
-            <label>Project Due Date:</label>
-                <input
-                name="due_date"
-                type="date"
-                required
-                onChange={createProjectChangeHandler}
-                defaultValue=""
-                />
-            <label>Project Due Time:</label>
-                <input
-                name="due_time"
-                type="time"
-                required
-                onChange={createProjectChangeHandler}
-                defaultValue=""
-                />
-            <br />
-            <div>
+            <div className="form-dateTime">
+                <div className="item">
+                    <label>Project Due Date:</label>
+                    <input
+                        name="due_date"
+                        type="date"
+                        required
+                        onChange={createProjectChangeHandler}
+                        defaultValue=""
+                    />
+                </div>
+                <div className="item">
+                    <label>Project Due Time:</label>
+                    <input
+                        name="due_time"
+                        type="time"
+                        required
+                        onChange={createProjectChangeHandler}
+                        defaultValue=""
+                    />
+                </div>
+            </div>
+            <div className="form-btns">
                 <SubmitButton />
                 <CancelButton cancelHandler={createProjectCancelHandler} />
             </div>

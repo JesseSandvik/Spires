@@ -38,11 +38,9 @@ const ProjectById = () => {
     }, [projectId]);
 
     return (
-         <section className="item item2">
-            <div className="heading">
+         <section className="itemTwo">
                 <h2>{project.title}</h2>
-            </div>
-            <div>
+            <div className="body">
                 {error && <p>{error}</p>}
                 <KanbanBoard tasks={tasks} />
             </div>

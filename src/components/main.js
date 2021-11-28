@@ -37,29 +37,8 @@ const Main = () => {
             exit={exitMotion}
             transition={transition}
         >
-            {isAuthenticated && 
-            <div className="item item1">
-                <UserProfile user={user} />
-                <Navigation />
-            </div>}
-            <Routes>
-                    <Route
-                      exact path="/"
-                      element={<HomePage />}
-                    />
-                    <Route
-                      exact path="/projects"
-                      element={<Projects />}
-                    />
-                    <Route
-                      exact path="/projects/:projectId"
-                      element={<ProjectById />}
-                    />
-                    <Route
-                      exact path="/projects/new"
-                      element={<NewProject />}
-                    />
-            </Routes>
+            
+            
         </motion.main>
     );
 }
