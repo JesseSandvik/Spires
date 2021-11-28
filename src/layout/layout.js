@@ -1,7 +1,6 @@
 import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import AuthenticationButton from '../components/buttons/authenticationButton';
-import CommentInterface from '../views/comments/commentUI';
 import Footer from '../footer/footer';
 import Navigation from '../navigation/navigation';
 import PageRoutes from './routes';
@@ -25,11 +24,6 @@ const Layout = () => {
                     </div>
                 )}
                 <PageRoutes />
-                {isAuthenticated && (
-                    <div className="itemThree">
-                        <CommentInterface />
-                    </div>
-                )}
             </main>
             <footer>
                 <Footer />

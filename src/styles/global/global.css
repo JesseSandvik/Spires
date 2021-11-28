@@ -13,6 +13,27 @@ body {
   padding: 0;
 }
 
+button {
+  background-color: #F8F8FF;
+  border: 3px solid #191919;
+  border-radius: 5px;
+  color: #000000;
+  cursor: pointer;
+  font-family: Genos, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 0.2rem;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  text-transform: uppercase;
+  -webkit-transition: 0.6s ease-in-out;
+  transition: 0.6s ease-in-out;
+}
+
+button:hover {
+  border: 3px solid #C6B677;
+  -webkit-transition: 0.6s ease-in-out;
+  transition: 0.6s ease-in-out;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -83,25 +104,6 @@ ul {
   width: 15vw;
 }
 
-.app header .logbtn button {
-  background-color: #F8F8FF;
-  border: 3px solid #191919;
-  border-radius: 5px;
-  color: #000000;
-  cursor: pointer;
-  padding: 0.5rem;
-  text-transform: uppercase;
-  -webkit-transition: 0.6s ease-in-out;
-  transition: 0.6s ease-in-out;
-}
-
-.app header .logbtn button:hover {
-  opacity: 0.9;
-  border: 3px solid #C6B677;
-  -webkit-transition: 0.6s ease-in-out;
-  transition: 0.6s ease-in-out;
-}
-
 .app main {
   display: -ms-grid;
   display: grid;
@@ -139,7 +141,7 @@ ul {
 }
 
 .app main .home.auth {
-  width: 69.65vw;
+  width: 85vw;
 }
 
 .app main .home .intro {
@@ -241,37 +243,74 @@ ul {
           box-shadow: inset 0 0 0 5px #C6B677;
   display: -ms-grid;
   display: grid;
-  -ms-grid-column: 2;
-  grid-column: 2 / 2;
+  grid-column: 2 / -1;
   -ms-grid-columns: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr;
   -ms-grid-rows: auto 1fr;
       grid-template-rows: auto 1fr;
-  width: 70vw;
+  width: 85vw;
 }
 
-.app main .itemTwo h2 {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+.app main .itemTwo .title {
   background-color: #191919;
   border: 3px solid #C6B677;
   color: #C6B677;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -ms-grid;
+  display: grid;
   grid-column: 1 / -1;
   -ms-grid-row: 1;
   grid-row: 1 / 1;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   letter-spacing: .3rem;
-  margin: 0;
   padding: 1rem;
-  text-align: center;
   text-transform: uppercase;
-  width: 69.6vw;
+  width: 84.5vw;
+}
+
+.app main .itemTwo .title .item {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.app main .itemTwo .title .item.one {
+  -ms-grid-column: 1;
+  grid-column: 1 / 1;
+}
+
+.app main .itemTwo .title .item.two {
+  -ms-grid-column: 2;
+  grid-column: 2 / 2;
+}
+
+.app main .itemTwo .title .item.three {
+  grid-column: 3 / -1;
+}
+
+.app main .itemTwo .title h2 {
+  -ms-grid-column: 2;
+  grid-column: 2 / 2;
+  margin: 0;
+}
+
+.app main .itemTwo .title i {
+  cursor: pointer;
+  font-size: 1.5rem;
 }
 
 .app main .itemTwo form {
@@ -288,14 +327,14 @@ ul {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  padding: 1vh 0 0;
   text-align: center;
-  width: 69.65vw;
+  width: 84.5vw;
 }
 
 .app main .itemTwo form label {
+  color: #F8F8FF;
+  font-family: Genos, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 700;
-  letter-spacing: .15rem;
   margin: 1rem;
   text-transform: uppercase;
   width: 100%;
@@ -334,7 +373,6 @@ ul {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin: 1rem;
   text-align: center;
   width: 50%;
 }
@@ -366,40 +404,21 @@ ul {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 50%;
-}
-
-.app main .itemTwo form .form-btns button {
-  background-color: #F8F8FF;
-  border: 3px solid #191919;
-  border-radius: 5px;
-  color: #000000;
-  cursor: pointer;
-  margin: 0.5rem;
-  padding: 0.5rem;
-  text-transform: uppercase;
-  -webkit-transition: 0.6s ease-in-out;
-  transition: 0.6s ease-in-out;
-}
-
-.app main .itemTwo form .form-btns button:hover {
-  opacity: 0.9;
-  border: 3px solid #C6B677;
-  -webkit-transition: 0.6s ease-in-out;
-  transition: 0.6s ease-in-out;
 }
 
 .app main .itemTwo .body {
   display: -ms-grid;
   display: grid;
-  grid-gap: 0.5rem;
   -ms-grid-columns: (minmax(100px, 1fr))[auto-fit];
       grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   -ms-grid-rows: (minmax(100px, 1fr))[auto-fit];
       grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
-  width: 69.65vw;
+  padding: 0.5rem;
+  width: 84.5vw;
 }
 
 .app main .itemTwo .body a {

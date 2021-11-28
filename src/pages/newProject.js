@@ -45,7 +45,11 @@ const NewProject = () => {
     }
     return (
         <section className="itemTwo">
-            <h2>Create A New Project</h2>
+            <div className="title">
+                <div className="item two">
+                    <h2>Create A New Project</h2>
+                </div>
+            </div>
             {error && <p>{error}</p>}
             <form onSubmit={createProjectSubmitHandler}>
             <label>Project Title:</label>

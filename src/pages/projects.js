@@ -25,7 +25,11 @@ const Projects = () => {
 
     return (
         <section className="itemTwo">
-            <h2>Available Projects</h2>
+            <div className="title">
+                <div className="item two">
+                    <h2>Available Projects</h2>
+                </div>
+            </div>
             <div className="body">
                 {error && <p>{error}</p>}
                 {projectsList}

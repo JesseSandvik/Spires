@@ -2,12 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { withAuthenticationRequired } from '@auth0/auth0-react';
 import { readProject } from '../utils/api';
+
+import CommentsInterface from '../views/comments/commentsInterface';
 import KanbanBoard from '../components/kanbanBoard/kanbanBoard';
 
 const ProjectById = () => {
     const { projectId } = useParams();
 
     const [project, setProject] = useState({});
+    const [viewComments, setViewComments] = useState(false);
+    const [comments, setComments] = useState([]);
     const [tasks, setTasks] = useState([]);
     const [error, setError] = useState(null);
 
@@ -37,13 +41,30 @@ const ProjectById = () => {
         return () => abortController.abort();
     }, [projectId]);
 
+    const viewCommentsToggleHandler = (event) => {
+        event.preventDefault();
+        (!viewComments ? setViewComments(true) : setViewComments(false));
+    }
+
     return (
          <section className="itemTwo">
-                <h2>{project.title}</h2>
+             <div className="title">
+                <div className="item two">
+                    <h2>{project.title}</h2>
+                </div>
+                <div className="item three">
+                    <i
+                        className="fas fa-comments"
+                        onClick={viewCommentsToggleHandler}
+                    ></i>
+                </div>
+            </div>
             <div className="body">
                 {error && <p>{error}</p>}
                 <KanbanBoard tasks={tasks} />
+                {viewComments && <CommentsInterface comments={comments}/>}
             </div>
+            {console.log(viewComments)}
         </section>
     );
 }
