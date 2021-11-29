@@ -10,17 +10,16 @@ const UpdateProject = () => {
     const { user } = useAuth0();
 
     const initialProjectState = {
+        project_id: 0,
         title: "",
         description: "",
         due_date: "",
         due_time: "",
         creator_name: "",
         creator_email: "",
-        complete: false,
+        completed: false,
         created_at: "",
         updated_at: "",
-        comments: [],
-        tasks: [],
     }
 
     const [project, setProject] = useState({...initialProjectState});
@@ -34,17 +33,16 @@ const UpdateProject = () => {
             readProject(projectId, abortController.signal)
                 .then((response) => {
                     setProject({
+                        project_id: response.project_id,
                         title: response.title,
                         description: response.description,
                         due_date: response.due_date,
                         due_time: response.due_time,
                         creator_name: response.creator_name,
                         creator_email: response.creator_email,
-                        complete: response.complete,
+                        completed: response.complete,
                         created_at: response.created_at,
                         updated_at: response.updated_at,
-                        comments: response.comments,
-                        tasks: response.tasks,
                     });
                 })
                 .catch((error) => setError(error));
@@ -72,7 +70,7 @@ const UpdateProject = () => {
             ...project,
             creator_name: user.name,
             creator_email: user.email,
-            complete: false,
+            completed: false,
         };
         updateProject(updatedProject, projectId)
             .then(() => navigate(`/projects/${projectId}`))

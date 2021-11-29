@@ -68,14 +68,14 @@ export async function readProject(projectId, signal) {
     .then(addTasks);
 }
 
-export async function updateProject(updatedProject, projectId) {
-  const url = new URL(`${API_BASE_URL}/projects/${projectId}`);
+export async function updateProject(data, projectId) {
+  const url = `${API_BASE_URL}/projects/${projectId}`;
   const options = {
     method: "PUT",
     headers,
-    body: JSON.stringify(updatedProject),
+    body: JSON.stringify({ data }),
   };
-  console.log(updatedProject)
+  console.log(data)
   return await fetchJson(url, options);
 }
 
