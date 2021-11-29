@@ -98,3 +98,24 @@ export async function createTask(data, signal) {
   };
   return await fetchJson(url, options);
 }
+
+export async function updateTask(data, taskId) {
+  const url = `${API_BASE_URL}/tasks/${taskId}`;
+  const options = {
+    method: "PUT",
+    headers,
+    body: JSON.stringify({ data }),
+  };
+  return await fetchJson(url, options);
+}
+
+export async function updateTaskStatus(data, taskId, signal) {
+  const url = `${API_BASE_URL}/tasks/${taskId}/status`;
+  const options = {
+    method: "PUT",
+    headers,
+    body: JSON.stringify({ data }),
+    signal,
+  };
+  return await fetchJson(url, options);
+}

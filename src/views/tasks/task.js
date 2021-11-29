@@ -1,9 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { updateTaskStatus } from '../../utils/api';
 import classNames from '../../utils/ClassNames';
 
 const Task = props => {
+    const navigate = useNavigate();
     const { task } = props;
+
+    const [currentTask, setCurrentTask] = useState(task);
+    const [currentTaskStatus, setCurrentTaskStatus] = useState(task.status);
+    const [error, setError] = useState(null);
     const [taskBody, setTaskBody] = useState("closed");
+
+    useEffect(() => {
+
+    }, [])
 
     const taskBodyToggleHandler = (event) => {
         event.preventDefault();
@@ -14,10 +25,45 @@ const Task = props => {
         }
     }
 
+    const moveTaskToTheLeft = (event) => {
+        event.preventDefault();
+        setError(null);
+        if (currentTask.status === "completed") {
+            updateTaskStatus({ status: "in progress" }, currentTask.task_id)
+                .then((response) => setCurrentTask(response))
+                .then(() => navigate(0))
+                .catch((error) => setError(error));
+        } else if (currentTask.status === "in progress") {
+            updateTaskStatus({ status: "available" }, currentTask.task_id)
+                .then((response) => setCurrentTask(response))
+                .then(() => navigate(0))
+                .catch((error) => setError(error));
+        }
+    }
+
+    const moveTaskToTheRight = (event) => {
+        event.preventDefault();
+        setError(null);
+        if (currentTask.status === "available") {
+            updateTaskStatus({ status: "in progress" }, currentTask.task_id)
+                .then((response) => setCurrentTask(response))
+                .then(() => navigate(0))
+                .catch((error) => setError(error));
+        } else if (currentTask.status === "in progress") {
+            updateTaskStatus({ status: "completed" }, currentTask.task_id)
+                .then((response) => setCurrentTask(response))
+                .then(() => navigate(0))
+                .catch((error) => setError(error));
+        }
+    }
+
     return (
         <div className="task">
             <div className="task-title">
-                <i className="far fa-caret-square-left"></i>
+                <i
+                    className="far fa-caret-square-left"
+                    onClick={moveTaskToTheLeft}
+                ></i>
                 <span>
                     <p>{task.title}</p>
                     <i
@@ -28,7 +74,10 @@ const Task = props => {
                         onClick={taskBodyToggleHandler}
                     ></i>
                 </span>
-                <i className="far fa-caret-square-right"></i>
+                <i
+                    className="far fa-caret-square-right"
+                    onClick={moveTaskToTheRight}
+                ></i>
             </div>
             <div className={classNames({
                 "task-body": taskBody === "closed",
