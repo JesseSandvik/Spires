@@ -67,3 +67,13 @@ export async function readProject(projectId, signal) {
     .then(addComments)
     .then(addTasks);
 }
+
+export async function deleteProject(projectId, signal) {
+  const url = `${API_BASE_URL}/projects/${projectId}`;
+  const options = {
+    method: "DELETE",
+    headers,
+    signal,
+  }
+  return await fetchJson(url, options);
+}

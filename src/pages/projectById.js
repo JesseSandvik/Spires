@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import { withAuthenticationRequired } from '@auth0/auth0-react';
-import { readProject } from '../utils/api';
+import { deleteProject, readProject } from '../utils/api';
 
 import classNames from '../utils/ClassNames';
+import DeleteButton from '../components/buttons/deleteButton';
 import CommentsInterface from '../views/comments/commentsInterface';
 import KanbanBoard from '../components/kanbanBoard/kanbanBoard';
 
 const ProjectById = () => {
+    const navigate = useNavigate();
     const { projectId } = useParams();
 
     const initialProjectData = {
@@ -60,9 +62,25 @@ const ProjectById = () => {
         (!viewComments ? setViewComments(true) : setViewComments(false));
     }
 
+    const deleteProjectHandler = (event) => {
+        event.preventDefault();
+        setError(null);
+        const confirmDelete = window.confirm("Are you sure you want to delete this project? It cannot be recovered.");
+
+        if (confirmDelete) {
+            deleteProject(projectId)
+                .then(() => navigate("/projects"))
+                .catch((error) => setError(error));
+        }
+    }
+
+
     return (
          <section className="itemTwo">
              <div className="title">
+                <div className="item one">
+                    <DeleteButton deleteHandler={deleteProjectHandler} />
+                </div>
                 <div className="item two">
                     <h2>{project.title}</h2>
                 </div>

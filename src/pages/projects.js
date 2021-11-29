@@ -4,7 +4,6 @@ import { listProjects } from '../utils/api';
 import Project from '../views/projects/project';
 
 const Projects = () => {
-
     const [projects, setProjects] = useState([]);
     const [error, setError] = useState(null);
 
