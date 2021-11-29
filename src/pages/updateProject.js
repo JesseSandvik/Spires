@@ -19,6 +19,8 @@ const UpdateProject = () => {
         complete: false,
         created_at: "",
         updated_at: "",
+        comments: [],
+        tasks: [],
     }
 
     const [project, setProject] = useState({...initialProjectState});
@@ -41,6 +43,8 @@ const UpdateProject = () => {
                         complete: response.complete,
                         created_at: response.created_at,
                         updated_at: response.updated_at,
+                        comments: response.comments,
+                        tasks: response.tasks,
                     });
                 })
                 .catch((error) => setError(error));
@@ -64,13 +68,14 @@ const UpdateProject = () => {
 
     const updateProjectSubmitHandler = (event) => {
         event.preventDefault();
-        updateProject({
+        const updatedProject = {
             ...project,
             creator_name: user.name,
             creator_email: user.email,
-            completed: false,
-        })
-            .then((updatedProject) => navigate(`/projects/${updatedProject.project_id}`))
+            complete: false,
+        };
+        updateProject(updatedProject, projectId)
+            .then(() => navigate(`/projects/${projectId}`))
             .catch((error) => setError(error));
         setProject({...initialProjectState})
     }

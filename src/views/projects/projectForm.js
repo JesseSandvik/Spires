@@ -59,7 +59,6 @@ const ProjectForm = props => {
                 <SubmitButton />
                 <CancelButton cancelHandler={cancelHandler} />
             </div>
-            {console.log(formValueOne, formValueTwo, formValueThree, formValueFour)}
         </form>
     );
 }
