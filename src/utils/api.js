@@ -124,3 +124,13 @@ export async function updateTaskStatus(data, taskId, signal) {
   };
   return await fetchJson(url, options);
 }
+
+export async function deleteTask(taskId, signal) {
+  const url = `${API_BASE_URL}/tasks/${taskId}`;
+  const options = {
+    method: "DELETE",
+    headers,
+    signal,
+  }
+  return await fetchJson(url, options);
+}

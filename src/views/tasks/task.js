@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { updateTaskStatus } from '../../utils/api';
-import ErrorAlert from '../../layout/errorAlert';
+import { deleteTask, updateTaskStatus } from '../../utils/api';
 import classNames from '../../utils/ClassNames';
+import DeleteButton from '../../components/buttons/deleteButton';
+import ErrorAlert from '../../layout/errorAlert';
 import UpdateButton from '../../components/buttons/updateButton';
 
 const Task = props => {
@@ -59,6 +60,18 @@ const Task = props => {
         navigate(`/projects/${task.project_id}/tasks/${task.task_id}/edit`);
     }
 
+    const deleteTaskHandler = (event) => {
+        event.preventDefault();
+        setError(null);
+        const confirmDelete = window.confirm("Are you sure you want to delete this project? It cannot be recovered.");
+
+        if (confirmDelete) {
+            deleteTask(task.task_id)
+                .then(() => navigate(0))
+                .catch((error) => setError(error));
+        }
+    }
+
     return (
         <div className="task">
             <div className="task-title">
@@ -70,10 +83,16 @@ const Task = props => {
                     <ErrorAlert error={error} />
                     <p>{task.title}</p>
                     {taskBody === "open" && (
-                        <UpdateButton
-                            itemName={"Task"}
-                            updateHandler={updateTaskHandler}
-                        />
+                        <>
+                            <UpdateButton
+                                itemName={"Task"}
+                                updateHandler={updateTaskHandler}
+                            />
+                            <DeleteButton
+                                itemName={"Task"}
+                                deleteHandler={deleteTaskHandler}
+                            />
+                        </>
                     )}
                     <i
                         className={classNames({

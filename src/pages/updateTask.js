@@ -121,7 +121,6 @@ const UpdateTask = () => {
                 formValueFour={task.due_time}
                 submitHandler={updateTaskSubmitHandler}
             />
-            {console.log(task)}
         </section>
     );
 }
