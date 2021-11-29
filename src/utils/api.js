@@ -68,6 +68,17 @@ export async function readProject(projectId, signal) {
     .then(addTasks);
 }
 
+export async function updateProject(updatedProject, signal) {
+  const url = new URL(`${API_BASE_URL}/projects/${updatedProject.project_id}`);
+  const options = {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(updateProject),
+    signal,
+  };
+  return await fetchJson(url, options, updateProject);
+}
+
 export async function deleteProject(projectId, signal) {
   const url = `${API_BASE_URL}/projects/${projectId}`;
   const options = {

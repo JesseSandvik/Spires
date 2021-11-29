@@ -12,7 +12,7 @@ const UserProfile = props => {
                 src={picture}
                 alt="Profile"
             />
-            <p>{email}</p>
+            <small>{email}</small>
         </div>
     );
 }

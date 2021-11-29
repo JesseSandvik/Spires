@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
 import { createProject } from '../utils/api';
-import CancelButton from '../components/buttons/cancelButton';
-import SubmitButton from '../components/buttons/submitButton';
+import ProjectForm from '../views/projects/projectForm';
 
 const NewProject = () => {
     const navigate = useNavigate();
@@ -28,6 +27,7 @@ const NewProject = () => {
 
     const createProjectCancelHandler = (event) => {
         event.preventDefault();
+        navigate("/projects");
     }
 
     const createProjectSubmitHandler = (event) => {
@@ -50,51 +50,11 @@ const NewProject = () => {
                 </div>
             </div>
             {error && <p>{error}</p>}
-            <form onSubmit={createProjectSubmitHandler}>
-            <label>Project Title:</label>
-            <input
-                name="title"
-                type="text"
-                required
-                onChange={createProjectChangeHandler}
-                defaultValue=""
+            <ProjectForm
+                cancelHandler={createProjectCancelHandler}
+                changeHandler={createProjectChangeHandler}
+                submitHandler={createProjectSubmitHandler}
             />
-            <label>Project Description:</label>
-            <textarea
-                name="description"
-                type="text"
-                rows="5" cols="50"
-                required
-                onChange={createProjectChangeHandler}
-                defaultValue=""
-            />
-            <div className="form-dateTime">
-                <div className="item">
-                    <label>Project Due Date:</label>
-                    <input
-                        name="due_date"
-                        type="date"
-                        required
-                        onChange={createProjectChangeHandler}
-                        defaultValue=""
-                    />
-                </div>
-                <div className="item">
-                    <label>Project Due Time:</label>
-                    <input
-                        name="due_time"
-                        type="time"
-                        required
-                        onChange={createProjectChangeHandler}
-                        defaultValue=""
-                    />
-                </div>
-            </div>
-            <div className="form-btns">
-                <SubmitButton />
-                <CancelButton cancelHandler={createProjectCancelHandler} />
-            </div>
-        </form>
         </section>
     );
 }

@@ -7,12 +7,13 @@ import classNames from '../utils/ClassNames';
 import DeleteButton from '../components/buttons/deleteButton';
 import CommentsInterface from '../views/comments/commentsInterface';
 import KanbanBoard from '../components/kanbanBoard/kanbanBoard';
+import UpdateButton from '../components/buttons/updateButton';
 
 const ProjectById = () => {
     const navigate = useNavigate();
     const { projectId } = useParams();
 
-    const initialProjectData = {
+    const initialProjectState = {
         title: "",
         description: "",
         due_date: "",
@@ -26,7 +27,7 @@ const ProjectById = () => {
         tasks: [],
     }
 
-    const [project, setProject] = useState({...initialProjectData});
+    const [project, setProject] = useState({...initialProjectState});
     const [viewComments, setViewComments] = useState(false);
     const [error, setError] = useState(null);
 
@@ -62,6 +63,11 @@ const ProjectById = () => {
         (!viewComments ? setViewComments(true) : setViewComments(false));
     }
 
+    const updateProjectHandler = (event) => {
+        event.preventDefault();
+        navigate(`/projects/${projectId}/edit`);
+    }
+
     const deleteProjectHandler = (event) => {
         event.preventDefault();
         setError(null);
@@ -79,6 +85,7 @@ const ProjectById = () => {
          <section className="itemTwo">
              <div className="title">
                 <div className="item one">
+                    <UpdateButton updateHandler={updateProjectHandler} />
                     <DeleteButton deleteHandler={deleteProjectHandler} />
                 </div>
                 <div className="item two">
