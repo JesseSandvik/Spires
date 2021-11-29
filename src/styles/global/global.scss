@@ -7,7 +7,7 @@
 body {
     background-color: $primary-color;
     color: $secondary-color;
-    font-family: Marvel, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     letter-spacing: .2rem;
     margin: 0;
     overflow-x: hidden;
@@ -56,11 +56,15 @@ ul {
 
     header {
         align-items: center;
+        background-color: $primary-color;
         display: flex;
         flex-direction: row;
         grid-column: 1 / -1;
         grid-row: 1 / 1;
         justify-content: space-between;
+        top: 0;
+        right: 0;
+        left: 0;
         text-align: center;
 
         .siteTitle {
@@ -98,8 +102,8 @@ ul {
             align-items: center;
             background-image:
                 linear-gradient(to right,
-                rgba($secondary-color, 0.1),
-                rgba($secondary-color, 0.1)),
+                rgba($secondary-color, 0.5),
+                rgba($secondary-color, 0.5)),
                 url('../../images/spires-manhattan-1.jpg');
             background-size: cover;
             background-position: top;
@@ -143,8 +147,9 @@ ul {
             display: flex;
             flex-direction: column;
             grid-column: 1 / 1;
+            height: 75%;
             justify-content: flex-start;
-            padding: 3vh 0 0;
+            padding: 3vh 1vw;
             text-align: center;
             width: 15vw;
 
@@ -241,8 +246,15 @@ ul {
                 }
 
                 i {
+                    color: $primary-color;
                     cursor: pointer;
                     font-size: 1.5rem;
+                    @include transition-ease;
+
+                    &:hover {
+                        color: $accent-color-one;
+                        @include transition-ease;
+                    }
                 }
             }
 
@@ -313,6 +325,7 @@ ul {
                 display: grid;
                 grid-template-columns: repeat(auto-fit, minmax(100px, 1fr) );
                 grid-template-rows: repeat(auto-fit, minmax(100px, 1fr) );
+                height: 100%;
                 padding: 0.5rem;
                 width: 84.5vw;
 
@@ -346,11 +359,132 @@ ul {
                     }
                 }
 
+                .viewComments {
+                    opacity: 0;
+                    position: fixed;
+                    transform: translate(125%);
+                    visibility: hidden;
+                    
+                    &.open {
+                        opacity: 1;
+                        position: relative;
+                        transform: translate(0);
+                        visibility: visible;
+                        @include transition-ease;
+                    }
+                }
+
+                .comments {
+                    align-items: center;
+                    background-color: $muted-color;
+                    border: 3px solid $accent-color-one;
+                    border-radius: 10px;
+                    color: $primary-color;
+                    display: flex;
+                    flex-direction: column;
+                    height: 65vh;
+                    justify-content: flex-start;
+                    overflow-y: auto;
+                    text-align: center;
+                    @include transition-ease;
+
+                    &-title {
+                        border: 3px solid $accent-color-one;
+                        border-radius: 5px;
+                        color: $muted-color;
+                        font-family: Genos, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        margin: 1rem;
+                        padding: 0.5rem;
+                        text-transform: uppercase;
+
+                        h3 {
+                            color: $accent-color-one;
+                            letter-spacing: .3rem;
+                            margin: 0;
+                        }
+                    }
+
+                    &-body {
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        justify-content: space-evenly;
+                        text-align: center;
+
+                        .comment {
+                            align-items: center;
+                            background-color: $primary-color;
+                            border: 3px solid $accent-color-one;
+                            border-radius: 10px;
+                            color: $muted-color;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            margin: 2rem;
+                            text-align: center;
+
+                            &-title {
+                                align-items: center;
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: space-evenly;
+                                text-align: center;
+                                transform: translate(0, -50%);
+
+                                h4 {
+                                    margin: 0;
+                                }
+                            
+
+                                .name {
+                                    background-color: $muted-color;
+                                    border: 3px solid $accent-color-one;
+                                    border-radius: 10px;
+                                    color: $primary-color;
+                                    letter-spacing: .3rem;
+                                    padding: 0.5rem;
+                                    text-transform: uppercase;
+                                }
+
+                                .date {
+                                    background-color: $muted-color;
+                                    border: 3px solid $accent-color-one;
+                                    border-radius: 10px;
+                                    color: $primary-color;
+                                    letter-spacing: .3rem;
+                                    padding: 0.5rem;
+                                    text-transform: uppercase;
+                                }
+
+                                .time {
+                                    background-color: $muted-color;
+                                    border: 3px solid $accent-color-one;
+                                    border-radius: 10px;
+                                    color: $primary-color;
+                                    letter-spacing: .3rem;
+                                    padding: 0.5rem;
+                                    text-transform: uppercase;
+                                }
+                            }
+
+                            p {
+                                margin: 0;
+                                padding: 0 1rem 1rem;
+                            }
+                        }
+                    }
+                }
+
                 .kanban {
                     align-items: flex-start;
                     display: flex;
                     flex-direction: row;
+                    height: 65vh;
                     justify-content: space-around;
+                    overflow-y: auto;
                     text-align: center;
 
                     .item {
@@ -428,20 +562,6 @@ ul {
                 }
             }
         }
-
-        .itemThree {
-            align-items: center;
-            background-color: $muted-color;
-            border: 3px solid $primary-color;
-            box-shadow: inset 0 0 0 5px $accent-color-one;
-            color: $primary-color;
-            display: flex;
-            flex-direction: column;
-            grid-column: 3 / -1;
-            justify-content: flex-start;
-            text-align: center;
-            width: 15vw;
-        }
     }
 
     footer {
@@ -455,6 +575,9 @@ ul {
         grid-column: 1 / -1;
         grid-row: 3 / -1;
         justify-content: center;
+        right: 0;
+        bottom: 0;
+        left: 0;
         text-align: center;
     }
 }

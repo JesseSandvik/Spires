@@ -32,7 +32,6 @@ const NewProject = () => {
 
     const createProjectSubmitHandler = (event) => {
         event.preventDefault();
-        console.log('Project Created', project);
         createProject({
             ...project,
             creator_name: user.name,

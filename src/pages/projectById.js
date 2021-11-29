@@ -3,6 +3,7 @@ import { useParams } from 'react-router';
 import { withAuthenticationRequired } from '@auth0/auth0-react';
 import { readProject } from '../utils/api';
 
+import classNames from '../utils/ClassNames';
 import CommentsInterface from '../views/comments/commentsInterface';
 import KanbanBoard from '../components/kanbanBoard/kanbanBoard';
 
@@ -75,9 +76,17 @@ const ProjectById = () => {
             <div className="body">
                 {error && <p>{error}</p>}
                 <KanbanBoard tasks={project.tasks} />
-                {viewComments && <CommentsInterface comments={project.comments}/>}
+                <div className={classNames({
+                    "viewComments": !viewComments,
+                    "viewComments open": viewComments,
+                })}
+                >
+                    <CommentsInterface
+                        comments={project.comments}
+                        projectTitle={project.title}
+                    />
+                </div>
             </div>
-            {console.log(project.comments, viewComments)}
         </section>
     );
 }
