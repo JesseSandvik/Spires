@@ -1,20 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { updateTaskStatus } from '../../utils/api';
+import ErrorAlert from '../../layout/errorAlert';
 import classNames from '../../utils/ClassNames';
+import UpdateButton from '../../components/buttons/updateButton';
 
 const Task = props => {
     const navigate = useNavigate();
     const { task } = props;
 
     const [currentTask, setCurrentTask] = useState(task);
-    const [currentTaskStatus, setCurrentTaskStatus] = useState(task.status);
     const [error, setError] = useState(null);
     const [taskBody, setTaskBody] = useState("closed");
-
-    useEffect(() => {
-
-    }, [])
 
     const taskBodyToggleHandler = (event) => {
         event.preventDefault();
@@ -57,6 +54,11 @@ const Task = props => {
         }
     }
 
+    const updateTaskHandler = (event) => {
+        event.preventDefault();
+        navigate(`/projects/${task.project_id}/tasks/${task.task_id}/edit`);
+    }
+
     return (
         <div className="task">
             <div className="task-title">
@@ -65,7 +67,14 @@ const Task = props => {
                     onClick={moveTaskToTheLeft}
                 ></i>
                 <span>
+                    <ErrorAlert error={error} />
                     <p>{task.title}</p>
+                    {taskBody === "open" && (
+                        <UpdateButton
+                            itemName={"Task"}
+                            updateHandler={updateTaskHandler}
+                        />
+                    )}
                     <i
                         className={classNames({
                             "fas fa-angle-down": taskBody === "closed",

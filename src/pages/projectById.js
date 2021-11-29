@@ -3,12 +3,13 @@ import { useNavigate, useParams } from 'react-router';
 import { withAuthenticationRequired } from '@auth0/auth0-react';
 import { deleteProject, readProject } from '../utils/api';
 
+import AddButton from '../components/buttons/addButton';
 import classNames from '../utils/ClassNames';
-import DeleteButton from '../components/buttons/deleteButton';
 import CommentsInterface from '../views/comments/commentsInterface';
+import DeleteButton from '../components/buttons/deleteButton';
+import ErrorAlert from '../layout/errorAlert';
 import KanbanBoard from '../components/kanbanBoard/kanbanBoard';
 import UpdateButton from '../components/buttons/updateButton';
-import AddButton from '../components/buttons/addButton';
 
 const ProjectById = () => {
     const navigate = useNavigate();
@@ -89,6 +90,7 @@ const ProjectById = () => {
 
     return (
          <section className="itemTwo">
+             <ErrorAlert error={error} />
              <div className="title">
                 <div className="item one">
                     <AddButton
@@ -117,7 +119,6 @@ const ProjectById = () => {
                 </div>
             </div>
             <div className="body">
-                {error && <p>{error}</p>}
                 <KanbanBoard tasks={project.tasks} />
                 <div className={classNames({
                     "viewComments": !viewComments,

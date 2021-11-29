@@ -6,6 +6,7 @@ import NewTask from '../pages/newTask';
 import ProjectById from '../pages/projectById';
 import Projects from '../pages/projects';
 import UpdateProject from '../pages/updateProject';
+import UpdateTask from '../pages/updateTask';
 
 const PageRoutes = () => {
     return (
@@ -15,7 +16,7 @@ const PageRoutes = () => {
                 element={<HomePage />}
             />
             <Route
-                exact path="/projects"
+                exact path="/projects/"
                 element={<Projects />}
             />
             <Route
@@ -25,6 +26,10 @@ const PageRoutes = () => {
             <Route
                 exact path="/projects/:projectId/tasks/new"
                 element={<NewTask />}
+            />
+            <Route
+                exact path="/projects/:projectId/tasks/:taskId/edit"
+                element={<UpdateTask />}
             />
             <Route
                 exact path="/projects/:projectId/edit"
