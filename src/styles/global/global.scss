@@ -234,7 +234,17 @@ ul {
                     }
 
                     &.two {
+                        display: flex;
+                        flex-direction: column;
                         grid-column: 2 / 2;
+
+                        .btn-group {
+                            align-items: center;
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: center;
+                            text-align: center;
+                        }
                     }
 
                     &.three {
@@ -495,13 +505,26 @@ ul {
                         height: 100%;
                         width: 33%;
 
-                        h3 {
+                        &-title {
+                            align-items: center;
                             background-color: $accent-color-one;
+                            display: flex;
+                            flex-direction: row;
                             font-family: Genos, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                            justify-content: center;
                             letter-spacing: .3rem;
-                            margin: 0;
                             padding: 1rem;
+                            text-align: center;
                             text-transform: uppercase;
+
+                            a {
+                                margin: 0;
+                                padding: 0.5rem;
+                            }
+                        }
+
+                        h3 {
+                            margin: 0; 
                         }
 
                         .task {

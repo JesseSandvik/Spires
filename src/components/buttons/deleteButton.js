@@ -1,10 +1,10 @@
 import React from 'react';
 
 const DeleteButton = props => {
-    const { deleteHandler } = props;
+    const { itemName, deleteHandler } = props;
     return (
         <div className="btn btn-delete">
-            <button onClick={deleteHandler}>Delete</button>
+            <button onClick={deleteHandler}>Delete {itemName}</button>
         </div>
     );
 }

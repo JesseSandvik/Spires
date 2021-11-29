@@ -8,6 +8,7 @@ import DeleteButton from '../components/buttons/deleteButton';
 import CommentsInterface from '../views/comments/commentsInterface';
 import KanbanBoard from '../components/kanbanBoard/kanbanBoard';
 import UpdateButton from '../components/buttons/updateButton';
+import AddButton from '../components/buttons/addButton';
 
 const ProjectById = () => {
     const navigate = useNavigate();
@@ -58,6 +59,11 @@ const ProjectById = () => {
         return () => abortController.abort();
     }, [projectId]);
 
+    const addTaskHandler = (event) => {
+        event.preventDefault();
+        navigate(`/projects/${projectId}/tasks/new`);
+    }
+
     const viewCommentsToggleHandler = (event) => {
         event.preventDefault();
         (!viewComments ? setViewComments(true) : setViewComments(false));
@@ -85,11 +91,23 @@ const ProjectById = () => {
          <section className="itemTwo">
              <div className="title">
                 <div className="item one">
-                    <UpdateButton updateHandler={updateProjectHandler} />
-                    <DeleteButton deleteHandler={deleteProjectHandler} />
+                    <AddButton
+                        itemName={"Task"}
+                        addHandler={addTaskHandler} 
+                    />
                 </div>
                 <div className="item two">
                     <h2>{project.title}</h2>
+                    <span className="btn-group">
+                        <UpdateButton
+                            itemName={"Project"}
+                            updateHandler={updateProjectHandler}
+                        />
+                        <DeleteButton
+                            itemName={"Project"}
+                            deleteHandler={deleteProjectHandler}
+                        />
+                    </span>
                 </div>
                 <div className="item three">
                     <i

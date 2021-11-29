@@ -9,7 +9,9 @@ const InProgress = props => {
 
     return (
         <div className="item">
-            <h3>In Progress</h3>
+            <div className="item-title">
+                <h3>In Progress</h3>
+            </div>
             <ul>{inProgressTaskList}</ul>
         </div>
     );

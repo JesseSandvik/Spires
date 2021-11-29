@@ -1,10 +1,10 @@
 import React from 'react';
 
 const UpdateButton = props => {
-    const { updateHandler } = props;
+    const { itemName, updateHandler } = props;
     return (
         <div className="btn btn-update">
-            <button onClick={updateHandler}>Edit</button>
+            <button onClick={updateHandler}>Edit {itemName}</button>
         </div>
     );
 }

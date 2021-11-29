@@ -42,6 +42,7 @@ const NewProject = () => {
             .catch((error) => setError(error));
         setProject({...initialProjectState})
     }
+    
     return (
         <section className="itemTwo">
             <div className="title">

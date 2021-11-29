@@ -9,7 +9,9 @@ const Available = props => {
 
     return (
         <div className="item">
-            <h3>Available</h3>
+            <div className="item-title">
+                <h3>Available</h3>
+            </div>
             <ul>{availableTaskList}</ul>
         </div>
     );

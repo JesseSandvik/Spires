@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import HomePage from '../pages/home';
 import NewProject from '../pages/newProject';
+import NewTask from '../pages/newTask';
 import ProjectById from '../pages/projectById';
 import Projects from '../pages/projects';
 import UpdateProject from '../pages/updateProject';
@@ -20,6 +21,10 @@ const PageRoutes = () => {
             <Route
                 exact path="/projects/:projectId"
                 element={<ProjectById />}
+            />
+            <Route
+                exact path="/projects/:projectId/tasks/new"
+                element={<NewTask />}
             />
             <Route
                 exact path="/projects/:projectId/edit"

@@ -301,8 +301,32 @@ ul {
 }
 
 .app main .itemTwo .title .item.two {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -ms-grid-column: 2;
   grid-column: 2 / 2;
+}
+
+.app main .itemTwo .title .item.two .btn-group {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
 }
 
 .app main .itemTwo .title .item.three {
@@ -670,13 +694,35 @@ ul {
   width: 33%;
 }
 
-.app main .itemTwo .body .kanban .item h3 {
+.app main .itemTwo .body .kanban .item-title {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: #C6B677;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   font-family: Genos, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   letter-spacing: .3rem;
-  margin: 0;
   padding: 1rem;
+  text-align: center;
   text-transform: uppercase;
+}
+
+.app main .itemTwo .body .kanban .item-title a {
+  margin: 0;
+  padding: 0.5rem;
+}
+
+.app main .itemTwo .body .kanban .item h3 {
+  margin: 0;
 }
 
 .app main .itemTwo .body .kanban .item .task {

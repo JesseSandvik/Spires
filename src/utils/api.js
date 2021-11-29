@@ -75,7 +75,6 @@ export async function updateProject(data, projectId) {
     headers,
     body: JSON.stringify({ data }),
   };
-  console.log(data)
   return await fetchJson(url, options);
 }
 
@@ -86,5 +85,16 @@ export async function deleteProject(projectId, signal) {
     headers,
     signal,
   }
+  return await fetchJson(url, options);
+}
+
+export async function createTask(data, signal) {
+  const url = `${API_BASE_URL}/tasks`;
+  const options = {
+    method: "POST",
+    headers,
+    body: JSON.stringify({ data }),
+    signal,
+  };
   return await fetchJson(url, options);
 }
