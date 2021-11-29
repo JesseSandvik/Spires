@@ -134,3 +134,29 @@ export async function deleteTask(taskId, signal) {
   }
   return await fetchJson(url, options);
 }
+
+export async function createComment(data, signal) {
+  const url = `${API_BASE_URL}/comments`;
+  const options = {
+    method: "POST",
+    headers,
+    body: JSON.stringify({ data }),
+    signal,
+  };
+  return await fetchJson(url, options);
+}
+
+export async function readComment(commentId, signal) {
+  const url = new URL(`${API_BASE_URL}/comments/${commentId}`);
+  return await fetchJson(url, { headers, signal }, {})
+}
+
+export async function updateComment(data, commentId) {
+  const url = `${API_BASE_URL}/comments/${commentId}`;
+  const options = {
+    method: "PUT",
+    headers,
+    body: JSON.stringify({ data }),
+  };
+  return await fetchJson(url, options);
+}

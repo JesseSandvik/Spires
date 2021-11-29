@@ -632,6 +632,12 @@ ul {
   margin: 0;
 }
 
+.app main .itemTwo .body .comments i {
+  color: #F8F8FF;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
 .app main .itemTwo .body .comments-body {
   display: -webkit-box;
   display: -ms-flexbox;

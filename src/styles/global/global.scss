@@ -459,6 +459,12 @@ ul {
                         }
                     }
 
+                    i {
+                        color: $primary-color;
+                        cursor: pointer;
+                        padding: 0.5rem;
+                    }
+
                     &-body {
                         display: flex;
                         flex-direction: row;
