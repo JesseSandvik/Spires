@@ -4,15 +4,15 @@
 Spires is a workflow & communication tool designed to streamline the development process.
 
 ## Installation
-Fork & clone this repository. |
+Fork & clone this repository.            |
 Fork & clone spires-back-end repository. |
----------------------------- |
-cd spires-back-end           |
-npm install                  |
-npm run dev(server)          |
-cd spires-front-end          |
-npm install                  |
-npm start(client)            |
+----------------------------             |
+cd spires-back-end                       |
+npm install                              |
+npm run dev(server)                      |
+cd spires-front-end                      |
+npm install                              |
+npm start(client)                        |
 
 ## Usage
 Spires is a workflow application built to streamline the development process. Users can create and delete projects,
