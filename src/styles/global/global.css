@@ -638,6 +638,10 @@ ul {
   padding: 0.5rem;
 }
 
+.app main .itemTwo .body .comments form {
+  border: 3px solid #C6B677;
+}
+
 .app main .itemTwo .body .comments-body {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -160,3 +160,13 @@ export async function updateComment(data, commentId) {
   };
   return await fetchJson(url, options);
 }
+
+export async function deleteComment(commentId, signal) {
+  const url = `${API_BASE_URL}/comments/${commentId}`;
+  const options = {
+    method: "DELETE",
+    headers,
+    signal,
+  }
+  return await fetchJson(url, options);
+}

@@ -71,7 +71,6 @@ const CommentsInterface = props => {
             <div className="comments-body">
                 {commentsList}
             </div>
-            {console.log(comments)}
         </div>
     );
 }

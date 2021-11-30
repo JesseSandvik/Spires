@@ -465,6 +465,10 @@ ul {
                         padding: 0.5rem;
                     }
 
+                    form {
+                        border: 3px solid $accent-color-one;
+                    }
+
                     &-body {
                         display: flex;
                         flex-direction: row;
