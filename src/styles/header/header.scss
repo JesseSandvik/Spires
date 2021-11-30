@@ -1,0 +1,27 @@
+@import '../config';
+
+header {
+    align-items: center;
+    background-color: $primary-color;
+    display: flex;
+    flex-direction: row;
+    grid-column: 1 / -1;
+    grid-row: 1 / 1;
+    justify-content: space-between;
+    top: 0;
+    right: 0;
+    left: 0;
+    text-align: center;
+
+    .appTitle {
+        padding: 0.5rem 1.72rem;
+        text-transform: capitalize;
+
+        h1 {
+            font-family: Jura, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            margin: 0;
+        }
+
+    }
+    
+}

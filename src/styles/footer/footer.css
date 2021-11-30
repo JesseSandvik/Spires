@@ -1,0 +1,26 @@
+footer {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  font-family: Jura, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  grid-column: 1 / -1;
+  grid-row: 3 / -1;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 1rem;
+  text-align: center;
+}
+
+footer h5 {
+  letter-spacing: .2rem;
+  margin: 0;
+}
+/*# sourceMappingURL=footer.css.map */

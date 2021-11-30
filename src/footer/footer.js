@@ -1,10 +1,11 @@
+import '../styles/footer/footer.css';
 import React from 'react';
 
 const Footer = () => {
     return (
-        <div>
-            <p>&copy; jessesandvik 2021</p>
-        </div>
+        <footer>
+            <h5>&copy; jessesandvik 2021</h5>
+        </footer>
     );
 }
 

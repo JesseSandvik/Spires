@@ -30,6 +30,8 @@ const Comment = props => {
                 </div>
                 <div className="name">
                     <h4>{comment.commenter_name}</h4>
+                    <i className="fas fa-reply"></i>
+                    <i className="far fa-edit"></i>
                     <i
                         className="fas fa-comment-slash"
                         onClick={deleteCommentHandler}

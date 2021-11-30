@@ -1,11 +1,9 @@
 import React from 'react';
-import CancelButton from '../../components/buttons/cancelButton';
 import SubmitButton from '../../components/buttons/submitButton';
 
 const ProjectForm = props => {
 
     const {
-        cancelHandler,
         changeHandler,
         formValueOne,
         formValueTwo,
@@ -33,7 +31,7 @@ const ProjectForm = props => {
                 onChange={changeHandler}
                 defaultValue={formValueTwo ? formValueTwo : ""}
             />
-            <div className="form-dateTime">
+            <div className="dateTime">
                 <div className="item">
                     <label>Project Due Date:</label>
                     <input
@@ -55,9 +53,8 @@ const ProjectForm = props => {
                     />
                 </div>
             </div>
-            <div className="form-btns">
+            <div className="btn-group">
                 <SubmitButton />
-                <CancelButton cancelHandler={cancelHandler} />
             </div>
         </form>
     );

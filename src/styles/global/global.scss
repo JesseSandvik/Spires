@@ -7,8 +7,9 @@
 body {
     background-color: $primary-color;
     color: $secondary-color;
-    font-family: 'Times New Roman', Times, serif;
-    letter-spacing: .2rem;
+    font-family: Raleway, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.1rem;
     margin: 0;
     overflow-x: hidden;
     padding: 0;
@@ -65,142 +66,11 @@ ul {
     min-height: 100vh;
     width: 100vw;
 
-    header {
-        align-items: center;
-        background-color: $primary-color;
-        display: flex;
-        flex-direction: row;
-        grid-column: 1 / -1;
-        grid-row: 1 / 1;
-        justify-content: space-between;
-        top: 0;
-        right: 0;
-        left: 0;
-        text-align: center;
-
-        .siteTitle {
-            font-family: Genos, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            padding: 0 0 1rem;
-            width: 15vw;
-
-            h1 {
-                margin: 0;
-                padding: 1rem 1rem 0;
-                text-transform: capitalize;
-    
-                i {
-                    color: $muted-color;
-                    text-shadow: 0 0 10px $accent-color-one;
-                }
-            }
-
-            small {
-                text-transform: capitalize;
-            }
-        }
-
-        .logbtn {
-            width: 15vw;
-        }
-    }
-
     main {
         display: grid;
         grid-row: 2 / 2;
-        grid-template-columns: auto 1fr auto;
-
-        .home {
-            align-items: center;
-            background-image:
-                linear-gradient(to right,
-                rgba($secondary-color, 0.5),
-                rgba($secondary-color, 0.5)),
-                url('../../images/spires-manhattan-1.jpg');
-            background-size: cover;
-            background-position: top;
-            background-repeat: no-repeat;
-            border: 3px solid $primary-color;
-            box-shadow: inset 0 0 0 5px $accent-color-one;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            justify-content: center;
-            text-align: center;
-            width: 100vw;
-
-            &.auth {
-                width: 85vw;
-            }
-
-            .intro {
-                background-color: $muted-color;
-                border: 3px solid $accent-color-one;
-                border-radius: 10px;
-                color: $accent-color-one;
-                opacity: 0.9;
-                padding: 5rem;
-
-                p {
-                    font-family: Genos, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                    font-size: 1.2rem;
-                    letter-spacing: .3rem;
-                    padding: 1rem;
-                }
-            }
-        }
-
-        .itemOne {
-            align-items: center;
-            background-color: $muted-color;
-            border: 3px solid $primary-color;
-            box-shadow: inset 0 0 0 5px $accent-color-one;
-            color: $primary-color;
-            display: flex;
-            flex-direction: column;
-            grid-column: 1 / 1;
-            height: 75%;
-            justify-content: flex-start;
-            padding: 3vh 1vw;
-            text-align: center;
-            width: 15vw;
-
-            img {
-                border: 3px solid $secondary-color;
-                border-radius: 50%;
-                margin: 1rem;
-            }
-
-            nav {
-                height: 100%;
-                padding: 1rem;
-                width: 100%;
-
-                ul {
-                    align-items: center;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    text-align: center;
-
-                    li {
-                        margin: 0.5rem;
-                        padding: 0.5rem;
-
-                        a {
-                            border-bottom: 1px solid $accent-color-one;
-                            border-radius: 5px;
-                            padding: 0.5rem;
-                            @include transition-ease;
-
-                            &:hover {
-                                border: 1px solid $accent-color-one;
-                                @include transition-ease;
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        grid-template-columns: auto 1fr;
+        width: 100vw;
 
         .itemTwo {
             background-image:
@@ -214,10 +84,8 @@ ul {
             border: 3px solid $primary-color;
             box-shadow: inset 0 0 0 5px $accent-color-one;
             display: grid;
-            grid-column: 2 / -1;
             grid-template-columns: 1fr 1fr 1fr;
             grid-template-rows: auto 1fr;
-            width: 85vw;
 
             .error {
                 align-items: center;
@@ -248,168 +116,7 @@ ul {
                 }
             }
 
-            .title {
-                background-color: $muted-color;
-                border: 3px solid $accent-color-one;
-                color: $accent-color-one;
-                display: grid;
-                grid-column: 1 / -1;
-                grid-row: 1 / 1;
-                grid-template-columns: 1fr 1fr 1fr;
-                justify-content: center;
-                letter-spacing: .3rem;
-                padding: 1rem;
-                text-transform: uppercase;
-                width: 84.5vw;
-
-                .item {
-                    align-items: center;
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: center;
-                    text-align: center;
-
-                    &.one {
-                        grid-column: 1 / 1;
-                    }
-
-                    &.two {
-                        display: flex;
-                        flex-direction: column;
-                        grid-column: 2 / 2;
-
-                        .btn-group {
-                            align-items: center;
-                            display: flex;
-                            flex-direction: row;
-                            justify-content: center;
-                            text-align: center;
-                        }
-                    }
-
-                    &.three {
-                        grid-column: 3 / -1;
-                    }
-                }
-
-                h2 {
-                    grid-column: 2 / 2;
-                    margin: 0;
-                }
-
-                i {
-                    color: $primary-color;
-                    cursor: pointer;
-                    font-size: 1.5rem;
-                    @include transition-ease;
-
-                    &:hover {
-                        color: $accent-color-one;
-                        @include transition-ease;
-                    }
-                }
-            }
-
-            form {
-                align-items: center;
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-start;
-                text-align: center;
-                width: 84.5vw;
-
-                label {
-                    color: $primary-color;
-                    font-family: Genos, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                    font-weight: 700;
-                    margin: 1rem;
-                    text-transform: uppercase;
-                    width: 100%;
-                }
-
-                input {
-                    background-color: $accent-color-one;
-                    border: 3px solid $muted-color;
-                    font-family: Genos, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                    font-size: 1.2rem;
-                    margin: 0.5rem;
-                    padding: 1rem;
-                    width: 50%;
-                }
-
-                textarea {
-                    background-color: $accent-color-one;
-                    border: 3px solid $muted-color;
-                    font-family: Genos, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                    font-size: 1.2rem;
-                    padding: 1rem;
-                    width: 50%;
-                }
-
-                .form-dateTime {
-                    align-items: center;
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: center;
-                    text-align: center;
-                    width: 50%;
-
-                    .item {
-                        align-items: center;
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: center;
-                        text-align: center;
-                        width: 50%;
-                    }
-                }
-
-                .form-btns{
-                    border: 1px solid black;
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: center;
-                    width: 50%;
-                }
-            }
-
             .body {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr) );
-                grid-template-rows: repeat(auto-fit, minmax(100px, 1fr) );
-                height: 100%;
-                padding: 0.5rem;
-                width: 84.5vw;
-
-                a {
-                    align-items: center;
-                    background-color: $muted-color;
-                    border: 3px solid $muted-color;
-                    border-radius: 10px;
-                    color: $primary-color;
-                    cursor: pointer;
-                    display: flex;
-                    flex-direction: column;
-                    font-family: Genos, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                    font-size: 1.2rem;
-                    justify-content: center;
-                    letter-spacing: .3rem;
-                    margin: 0.5rem;
-                    padding: 2rem;
-                    text-align: center;
-                    @include transition-ease;
-
-                    h5 {
-                        font-size: 1.2rem;
-                        margin: 0.5rem;
-                    }
-
-                    &:hover {
-                        border: 3px solid $accent-color-one;
-                        color: $accent-color-one;
-                        @include transition-ease;
-                    }
-                }
 
                 .viewComments {
                     opacity: 0;
@@ -462,7 +169,15 @@ ul {
                     i {
                         color: $primary-color;
                         cursor: pointer;
+                        font-size: 1.5rem;
+                        margin: 1rem;
                         padding: 0.5rem;
+                        @include transition-ease;
+
+                        &:hover {
+                            color: $accent-color-one;
+                            @include transition-ease;
+                        }
                     }
 
                     form {
@@ -485,8 +200,22 @@ ul {
                             display: flex;
                             flex-direction: column;
                             justify-content: center;
-                            margin: 2rem;
+                            margin: 5rem;
                             text-align: center;
+
+                            i {
+                                color: $primary-color;
+                                cursor: pointer;
+                                font-size: 1rem;
+                                margin: 1rem;
+                                padding: 0.5rem;
+                                @include transition-ease;
+        
+                                &:hover {
+                                    color: $accent-color-one;
+                                    @include transition-ease;
+                                }
+                            }
 
                             &-title {
                                 align-items: center;
@@ -639,22 +368,5 @@ ul {
                 }
             }
         }
-    }
-
-    footer {
-        align-items: center;
-        background-color: $muted-color;
-        border: 3px solid $primary-color;
-        box-shadow: inset 0 0 0 5px $accent-color-one;
-        color: $accent-color-one;
-        display: flex;
-        flex-direction: column;
-        grid-column: 1 / -1;
-        grid-row: 3 / -1;
-        justify-content: center;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        text-align: center;
     }
 }

@@ -2,9 +2,12 @@ import React from 'react';
 
 const SubmitButton = () => {
     return (
-        <div className="btn btn-submit">
-            <button type="submit">Save</button>
-        </div>
+        <button
+            type="submit"
+        >
+            <i className="far fa-save"></i>
+            <small>Save</small>
+        </button>
     );
 }
 

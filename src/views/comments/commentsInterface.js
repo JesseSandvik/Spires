@@ -22,7 +22,6 @@ const CommentsInterface = props => {
 
     const [comment, setComment] = useState({...initialCommentState});
     const [error, setError] = useState(null);
-    const [commentWindowToggle, setCommentWindowToggle] = useState("closed");
 
     const createCommentChangeHandler = ({ target }) => {
         setComment({
@@ -45,11 +44,6 @@ const CommentsInterface = props => {
         setComment({...initialCommentState})
     }
 
-    const commentWindowToggleHandler = (event) => {
-        event.preventDefault();
-        (commentWindowToggle === "closed" ? setCommentWindowToggle("open") : setCommentWindowToggle("closed"));
-    }
-
     const commentsList = comments.map((comment) => <li key={comment.comment_id}><Comment comment={comment} /></li>)
 
     return (
@@ -57,17 +51,11 @@ const CommentsInterface = props => {
             <div className="comments-title">
                 <h3>Comments for <span>{projectTitle}</span></h3>
             </div>
-            <i
-                className="far fa-comment-dots"
-                onClick={commentWindowToggleHandler}
-            ></i>
-                {commentWindowToggle === "open" && (
-                    <CommentWindow
-                        changeHandler={createCommentChangeHandler}
-                        itemName={"Add"}
-                        submitHandler={createCommentSubmitHandler}
-                    />
-                )}
+             <CommentWindow
+                changeHandler={createCommentChangeHandler}
+                itemName={"Add"}
+                submitHandler={createCommentSubmitHandler}
+            />
             <div className="comments-body">
                 {commentsList}
             </div>

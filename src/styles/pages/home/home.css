@@ -1,0 +1,53 @@
+.home {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url("../../../images//spires-manhattan-1.jpg");
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../../images//spires-manhattan-1.jpg");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  border: 3px solid #F8F8FF;
+  -webkit-box-shadow: inset 0 0 0 5px #C6B677;
+          box-shadow: inset 0 0 0 5px #C6B677;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.home.welcome {
+  grid-column: 1 / -1;
+}
+
+.home.auth {
+  grid-column: 2 / -1;
+}
+
+.home-intro {
+  background-color: #191919;
+  border: 3px solid #C6B677;
+  border-radius: 10px;
+  color: #C6B677;
+  margin: 1rem;
+  opacity: 0.9;
+  padding: 2rem;
+}
+
+.home-intro h2 {
+  font-family: Jura, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.home-intro p {
+  font-size: 1.2rem;
+  padding: 1rem;
+}
+/*# sourceMappingURL=home.css.map */

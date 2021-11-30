@@ -1,0 +1,19 @@
+@import '../config';
+
+footer {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    font-family: Jura, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    grid-column: 1 / -1;
+    grid-row: 3 / -1;
+    justify-content: center;
+    padding: 1rem;
+    text-align: center;
+
+    h5 {
+        letter-spacing: .2rem;
+        margin: 0;
+    }
+    
+}
