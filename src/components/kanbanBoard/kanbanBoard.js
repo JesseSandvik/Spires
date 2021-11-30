@@ -29,11 +29,11 @@ const KanbanBoard = props => {
     }
 
     return (
-        <div className="kanban">
+        <>
             <Available tasks={availableTasks} />
             <InProgress tasks={inProgressTasks} />
             <Completed tasks={completedTasks} />
-        </div>
+        </>
     );
 }
 

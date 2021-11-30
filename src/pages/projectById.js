@@ -89,47 +89,35 @@ const ProjectById = () => {
 
 
     return (
-         <section className="itemTwo">
+         <section className="projects">
              <ErrorAlert error={error} />
-             <div className="title">
-                <div className="item one">
+             <div className="projects-title">
+                <div className="item item-one">
                     <AddButton
                         itemName={"Task"}
                         addHandler={addTaskHandler} 
                     />
+                    <UpdateButton
+                        itemName={"Project"}
+                        updateHandler={updateProjectHandler}
+                    />
+                    <DeleteButton
+                        itemName={"Project"}
+                        deleteHandler={deleteProjectHandler}
+                    />
                 </div>
-                <div className="item two">
+                <div className="item item-two">
                     <h2>{project.title}</h2>
-                    <span className="btn-group">
-                        <UpdateButton
-                            itemName={"Project"}
-                            updateHandler={updateProjectHandler}
-                        />
-                        <DeleteButton
-                            itemName={"Project"}
-                            deleteHandler={deleteProjectHandler}
-                        />
-                    </span>
                 </div>
-                <div className="item three">
+                <div className="item item-three">
                     <i
                         className="fas fa-comments"
                         onClick={viewCommentsToggleHandler}
                     ></i>
                 </div>
             </div>
-            <div className="body">
+            <div className="projects-kanban">
                 <KanbanBoard tasks={project.tasks} />
-                <div className={classNames({
-                    "viewComments": !viewComments,
-                    "viewComments open": viewComments,
-                })}
-                >
-                    <CommentsInterface
-                        comments={project.comments}
-                        projectTitle={project.title}
-                    />
-                </div>
             </div>
         </section>
     );

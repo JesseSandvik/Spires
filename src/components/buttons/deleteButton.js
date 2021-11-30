@@ -3,9 +3,12 @@ import React from 'react';
 const DeleteButton = props => {
     const { itemName, deleteHandler } = props;
     return (
-        <div className="btn btn-delete">
-            <button onClick={deleteHandler}>Delete {itemName}</button>
-        </div>
+        <button
+            onClick={deleteHandler}
+        >
+            <i className="far fa-trash-alt"></i>
+            <small>Delete {itemName}</small>
+        </button>
     );
 }
 

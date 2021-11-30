@@ -11,7 +11,9 @@ const Completed = props => {
             <div className="item-title">
                 <h3>Completed</h3>
             </div>
-            <ul>{completedTaskList}</ul>
+            <div className="item-three">
+                <ul>{completedTaskList}</ul>
+            </div>
         </div>
     );
 }

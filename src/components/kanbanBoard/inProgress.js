@@ -11,7 +11,9 @@ const InProgress = props => {
             <div className="item-title">
                 <h3>In Progress</h3>
             </div>
-            <ul>{inProgressTaskList}</ul>
+            <div className="item-two">
+                <ul>{inProgressTaskList}</ul>
+            </div>
         </div>
     );
 }

@@ -3,9 +3,12 @@ import React from 'react';
 const UpdateButton = props => {
     const { itemName, updateHandler } = props;
     return (
-        <div className="btn btn-update">
-            <button onClick={updateHandler}>Edit {itemName}</button>
-        </div>
+            <button
+                onClick={updateHandler}
+            >
+                <i className="fas fa-edit"></i>
+                <small>Edit {itemName}</small>
+            </button>
     );
 }
 

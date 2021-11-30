@@ -1,12 +1,14 @@
 import '../styles/pages/projects/projects.css';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { withAuthenticationRequired } from '@auth0/auth0-react';
 import { listProjects } from '../utils/api';
+import AddButton from '../components/buttons/addButton';
 import ErrorAlert from '../layout/errorAlert';
 import Project from '../views/projects/project';
 
 const Projects = () => {
+    const navigate = useNavigate();
     const [projects, setProjects] = useState([]);
     const [error, setError] = useState(null);
 
@@ -22,6 +24,11 @@ const Projects = () => {
         loadProjects();
         return () => abortController.abort();
     }, []);
+
+    const addProjectHandler = (event) => {
+        event.preventDefault();
+        navigate(`/projects/new`);
+    }
     
     const projectsList = projects.map((project) => <li key={project.project_id}><Project project={project} /></li>)
 
@@ -29,10 +36,10 @@ const Projects = () => {
         <section className="projects">
             <div className="projects-title">
                 <div className="item item-one">
-                    <Link to="/projects/new">
-                        <i className="fas fa-plus-square"></i>
-                        <small>Add Project</small>
-                    </Link>
+                    <AddButton
+                        itemName={"Project"}
+                        addHandler={addProjectHandler}
+                    />
                 </div>
                 <div className="item item-two">
                     <h2>Available Projects</h2>

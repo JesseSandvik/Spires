@@ -11,7 +11,9 @@ const Available = props => {
             <div className="item-title">
                 <h3>Available</h3>
             </div>
-            <ul>{availableTaskList}</ul>
+            <div className="item-one">
+                <ul>{availableTaskList}</ul>
+            </div>
         </div>
     );
 }

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
 import { createProject } from '../utils/api';
 import ErrorAlert from '../layout/errorAlert';
 import ProjectForm from '../views/projects/projectForm';
+import CancelButton from '../components/buttons/cancelButton';
 
 const NewProject = () => {
     const navigate = useNavigate();
@@ -17,6 +18,11 @@ const NewProject = () => {
 
     const [project, setProject] = useState({...initialProjectState});
     const [error, setError] = useState(null);
+
+    const createProjectCancelHandler = (event) => {
+        event.preventDefault();
+        navigate(`/projects`);
+    }
 
     const createProjectChangeHandler = ({ target }) => {
         setProject({
@@ -42,10 +48,9 @@ const NewProject = () => {
         <section className="projects">
             <div className="projects-title">
                 <div className="item item-one">
-                    <Link to="/projects">
-                        <i className="fas fa-window-close"></i>
-                        <small>Cancel</small>
-                    </Link>
+                    <CancelButton
+                        cancelHandler={createProjectCancelHandler}
+                    />
                 </div>
                 <div className="item item-two">
                     <h2>Create A New Project</h2>

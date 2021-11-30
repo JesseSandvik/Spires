@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
 import { readProject, updateProject } from '../utils/api';
+import CancelButton from '../components/buttons/cancelButton';
+import ErrorAlert from '../layout/errorAlert';
 import ProjectForm from '../views/projects/projectForm';
 
 const UpdateProject = () => {
@@ -51,17 +53,16 @@ const UpdateProject = () => {
         return () => abortController.abort();
     }, [projectId]);
 
+    const updateProjectCancelHandler = (event) => {
+        event.preventDefault();
+        navigate(`/projects/${projectId}`);
+    }
 
     const updateProjectChangeHandler = ({ target }) => {
         setProject({
             ...project,
             [target.name]: target.value,
         });
-    }
-
-    const updateProjectCancelHandler = (event) => {
-        event.preventDefault();
-        navigate(`/projects/${projectId}`);
     }
 
     const updateProjectSubmitHandler = (event) => {
@@ -93,22 +94,29 @@ const UpdateProject = () => {
     }
 
     return (
-        <section className="itemTwo">
-            <div className="title">
-                <div className="item two">
+        <section className="projects">
+            <div className="projects-title">
+                <div className="item item-one">
+                    <CancelButton
+                        cancelHandler={updateProjectCancelHandler}
+                    />
+                </div>
+                <div className="item item-two">
                     <h2>Edit Project</h2>
                 </div>
             </div>
-            {error && <p>{error}</p>}
-            <ProjectForm
-                cancelHandler={updateProjectCancelHandler}
-                changeHandler={updateProjectChangeHandler}
-                formValueOne={project.title}
-                formValueTwo={project.description}
-                formValueThree={formatDateForUpdateForm(project.due_date)}
-                formValueFour={project.due_time}
-                submitHandler={updateProjectSubmitHandler}
-            />
+            <div className="projects-form">
+                <ErrorAlert error={error} />
+                <ProjectForm
+                    cancelHandler={updateProjectCancelHandler}
+                    changeHandler={updateProjectChangeHandler}
+                    formValueOne={project.title}
+                    formValueTwo={project.description}
+                    formValueThree={formatDateForUpdateForm(project.due_date)}
+                    formValueFour={project.due_time}
+                    submitHandler={updateProjectSubmitHandler}
+                />
+            </div>
         </section>
     );
 }
