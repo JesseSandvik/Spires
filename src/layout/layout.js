@@ -15,13 +15,13 @@ const Layout = () => {
 
     return (
         <div className="app">
-            <Header />
             <main>
                 {isAuthenticated && (
                     <Sidebar />
                 )}
                 <PageRoutes />
             </main>
+            <Header />
             <Footer />
         </div>
     );

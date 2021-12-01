@@ -4,6 +4,7 @@ import { deleteTask, updateTaskStatus } from '../../utils/api';
 import classNames from '../../utils/ClassNames';
 import DeleteButton from '../../components/buttons/deleteButton';
 import ErrorAlert from '../../layout/errorAlert';
+import ExpandButton from '../../components/buttons/expandButton';
 import LeftButton from '../../components/buttons/leftButton';
 import RightButton from '../../components/buttons/rightButton';
 import UpdateButton from '../../components/buttons/updateButton';
@@ -16,12 +17,17 @@ const Task = props => {
     const [error, setError] = useState(null);
     const [taskBody, setTaskBody] = useState("closed");
 
-    const taskBodyToggleHandler = (event) => {
+    const taskCompressHandler = (event) => {
+        event.preventDefault();
+        if (taskBody === "open") {
+            setTaskBody("closed");
+        }
+    }
+
+    const taskExpandHandler = (event) => {
         event.preventDefault();
         if (taskBody === "closed") {
             setTaskBody("open");
-        } else {
-            setTaskBody("closed");
         }
     }
 
@@ -83,25 +89,6 @@ const Task = props => {
                 <span>
                     <ErrorAlert error={error} />
                     <p>{task.title}</p>
-                    {taskBody === "open" && (
-                        <>
-                            <UpdateButton
-                                itemName={"Task"}
-                                updateHandler={updateTaskHandler}
-                            />
-                            <DeleteButton
-                                itemName={"Task"}
-                                deleteHandler={deleteTaskHandler}
-                            />
-                        </>
-                    )}
-                    <i
-                        className={classNames({
-                            "fas fa-angle-down": taskBody === "closed",
-                            "fas fa-angle-down open": taskBody === "open"
-                        })}
-                        onClick={taskBodyToggleHandler}
-                    ></i>
                 </span>
                 <RightButton
                     rightHandler={moveTaskToTheRight}
@@ -110,8 +97,37 @@ const Task = props => {
             <div className={classNames({
                 "task-body": taskBody === "closed",
                 "task-body open": taskBody === "open"
-            })}>
-                <p>{task.description}</p>
+            })}
+            >
+                {taskBody === "open" && (
+                    <div
+                        className="modal"
+                        onClick={taskCompressHandler}
+                    >
+                        <div className="modal-body">
+                            <h2>{task.title}</h2>
+                            <p>{task.description}</p>
+                            <div className="btn-group">
+                                <UpdateButton
+                                    itemName={"Task"}
+                                    updateHandler={updateTaskHandler}
+                                />
+                                <DeleteButton
+                                    itemName={"Task"}
+                                    deleteHandler={deleteTaskHandler}
+                                />
+                            </div>
+                        </div>
+                    </div>
+                )}
+                {taskBody === "closed" && (
+                    <>
+                        <small>{task.description}</small>
+                        <ExpandButton
+                            expandHandler={taskExpandHandler}
+                        />
+                    </>
+                )}
             </div>
         </div>
     );
