@@ -425,6 +425,9 @@ form button:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin: 0.5rem;
   padding: 1rem;
 }
@@ -514,6 +517,12 @@ form button:hover {
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
   width: 50vw;
+}
+
+.projects-kanban .item .task-body.open .modal-body button {
+  border: 3px solid #C6B677;
+  border-radius: 10px;
+  padding: 2.5rem;
 }
 
 .projects-kanban .item .task-body.open button {

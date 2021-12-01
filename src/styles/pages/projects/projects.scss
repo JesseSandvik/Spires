@@ -235,6 +235,7 @@
                     border-radius: 10px;
                     display: flex;
                     flex-direction: row;
+                    justify-content: center;
                     margin: 0.5rem;
                     padding: 1rem;
 
@@ -299,6 +300,12 @@
                                     height: 10vh;
                                     justify-content: space-evenly;
                                     width: 50vw;
+                                }
+
+                                button {
+                                    border: 3px solid $accent-color-one;
+                                    border-radius: 10px;
+                                    padding: 2.5rem;
                                 }
                             }
                         }

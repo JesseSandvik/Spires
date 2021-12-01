@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
 import { createTask } from '../utils/api';
+import CancelButton from '../components/buttons/cancelButton';
+import ErrorAlert from '../layout/errorAlert';
 import TaskForm from '../views/tasks/taskForm';
 
 const NewTask = () => {
@@ -51,18 +53,25 @@ const NewTask = () => {
     }
 
     return (
-        <section className="itemTwo">
-            <div className="title">
-                <div className="item two">
+        <section className="projects">
+            <div className="projects-title">
+                <div className="item item-one">
+                    <CancelButton
+                        cancelHandler={createTaskCancelHandler}
+                    />
+                </div>
+                <div className="item item-two">
                     <h2>Create A New Task</h2>
                 </div>
             </div>
-            {error && <p>{error}</p>}
-            <TaskForm
-                cancelHandler={createTaskCancelHandler}
-                changeHandler={createTaskChangeHandler}
-                submitHandler={createTaskSubmitHandler}
-            />
+            <div className="projects-form">
+                <ErrorAlert error={error} />
+                <TaskForm
+                    cancelHandler={createTaskCancelHandler}
+                    changeHandler={createTaskChangeHandler}
+                    submitHandler={createTaskSubmitHandler}
+                />
+            </div>
         </section>
     );
 }

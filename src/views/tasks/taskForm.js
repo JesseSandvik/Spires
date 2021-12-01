@@ -1,11 +1,9 @@
 import React from 'react';
-import CancelButton from '../../components/buttons/cancelButton';
 import SubmitButton from '../../components/buttons/submitButton';
 
 const TaskForm = props => {
 
     const {
-        cancelHandler,
         changeHandler,
         formValueOne,
         formValueTwo,
@@ -55,9 +53,8 @@ const TaskForm = props => {
                     />
                 </div>
             </div>
-            <div className="form-btns">
+            <div className="btn-group">
                 <SubmitButton />
-                <CancelButton cancelHandler={cancelHandler} />
             </div>
         </form>
     );

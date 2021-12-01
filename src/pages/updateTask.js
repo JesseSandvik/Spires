@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
 import { readTask, updateTask } from '../utils/api';
+import CancelButton from '../components/buttons/cancelButton';
 import TaskForm from '../views/tasks/taskForm';
 
 const UpdateTask = () => {
@@ -105,22 +106,27 @@ const UpdateTask = () => {
     }
 
     return (
-        <section className="itemTwo">
-            <div className="title">
-                <div className="item two">
+        <section className="projects">
+            <div className="projects-title">
+            <div className="item item-one">
+                    <CancelButton
+                        cancelHandler={updateTaskCancelHandler}
+                    />
+                </div>
+                <div className="item item-two">
                     <h2>Edit Task</h2>
                 </div>
             </div>
-            {error && <p>{error}</p>}
-            <TaskForm
-                cancelHandler={updateTaskCancelHandler}
-                changeHandler={updateTaskChangeHandler}
-                formValueOne={task.title}
-                formValueTwo={task.description}
-                formValueThree={formatDateForUpdateForm(task.due_date)}
-                formValueFour={task.due_time}
-                submitHandler={updateTaskSubmitHandler}
-            />
+            <div className="projects-form">
+                <TaskForm
+                    changeHandler={updateTaskChangeHandler}
+                    formValueOne={task.title}
+                    formValueTwo={task.description}
+                    formValueThree={formatDateForUpdateForm(task.due_date)}
+                    formValueFour={task.due_time}
+                    submitHandler={updateTaskSubmitHandler}
+                />
+            </div>
         </section>
     );
 }
