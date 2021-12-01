@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
 import { readTask, updateTask } from '../utils/api';
 import CancelButton from '../components/buttons/cancelButton';
+import ErrorAlert from '../layout/errorAlert';
 import TaskForm from '../views/tasks/taskForm';
 
 const UpdateTask = () => {
@@ -118,6 +119,7 @@ const UpdateTask = () => {
                 </div>
             </div>
             <div className="projects-form">
+                <ErrorAlert error={error} />
                 <TaskForm
                     changeHandler={updateTaskChangeHandler}
                     formValueOne={task.title}

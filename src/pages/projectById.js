@@ -4,11 +4,13 @@ import { withAuthenticationRequired } from '@auth0/auth0-react';
 import { deleteProject, readProject } from '../utils/api';
 
 import AddButton from '../components/buttons/addButton';
+import CommentsInterface from '../views/comments/commentsInterface';
 import DeleteButton from '../components/buttons/deleteButton';
 import ErrorAlert from '../layout/errorAlert';
 import KanbanBoard from '../components/kanbanBoard/kanbanBoard';
 import UpdateButton from '../components/buttons/updateButton';
 import ViewCommentsButton from '../components/buttons/viewCommentsButton';
+import ViewKanbanButton from '../components/buttons/viewKanbanButton';
 
 const ProjectById = () => {
     const navigate = useNavigate();
@@ -30,6 +32,7 @@ const ProjectById = () => {
 
     const [project, setProject] = useState({...initialProjectState});
     const [error, setError] = useState(null);
+    const [commentsView, setCommentsView] = useState("closed");
 
     useEffect(() => {
         setError(null);
@@ -63,6 +66,20 @@ const ProjectById = () => {
         navigate(`/projects/${projectId}/tasks/new`);
     }
 
+    const projectCommentsHandler = (event) => {
+        event.preventDefault();
+        if (commentsView === "closed") {
+            setCommentsView("open");
+        }
+    }
+
+    const projectKanbanHandler = (event) => {
+        event.preventDefault();
+        if (commentsView === "open") {
+            setCommentsView("closed");
+        }
+    }
+
     const updateProjectHandler = (event) => {
         event.preventDefault();
         navigate(`/projects/${projectId}/edit`);
@@ -90,8 +107,16 @@ const ProjectById = () => {
                         itemName={"Task"}
                         addHandler={addTaskHandler} 
                     />
-                    <ViewCommentsButton
-                    />
+                    {commentsView === "closed" && (
+                        <ViewCommentsButton
+                            commentsHandler={projectCommentsHandler}
+                        />
+                    )}
+                    {commentsView === "open" && (
+                        <ViewKanbanButton
+                            kanbanHandler={projectKanbanHandler}
+                        />
+                    )}
                 </div>
                 <div className="item item-two">
                     <h2>{project.title}</h2>
@@ -107,9 +132,19 @@ const ProjectById = () => {
                     />
                 </div>
             </div>
-            <div className="projects-kanban">
-                <KanbanBoard tasks={project.tasks} />
-            </div>
+            {commentsView === "open" && (
+                <div className="projects-comments">
+                    <CommentsInterface
+                        comments={project.comments}
+                        projectTitle={project.title}
+                    />
+                </div>
+            )}
+            {commentsView === "closed" && (
+                <div className="projects-kanban">
+                    <KanbanBoard tasks={project.tasks} />
+                </div>
+            )}
         </section>
     );
 }

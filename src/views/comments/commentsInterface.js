@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
+import { createComment } from '../../utils/api';
+import AddCommentButton from '../../components/buttons/addCommentButton';
 import Comment from './comment';
 import CommentWindow from './commentWindow';
-import { createComment } from '../../utils/api';
+import ErrorAlert from '../../layout/errorAlert';
 
 const CommentsInterface = props => {
     const navigate = useNavigate();
@@ -22,6 +24,16 @@ const CommentsInterface = props => {
 
     const [comment, setComment] = useState({...initialCommentState});
     const [error, setError] = useState(null);
+    const [viewCommentWindow, setViewCommentWindow] = useState("closed");
+
+    const addCommentHandler = (event) => {
+        event.preventDefault();
+        if (viewCommentWindow === "closed") {
+            setViewCommentWindow("open");
+        } else {
+            setViewCommentWindow("closed");
+        }
+    }
 
     const createCommentChangeHandler = ({ target }) => {
         setComment({
@@ -47,19 +59,31 @@ const CommentsInterface = props => {
     const commentsList = comments.map((comment) => <li key={comment.comment_id}><Comment comment={comment} /></li>)
 
     return (
-        <div className="comments">
-            <div className="comments-title">
-                <h3>Comments for <span>{projectTitle}</span></h3>
+        <>
+            <div className="commentsTitle">
+                <div className="item item-one">
+                    <AddCommentButton
+                        addHandler={addCommentHandler}
+                    />
+                </div>
+                <div className="item item-two">
+                    <h3>Comments for {projectTitle}</h3>
+                </div>
+                <div className="item item-three">
+                </div>
             </div>
-             <CommentWindow
-                changeHandler={createCommentChangeHandler}
-                itemName={"Add"}
-                submitHandler={createCommentSubmitHandler}
-            />
-            <div className="comments-body">
+            <div className="commentsBody">
+                <ErrorAlert error={error} />
+                {viewCommentWindow === "open" && (
+                    <CommentWindow
+                        changeHandler={createCommentChangeHandler}
+                        itemName={"Add"}
+                        submitHandler={createCommentSubmitHandler}
+                    />
+                )}
                 {commentsList}
             </div>
-        </div>
+        </>
     );
 }
 

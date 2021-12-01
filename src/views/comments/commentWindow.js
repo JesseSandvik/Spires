@@ -1,5 +1,5 @@
 import React from 'react';
-import SubmitButton from '../../components/buttons/submitButton';
+import CommentForm from './commentForm';
 
 const CommentWindow = props => {
     const {
@@ -10,20 +10,14 @@ const CommentWindow = props => {
         } = props;
 
     return (
-        <form onSubmit={submitHandler}>
-            <label>{itemName} Comment</label>
-            <textarea
-                name="content"
-                type="text"
-                rows="3" cols="30"
-                required
-                onChange={changeHandler}
-                defaultValue={formValueOne ? formValueOne : ""}
+        <div className="commentWindow">
+            <CommentForm
+                changeHandler={changeHandler}
+                formValueOne={formValueOne}
+                itemName={itemName}
+                submitHandler={submitHandler}
             />
-            <div className="form-btns">
-                <SubmitButton />
-            </div>
-        </form>
+        </div>
     );
 }
 

@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router';
 import { formatDate } from '../../utils/formatDate';
 import { formatTime } from '../../utils/formatTime';
 import { deleteComment } from '../../utils/api';
+import DeleteCommentButton from '../../components/buttons/deleteCommentButton';
+import ErrorAlert from '../../layout/errorAlert';
 
 const Comment = props => {
     const navigate = useNavigate();
@@ -28,19 +30,15 @@ const Comment = props => {
             <div className="date">
                         <small>{formatDate(comment.updated_at)}</small>
                 </div>
-                <div className="name">
-                    <h4>{comment.commenter_name}</h4>
-                    <i className="fas fa-reply"></i>
-                    <i className="far fa-edit"></i>
-                    <i
-                        className="fas fa-comment-slash"
-                        onClick={deleteCommentHandler}
-                    ></i>
-                </div>
+                <DeleteCommentButton
+                    deleteHandler={deleteCommentHandler}
+                />
                 <div className="time">
                         <small>{formatTime(comment.updated_at)}</small>
                 </div>
             </div>
+            <ErrorAlert error={error} />
+            <h4>{comment.commenter_name}</h4>
             <p>{comment.content}</p>
         </div>
     );
