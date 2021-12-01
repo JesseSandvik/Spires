@@ -16,10 +16,11 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  top: 0;
-  right: 0;
   left: 0;
+  position: fixed;
+  right: 0;
   text-align: center;
+  top: 0;
 }
 
 header .appTitle {

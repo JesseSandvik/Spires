@@ -139,12 +139,7 @@ form button:hover {
   text-align: center;
 }
 
-.projects-title .item-one {
-  -ms-grid-column: 1;
-  grid-column: 1 / 1;
-}
-
-.projects-title .item-one button {
+.projects-title .item button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -169,17 +164,22 @@ form button:hover {
   text-transform: uppercase;
 }
 
-.projects-title .item-one button i {
+.projects-title .item button i {
   font-size: 1rem;
   padding: 0 0 0.2rem;
 }
 
-.projects-title .item-one button:hover {
+.projects-title .item button:hover {
   opacity: 0.9;
 }
 
-.projects-title .item-one button:hover i {
+.projects-title .item button:hover i {
   color: #C6B677;
+}
+
+.projects-title .item-one {
+  -ms-grid-column: 1;
+  grid-column: 1 / 1;
 }
 
 .projects-title .item-two {
@@ -283,8 +283,54 @@ form button:hover {
 
 .projects-kanban .item {
   border: 3px solid #C6B677;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   margin: 0 0.5rem;
   width: 100%;
+}
+
+.projects-kanban .item button {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #191919;
+  border: 0;
+  color: #F8F8FF;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  letter-spacing: 0.13rem;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.projects-kanban .item button i {
+  font-size: 1.75rem;
+  margin: 0.5rem;
+  padding: 0 0 0.2rem;
+}
+
+.projects-kanban .item button:hover {
+  opacity: 0.9;
+}
+
+.projects-kanban .item button:hover i {
+  color: #C6B677;
 }
 
 .projects-kanban .item-title {
@@ -302,5 +348,70 @@ form button:hover {
   -ms-grid-row: 1;
   grid-row: 1 / 1;
   text-align: center;
+}
+
+.projects-kanban .item-one {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 80vh;
+  padding: 0 0.5rem 15vh;
+  overflow-y: auto;
+}
+
+.projects-kanban .item-two {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 80vh;
+  padding: 0 0.5rem 15vh;
+  overflow-y: auto;
+}
+
+.projects-kanban .item-three {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 80vh;
+  padding: 0 0.5rem 15vh;
+  overflow-y: auto;
+}
+
+.projects-kanban .item .task {
+  background-color: #191919;
+  border: 3px solid #C6B677;
+  border-radius: 10px;
+  color: #F8F8FF;
+  margin: 1rem;
+}
+
+.projects-kanban .item .task-title {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  text-align: center;
+  text-transform: uppercase;
 }
 /*# sourceMappingURL=projects.css.map */

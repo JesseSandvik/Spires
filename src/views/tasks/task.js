@@ -4,6 +4,8 @@ import { deleteTask, updateTaskStatus } from '../../utils/api';
 import classNames from '../../utils/ClassNames';
 import DeleteButton from '../../components/buttons/deleteButton';
 import ErrorAlert from '../../layout/errorAlert';
+import LeftButton from '../../components/buttons/leftButton';
+import RightButton from '../../components/buttons/rightButton';
 import UpdateButton from '../../components/buttons/updateButton';
 
 const Task = props => {
@@ -75,10 +77,9 @@ const Task = props => {
     return (
         <div className="task">
             <div className="task-title">
-                <i
-                    className="far fa-caret-square-left"
-                    onClick={moveTaskToTheLeft}
-                ></i>
+                <LeftButton
+                    leftHandler={moveTaskToTheLeft}
+                />
                 <span>
                     <ErrorAlert error={error} />
                     <p>{task.title}</p>
@@ -102,10 +103,9 @@ const Task = props => {
                         onClick={taskBodyToggleHandler}
                     ></i>
                 </span>
-                <i
-                    className="far fa-caret-square-right"
-                    onClick={moveTaskToTheRight}
-                ></i>
+                <RightButton
+                    rightHandler={moveTaskToTheRight}
+                />
             </div>
             <div className={classNames({
                 "task-body": taskBody === "closed",

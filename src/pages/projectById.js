@@ -4,12 +4,11 @@ import { withAuthenticationRequired } from '@auth0/auth0-react';
 import { deleteProject, readProject } from '../utils/api';
 
 import AddButton from '../components/buttons/addButton';
-import classNames from '../utils/ClassNames';
-import CommentsInterface from '../views/comments/commentsInterface';
 import DeleteButton from '../components/buttons/deleteButton';
 import ErrorAlert from '../layout/errorAlert';
 import KanbanBoard from '../components/kanbanBoard/kanbanBoard';
 import UpdateButton from '../components/buttons/updateButton';
+import ViewCommentsButton from '../components/buttons/viewCommentsButton';
 
 const ProjectById = () => {
     const navigate = useNavigate();
@@ -30,7 +29,6 @@ const ProjectById = () => {
     }
 
     const [project, setProject] = useState({...initialProjectState});
-    const [viewComments, setViewComments] = useState(false);
     const [error, setError] = useState(null);
 
     useEffect(() => {
@@ -65,11 +63,6 @@ const ProjectById = () => {
         navigate(`/projects/${projectId}/tasks/new`);
     }
 
-    const viewCommentsToggleHandler = (event) => {
-        event.preventDefault();
-        (!viewComments ? setViewComments(true) : setViewComments(false));
-    }
-
     const updateProjectHandler = (event) => {
         event.preventDefault();
         navigate(`/projects/${projectId}/edit`);
@@ -97,6 +90,13 @@ const ProjectById = () => {
                         itemName={"Task"}
                         addHandler={addTaskHandler} 
                     />
+                    <ViewCommentsButton
+                    />
+                </div>
+                <div className="item item-two">
+                    <h2>{project.title}</h2>
+                </div>
+                <div className="item item-three">
                     <UpdateButton
                         itemName={"Project"}
                         updateHandler={updateProjectHandler}
@@ -105,15 +105,6 @@ const ProjectById = () => {
                         itemName={"Project"}
                         deleteHandler={deleteProjectHandler}
                     />
-                </div>
-                <div className="item item-two">
-                    <h2>{project.title}</h2>
-                </div>
-                <div className="item item-three">
-                    <i
-                        className="fas fa-comments"
-                        onClick={viewCommentsToggleHandler}
-                    ></i>
                 </div>
             </div>
             <div className="projects-kanban">

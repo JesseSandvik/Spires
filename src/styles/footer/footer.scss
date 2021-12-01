@@ -2,13 +2,18 @@
 
 footer {
     align-items: center;
+    background-color: $primary-color;
+    bottom: 0;
     display: flex;
     flex-direction: row;
     font-family: Jura, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     grid-column: 1 / -1;
     grid-row: 3 / -1;
     justify-content: center;
+    left: 0;
     padding: 1rem;
+    position: fixed;
+    right: 0;
     text-align: center;
 
     h5 {

@@ -8,10 +8,11 @@ header {
     grid-column: 1 / -1;
     grid-row: 1 / 1;
     justify-content: space-between;
-    top: 0;
-    right: 0;
     left: 0;
+    position: fixed;
+    right: 0;
     text-align: center;
+    top: 0;
 
     .appTitle {
         padding: 0.5rem 1.72rem;

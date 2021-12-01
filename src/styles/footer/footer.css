@@ -2,6 +2,8 @@ footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background-color: #F8F8FF;
+  bottom: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -15,7 +17,10 @@ footer {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  left: 0;
   padding: 1rem;
+  position: fixed;
+  right: 0;
   text-align: center;
 }
 
