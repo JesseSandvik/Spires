@@ -1,13 +1,6 @@
 @import '../config';
 
 .sideBar {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    grid-column: 1 / 1;
-    justify-content: flex-start;
-    padding: 0.5rem;
-    text-align: center;
     
     &-user {
         padding: 0.5rem;

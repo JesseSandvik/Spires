@@ -10,3 +10,21 @@ $muted-color: #191919;
 @mixin transition-ease-delay-one {
     transition: 0.6s ease-in-out 0.1s;
 }
+
+@mixin media-mobile {
+    @media screen and (max-width: 750px) {
+        @content;
+    }
+}
+
+@mixin media-medium {
+    @media screen and (min-width: 750px) and (max-width: 1330px) {
+        @content;
+    }
+}
+
+@mixin media-desktop {
+    @media screen and (min-width: 1330px) {
+        @content;
+    }
+}

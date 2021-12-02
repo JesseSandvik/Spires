@@ -1,4 +1,5 @@
 @import '../config';
+@import '../responsive';
 
 * {
     box-sizing: border-box;
@@ -46,12 +47,4 @@ ul {
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
     width: 100vw;
-
-    main {
-        display: grid;
-        grid-row: 2 / 2;
-        grid-template-columns: auto 1fr;
-        padding: 7vh 0 4vh;
-        width: 100vw;
-    }
 }
