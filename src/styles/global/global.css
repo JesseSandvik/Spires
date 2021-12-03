@@ -71,6 +71,58 @@
   }
 }
 
+@media screen and (min-width: 750px) and (max-width: 1330px) {
+  .app main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-grid-row: 2;
+    grid-row: 2 / 2;
+    height: 100%;
+    overflow-y: auto;
+    width: 100vw;
+  }
+  .app main .sideBar {
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    border: 1px solid black;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-grid-column: 1;
+    grid-column: 1 / 1;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding: 0.5rem;
+    text-align: center;
+  }
+  .app main .projects {
+    height: 100vh;
+  }
+  .app main .projects-kanban {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+}
+
 @media screen and (min-width: 1330px) {
   .app main {
     display: -ms-grid;
