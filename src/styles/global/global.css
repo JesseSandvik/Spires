@@ -17,12 +17,33 @@
     width: 100vw;
   }
   .app main .projects {
-    height: 100vh;
+    height: 80vh;
     overflow-y: auto;
   }
   .app main .projects-form {
     height: 130vh;
     margin: 0 2rem;
+    overflow-y: auto;
+  }
+  .app main .projects-kanban {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .app main .projects-comments .commentsBody {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    height: 80vh;
     overflow-y: auto;
   }
   .app main .sideBar {
@@ -80,6 +101,18 @@
             justify-content: flex-start;
     padding: 0.5rem;
     text-align: center;
+  }
+  .app main .projects-kanban {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
   }
 }
 

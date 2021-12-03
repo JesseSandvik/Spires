@@ -133,11 +133,8 @@
     }
 
     &-kanban {
-        display: flex;
-        flex-direction: row;
         grid-column: 1 / -1;
         grid-row: 2 / 2;
-        justify-content: space-evenly;
         margin: 0.5rem;
         padding: 0 0.5rem;
         text-align: center;
