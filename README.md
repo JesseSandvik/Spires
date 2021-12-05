@@ -3,7 +3,7 @@
 ## Overview
 Spires is a workflow & communication tool designed to streamline the development process.
 
-[Spires Projects Page](https://i.imgur.com/ch1NLtb.png)
+![Spires Projects Page](https://i.imgur.com/ch1NLtb.png)
 
 ## Installation
 Fork & clone this repository.            |
