@@ -38,7 +38,7 @@ const UpdateProject = () => {
                         project_id: response.project_id,
                         title: response.title,
                         description: response.description,
-                        due_date: response.due_date,
+                        due_date: formatDateForUpdateForm(response.due_date),
                         due_time: response.due_time,
                         creator_name: response.creator_name,
                         creator_email: response.creator_email,
@@ -112,7 +112,7 @@ const UpdateProject = () => {
                     changeHandler={updateProjectChangeHandler}
                     formValueOne={project.title}
                     formValueTwo={project.description}
-                    formValueThree={formatDateForUpdateForm(project.due_date)}
+                    formValueThree={project.due_date}
                     formValueFour={project.due_time}
                     submitHandler={updateProjectSubmitHandler}
                 />

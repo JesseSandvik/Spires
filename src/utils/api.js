@@ -51,6 +51,7 @@ export async function createProject(data, signal) {
     body: JSON.stringify({ data }),
     signal,
   };
+  console.log(data)
   return await fetchJson(url, options);
 }
 
