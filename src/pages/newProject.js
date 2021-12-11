@@ -61,6 +61,10 @@ const NewProject = () => {
                 <ProjectForm
                     changeHandler={createProjectChangeHandler}
                     submitHandler={createProjectSubmitHandler}
+                    formValueOne={project.title}
+                    formValueTwo={project.description}
+                    formValueThree={project.due_date}
+                    formValueFour={project.due_time}
                 />
             </div>
         </section>

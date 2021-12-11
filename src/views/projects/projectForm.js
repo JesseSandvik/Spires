@@ -26,7 +26,7 @@ const ProjectForm = props => {
             <textarea
                 name="description"
                 type="text"
-                rows="5" cols="50"
+                rows="5" cols="30"
                 required
                 onChange={changeHandler}
                 defaultValue={formValueTwo ? formValueTwo : ""}
