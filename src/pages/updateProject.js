@@ -55,7 +55,12 @@ const UpdateProject = () => {
 
     const updateProjectCancelHandler = (event) => {
         event.preventDefault();
-        navigate(`/projects/${projectId}`);
+        setError(null);
+        const confirmUnsavedChanges = window.confirm("Navigate away from this page? Changes that you've made may not be saved.");
+
+        if (confirmUnsavedChanges) {
+            navigate(`/projects/${projectId}`);
+        }
     }
 
     const updateProjectChangeHandler = ({ target }) => {
