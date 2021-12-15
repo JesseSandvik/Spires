@@ -75,7 +75,12 @@ const UpdateTask = () => {
 
     const updateTaskCancelHandler = (event) => {
         event.preventDefault();
-        navigate(`/projects/${task.project_id}`);
+        setError(null);
+        const confirmUnsavedChanges = window.confirm("Navigate away from this page? Changes that you've made may not be saved.");
+
+        if (confirmUnsavedChanges) {
+            navigate(`/projects/${task.project_id}`);
+        }
     }
 
     const updateTaskSubmitHandler = (event) => {
