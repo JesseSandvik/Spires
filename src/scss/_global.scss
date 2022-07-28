@@ -1,0 +1,43 @@
+@use "./settings/" as *;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    background: $primary;
+    color: $secondary;
+    .app {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        min-height: 100vh;
+        & > * {
+            border: 1px solid red;
+            padding: $padding;
+        }
+        header {
+            background: $secondary;
+            color: $primary;
+            font-family: 'Exo 2', sans-serif;
+            gap: $gap;
+            text-transform: capitalize;
+            & > div {
+                align-items: center;
+                border: 1px solid violet;
+                display: flex;
+                &:last-child {
+                    gap: $gap;
+                    justify-content: flex-end;
+                    button {
+                        font-weight: bold;
+                        height: 36px;
+                        letter-spacing: 0.033rem;
+                        text-transform: capitalize;
+                        width: 72px;
+                    }
+                }
+            }
+        }
+    }
+}

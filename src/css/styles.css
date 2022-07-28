@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  background: #f1f1f1;
+  color: #1f1f1f;
+}
+body .app {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+body .app > * {
+  border: 1px solid red;
+  padding: 1rem;
+}
+body .app header {
+  background: #1f1f1f;
+  color: #f1f1f1;
+  font-family: "Exo 2", sans-serif;
+  gap: 1rem;
+  text-transform: capitalize;
+}
+body .app header > div {
+  align-items: center;
+  border: 1px solid violet;
+  display: flex;
+}
+body .app header > div:last-child {
+  gap: 1rem;
+  justify-content: flex-end;
+}
+body .app header > div:last-child button {
+  font-weight: bold;
+  height: 36px;
+  letter-spacing: 0.033rem;
+  text-transform: capitalize;
+  width: 72px;
+}
+
+footer {
+  align-items: center;
+  display: flex;
+  grid-column: 1/-1;
+  grid-row: 3/-1;
+  justify-content: center;
+}
+
+header {
+  display: grid;
+  grid-column: 1/-1;
+  grid-row: 1/1;
+  grid-template-columns: 1fr 1fr;
+}
+
+/*# sourceMappingURL=styles.css.map */
