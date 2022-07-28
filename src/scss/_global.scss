@@ -19,12 +19,10 @@ body {
         grid-template-rows: auto 1fr auto;
         min-height: 100vh;
         & > * {
-            border: 1px solid red;
+            grid-template-columns: repeat(6, 1fr);
             padding: $padding;
         }
         header {
-            background: $secondary;
-            color: $primary;
             font-family: 'Exo 2', sans-serif;
             gap: $gap;
             text-transform: capitalize;
@@ -36,7 +34,6 @@ body {
                         align-items: center;
                         background: transparent;
                         border: none;
-                        color: $primary;
                         display: flex;
                         gap: math.div($gap, 2);
                         i {
@@ -47,9 +44,10 @@ body {
                 }
                 &:last-child {
                     gap: $gap;
+                    grid-column: 3 / -1;
                     justify-content: flex-end;
                     button {
-                        background: transparent;
+                        background: $secondary;
                         border: $border solid transparent;
                         border-radius: $border-radius;
                         color: $primary;
@@ -58,7 +56,7 @@ body {
                         letter-spacing: 0.033rem;
                         width: 72px;
                         &:hover {
-                            border: $border solid $green-bright;
+                            opacity: 0.9;
                         }
                     }
                 }
