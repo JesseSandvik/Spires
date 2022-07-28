@@ -4,6 +4,11 @@
   margin: 0;
 }
 
+button {
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
 body {
   background: #f1f1f1;
   color: #1f1f1f;
@@ -26,19 +31,36 @@ body .app header {
 }
 body .app header > div {
   align-items: center;
-  border: 1px solid violet;
   display: flex;
+}
+body .app header > div:first-child button {
+  align-items: center;
+  background: transparent;
+  border: none;
+  color: #f1f1f1;
+  display: flex;
+  gap: 0.5rem;
+}
+body .app header > div:first-child button i {
+  color: #acfcd9;
+  font-size: 2.2rem;
 }
 body .app header > div:last-child {
   gap: 1rem;
   justify-content: flex-end;
 }
 body .app header > div:last-child button {
+  background: transparent;
+  border: 3.33px solid transparent;
+  border-radius: 10px;
+  color: #f1f1f1;
   font-weight: bold;
   height: 36px;
   letter-spacing: 0.033rem;
-  text-transform: capitalize;
   width: 72px;
+}
+body .app header > div:last-child button:hover {
+  border: 3.33px solid #acfcd9;
 }
 
 footer {

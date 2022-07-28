@@ -1,8 +1,14 @@
 @use "./settings/" as *;
+@use "sass:math";
 
 * {
     box-sizing: border-box;
     margin: 0;
+}
+
+button {
+    cursor: pointer;
+    text-transform: capitalize;
 }
 
 body {
@@ -24,17 +30,36 @@ body {
             text-transform: capitalize;
             & > div {
                 align-items: center;
-                border: 1px solid violet;
                 display: flex;
+                &:first-child {
+                    button {
+                        align-items: center;
+                        background: transparent;
+                        border: none;
+                        color: $primary;
+                        display: flex;
+                        gap: math.div($gap, 2);
+                        i {
+                            color: $green-bright;
+                            font-size: 2.2rem;
+                        }
+                    }
+                }
                 &:last-child {
                     gap: $gap;
                     justify-content: flex-end;
                     button {
+                        background: transparent;
+                        border: $border solid transparent;
+                        border-radius: $border-radius;
+                        color: $primary;
                         font-weight: bold;
                         height: 36px;
                         letter-spacing: 0.033rem;
-                        text-transform: capitalize;
                         width: 72px;
+                        &:hover {
+                            border: $border solid $green-bright;
+                        }
                     }
                 }
             }
