@@ -1,20 +1,23 @@
-import './styles/global/global.css';
-import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import Auth0ProviderWithHistory from './auth/auth0-provider-with-history';
-import Layout from './layout/layout';
+import logo from './logo.svg';
+import './App.css';
 
-const App = () => {
-
-
-
+function App() {
   return (
-    <div className="app">
-      <Router>
-        <Auth0ProviderWithHistory>
-          <Layout />
-        </Auth0ProviderWithHistory>
-      </Router>
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
     </div>
   );
 }
