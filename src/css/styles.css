@@ -22,6 +22,7 @@ ul, ol {
 body {
   background: #f1f1f1;
   color: #1f1f1f;
+  font-family: "Montserrat Alternates", sans-serif;
 }
 body .app {
   display: grid;
@@ -35,7 +36,7 @@ body .app > * {
   padding: 1rem;
 }
 body .app header {
-  font-family: "Exo 2", sans-serif;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
   text-transform: capitalize;
 }
 body .app header > div {
@@ -46,19 +47,24 @@ body .app header > div:first-child button {
   align-items: center;
   background: transparent;
   border: none;
+  color: #1f1f1f;
   display: flex;
   gap: 0.5rem;
+  padding: 0.5rem;
+  width: 100%;
 }
 body .app header > div:first-child button i {
   background: #1f1f1f;
-  border-radius: 10px;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+  border: 2px groove rgba(197, 231, 226, 0.9);
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.33);
   color: #f1f1f1;
   font-size: 2rem;
-  padding: 0.5rem;
+  padding: 1rem;
   transform: rotate(90deg);
 }
 body .app header > div:first-child button h1 {
+  font-family: "Exo 2", sans-serif;
   font-size: 2rem;
 }
 body .app header > div:last-child {
@@ -69,7 +75,7 @@ body .app header > div:last-child {
 body .app header > div:last-child button {
   background: #1f1f1f;
   border: 3.33px solid transparent;
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
   color: #f1f1f1;
   font-weight: bold;
@@ -80,56 +86,71 @@ body .app header > div:last-child button {
 body .app header > div:last-child button:hover {
   opacity: 0.9;
 }
-body .app main #sidebar {
+body .app #sidebar {
   align-items: center;
   background: #1f1f1f;
+  border: 2px groove rgba(197, 231, 226, 0.9);
   border-radius: 10px;
   box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
   grid-column: 1/1;
+  padding: 2rem 1rem;
+}
+body .app #sidebar div:first-child {
+  color: #f1f1f1;
+  font-weight: bold;
   padding: 1rem;
 }
-body .app main #sidebar nav {
+body .app #sidebar nav {
   font-weight: bold;
   letter-spacing: 0.033rem;
-  padding: 2rem 0;
   text-transform: capitalize;
   width: 100%;
 }
-body .app main #sidebar nav ul {
-  background: rgba(197, 231, 226, 0.33);
+body .app #sidebar nav ul {
+  background: rgba(197, 231, 226, 0.25);
   border: 1px inset #c5e7e2;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
   list-style: none;
-  padding: 1rem;
+  padding: 2rem 1rem;
 }
-body .app main #sidebar nav ul li {
+body .app #sidebar nav ul li {
   font-family: "Exo 2", sans-serif;
   width: 100%;
 }
-body .app main #sidebar nav ul li a {
+body .app #sidebar nav ul li a {
   align-items: center;
   background: rgba(197, 231, 226, 0.7);
-  border: 1px solid rgba(172, 252, 217, 0.8);
+  border: 1px groove rgba(172, 252, 217, 0.8);
   border-radius: 5px;
   color: #1e441e;
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
   padding: 1rem;
 }
-body .app main #sidebar nav ul li a i {
+body .app #sidebar nav ul li a i {
+  align-items: center;
+  display: flex;
   font-size: 1.5rem;
+  justify-content: center;
+  width: 32px;
 }
-body .app main #sidebar nav ul li a:hover {
+body .app #sidebar nav ul li a:hover {
   background: #c5e7e2;
 }
-body .app main #sidebar nav ul li a.active {
+body .app #sidebar nav ul li a.active {
   background: #c5e7e2;
   border: 2px outset rgba(172, 252, 217, 0.8);
+}
+body .app footer div {
+  align-items: center;
+  display: flex;
+  grid-column: 2/6;
+  justify-content: center;
 }
 
 footer {

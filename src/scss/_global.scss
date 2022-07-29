@@ -24,6 +24,7 @@ ul, ol {
 body {
     background: $primary;
     color: $secondary;
+    font-family: 'Montserrat Alternates', sans-serif;
     .app {
         display: grid;
         grid-template-rows: auto 1fr auto;
@@ -35,7 +36,7 @@ body {
             padding: $padding;
         }
         header {
-            font-family: 'Exo 2', sans-serif;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
             text-transform: capitalize;
             & > div {
                 align-items: center;
@@ -45,18 +46,23 @@ body {
                         align-items: center;
                         background: transparent;
                         border: none;
+                        color: $secondary;
                         display: flex;
                         gap: math.div($gap, 2);
+                        padding: math.div($padding, 2);
+                        width: 100%;
                         i {
                             background: $secondary;
-                            border-radius: $border-radius;
-                            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+                            border: 2px groove rgba($blue-bright, 0.9);
+                            border-radius: math.div($border-radius, 2);
+                            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.33);
                             color: $primary;
                             font-size: 2rem;
-                            padding: math.div($padding, 2);
+                            padding: $padding;
                             transform: rotate(90deg);
                         }
                         h1 {
+                            font-family: 'Exo 2', sans-serif;
                             font-size: 2rem;
                         }
                     }
@@ -68,7 +74,7 @@ body {
                     button {
                         background: $secondary;
                         border: $border solid transparent;
-                        border-radius: $border-radius;
+                        border-radius: math.div($border-radius, 2);
                         box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
                         color: $primary;
                         font-weight: bold;
@@ -82,57 +88,72 @@ body {
                 }
             }
         }
-        main {
-            #sidebar {
-                align-items: center;
-                background: $secondary;
-                border-radius: $border-radius;
-                box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.4);
-                display: flex;
-                flex-direction: column;
-                grid-column: 1 / 1;
+        #sidebar {
+            align-items: center;
+            background: $secondary;
+            border: 2px groove rgba($blue-bright, 0.9);
+            border-radius: $border-radius;
+            box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            grid-column: 1 / 1;
+            padding: $padding * 2 $padding;
+            div:first-child {
+                color: $primary;
+                font-weight: bold;
                 padding: $padding;
-                nav {
-                    font-weight: bold;
-                    letter-spacing: 0.033rem;
-                    padding: $padding * 2 0;
-                    text-transform: capitalize;
-                    width: 100%;
-                    ul {
-                        background: rgba($blue-bright, 0.33);
-                        border: 1px inset $blue-bright;
-                        border-radius: math.div($border-radius, 2);
-                        display: flex;
-                        flex-direction: column;
-                        gap: $gap;
-                        list-style: none;
-                        padding: $padding;
-                        li {
-                            font-family: 'Exo 2', sans-serif;
-                            width: 100%;
-                            a {
+            }
+            nav {
+                font-weight: bold;
+                letter-spacing: 0.033rem;
+                text-transform: capitalize;
+                width: 100%;
+                ul {
+                    background: rgba($blue-bright, 0.25);
+                    border: 1px inset $blue-bright;
+                    border-radius: math.div($border-radius, 2);
+                    display: flex;
+                    flex-direction: column;
+                    gap: $gap;
+                    list-style: none;
+                    padding: $padding * 2 $padding;
+                    li {
+                        font-family: 'Exo 2', sans-serif;
+                        width: 100%;
+                        a {
+                            align-items: center;
+                            background: rgba($blue-bright, 0.7);
+                            border: 1px groove rgba($green-bright, 0.8);
+                            border-radius: math.div($border-radius, 2);
+                            color: $green-dark;
+                            display: flex;
+                            gap: math.div($gap, 2);
+                            padding: $padding;
+                            i {
                                 align-items: center;
-                                background: rgba($blue-bright, 0.7);
-                                border: 1px solid rgba($green-bright, 0.8);
-                                border-radius: math.div($border-radius, 2);
-                                color: $green-dark;
                                 display: flex;
-                                gap: $gap;
-                                padding: $padding;
-                                i {
-                                    font-size: 1.5rem;
-                                }
-                                &:hover {
-                                    background: $blue-bright;
-                                }
-                                &.active {
-                                    background: $blue-bright;
-                                    border: 2px outset rgba($green-bright, 0.8);
-                                }
+                                font-size: 1.5rem;
+                                justify-content: center;
+                                width: 32px;
+                            }
+                            &:hover {
+                                background: $blue-bright;
+                            }
+                            &.active {
+                                background: $blue-bright;
+                                border: 2px outset rgba($green-bright, 0.8);
                             }
                         }
                     }
                 }
+            }
+        }
+        footer {
+            div {
+                align-items: center;
+                display: flex;
+                grid-column: 2 / 6;
+                justify-content: center;
             }
         }
     }
