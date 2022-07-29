@@ -65,7 +65,7 @@ body .app header > div:first-child button i {
 }
 body .app header > div:first-child button h1 {
   font-family: "Exo 2", sans-serif;
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 body .app header > div:last-child {
   gap: 1rem;
@@ -86,7 +86,7 @@ body .app header > div:last-child button {
 body .app header > div:last-child button:hover {
   opacity: 0.9;
 }
-body .app #sidebar {
+body .app main #sidebar {
   align-items: center;
   background: #1f1f1f;
   border: 2px groove rgba(197, 231, 226, 0.9);
@@ -97,18 +97,18 @@ body .app #sidebar {
   grid-column: 1/1;
   padding: 2rem 1rem;
 }
-body .app #sidebar div:first-child {
+body .app main #sidebar div:first-child {
   color: #f1f1f1;
   font-weight: bold;
   padding: 1rem;
 }
-body .app #sidebar nav {
+body .app main #sidebar nav {
   font-weight: bold;
   letter-spacing: 0.033rem;
   text-transform: capitalize;
   width: 100%;
 }
-body .app #sidebar nav ul {
+body .app main #sidebar nav ul {
   background: rgba(197, 231, 226, 0.25);
   border: 1px inset #c5e7e2;
   border-radius: 5px;
@@ -118,33 +118,37 @@ body .app #sidebar nav ul {
   list-style: none;
   padding: 2rem 1rem;
 }
-body .app #sidebar nav ul li {
+body .app main #sidebar nav ul li {
   font-family: "Exo 2", sans-serif;
   width: 100%;
 }
-body .app #sidebar nav ul li a {
+body .app main #sidebar nav ul li a {
   align-items: center;
   background: rgba(197, 231, 226, 0.7);
-  border: 1px groove rgba(172, 252, 217, 0.8);
+  border: 1px groove rgba(197, 231, 226, 0.8);
   border-radius: 5px;
   color: #1e441e;
   display: flex;
   gap: 0.5rem;
   padding: 1rem;
 }
-body .app #sidebar nav ul li a i {
+body .app main #sidebar nav ul li a i {
   align-items: center;
   display: flex;
   font-size: 1.5rem;
   justify-content: center;
   width: 32px;
 }
-body .app #sidebar nav ul li a:hover {
+body .app main #sidebar nav ul li a:hover {
   background: #c5e7e2;
 }
-body .app #sidebar nav ul li a.active {
+body .app main #sidebar nav ul li a.active {
   background: #c5e7e2;
-  border: 2px outset rgba(172, 252, 217, 0.8);
+  border: 2px outset rgba(197, 231, 226, 0.8);
+}
+body .app main section {
+  display: grid;
+  grid-column: 2/-1;
 }
 body .app footer div {
   align-items: center;
@@ -179,6 +183,50 @@ header {
   grid-row: 2/6;
   justify-content: center;
   padding: 1rem;
+}
+
+#login {
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+}
+#login > div {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  grid-column: 2/6;
+  grid-row: 2/6;
+  padding: 1rem;
+}
+#login > div h2 {
+  padding: 1rem;
+}
+#login > div > div {
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 2rem;
+}
+#login > div > div button {
+  border: 2px groove rgba(31, 31, 31, 0.1);
+  border-radius: 5px;
+  font-weight: bold;
+  letter-spacing: 0.033rem;
+  padding: 1rem 2rem;
+  width: 100%;
+}
+#login > div > div button:hover {
+  border: 2px outset rgba(31, 31, 31, 0.1);
+  opacity: 0.9;
+}
+#login > div > div button:first-child {
+  background: #ad9baa;
+}
+#login > div > div button:nth-child(2) {
+  background: #a0d2db;
 }
 
 /*# sourceMappingURL=styles.css.map */
