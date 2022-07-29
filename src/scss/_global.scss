@@ -31,13 +31,15 @@ body {
         min-height: 100vh;
         & > * {
             display: grid;
-            gap: $gap;
             grid-template-columns: repeat(6, 1fr);
-            padding: $padding;
         }
         header {
+            background: $primary;
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+            height: 120px;
+            padding: $padding;
             text-transform: capitalize;
+            z-index: 1;
             & > div {
                 align-items: center;
                 display: flex;
@@ -54,8 +56,8 @@ body {
                         i {
                             background: $secondary;
                             border: 2px groove rgba($green-bright, 0.9);
-                            border-radius: math.div($border-radius, 2);
-                            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.33);
+                            border-radius: 50%;
+                            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
                             color: $primary;
                             font-size: 2rem;
                             padding: $padding;
@@ -63,7 +65,22 @@ body {
                         }
                         h1 {
                             font-family: 'Exo 2', sans-serif;
-                            font-size: 2.5rem;
+                            font-size: 2.3rem;
+                            letter-spacing: 0.06rem;
+                            
+                        }
+                        small {
+                            align-items: center;
+                            background: $secondary;
+                            border-radius: math.div($border-radius, 2);
+                            color: $green-bright;
+                            display: flex;
+                            font-family: 'Montserrat Alternates', sans-serif;
+                            font-size: 0.8rem;
+                            font-weight: 500;
+                            justify-content: center;
+                            letter-spacing: 0.033rem;
+                            padding: math.div($padding, 4);
                         }
                     }
                 }
@@ -91,9 +108,10 @@ body {
         main {
             #sidebar {
                 align-items: center;
-                background: $secondary;
-                border: 2px groove rgba($green-bright, 0.9);
-                border-radius: $border-radius;
+                background: rgba($secondary, 0.8);
+                border-bottom: 2px groove rgba($green-bright, 0.9);
+                border-right: 2px groove rgba($green-bright, 0.9);
+                border-bottom-right-radius: $border-radius;
                 box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.4);
                 display: flex;
                 flex-direction: column;
@@ -110,9 +128,6 @@ body {
                     text-transform: capitalize;
                     width: 100%;
                     ul {
-                        background: rgba($green-bright, 0.25);
-                        border: 1px inset $green-bright;
-                        border-radius: math.div($border-radius, 2);
                         display: flex;
                         flex-direction: column;
                         gap: $gap;
@@ -123,26 +138,29 @@ body {
                             width: 100%;
                             a {
                                 align-items: center;
-                                background: rgba($green-bright, 0.7);
-                                border: 1px groove rgba($green-bright, 0.8);
-                                border-radius: math.div($border-radius, 2);
-                                color: $green-dark;
+                                background: $secondary;
+                                border: 1px groove rgba($primary, 0.5);
+                                border-radius: $border-radius;
+                                color: rgba($green-bright, 0.8);
                                 display: flex;
                                 gap: math.div($gap, 2);
-                                padding: $padding;
+                                padding: math.div($padding, 1.5);
                                 i {
                                     align-items: center;
                                     display: flex;
                                     font-size: 1.5rem;
+                                    height: 32px;
                                     justify-content: center;
                                     width: 32px;
                                 }
                                 &:hover {
                                     background: $green-bright;
+                                    color: $secondary;
                                 }
                                 &.active {
                                     background: $green-bright;
                                     border: 2px outset rgba($green-bright, 0.8);
+                                    color: $secondary;
                                 }
                             }
                         }
@@ -159,11 +177,30 @@ body {
             }
         }
         footer {
+            button {
+                background: #000;
+                border: none;
+                border-radius: 50%;
+                bottom: 0.5rem;
+                cursor: pointer;
+                font-size: 1.5rem;
+                height: 36px;
+                left: 0.5rem;
+                position: absolute;
+                width: 36px;
+                i {
+                    color: $green-bright;
+                }
+            }
             div {
                 align-items: center;
                 display: flex;
                 grid-column: 2 / 6;
                 justify-content: center;
+                padding: $padding;
+                span {
+                    font-weight: 600;
+                }
             }
         }
     }

@@ -16,7 +16,7 @@ function SignUp() {
             continue as guest
           </Button>
           <Button onClick={() => console.log("click")}>
-            continue with username
+            create username & password
           </Button>
         </div>
         <div>

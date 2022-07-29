@@ -31,13 +31,15 @@ body .app {
 }
 body .app > * {
   display: grid;
-  gap: 1rem;
   grid-template-columns: repeat(6, 1fr);
-  padding: 1rem;
 }
 body .app header {
+  background: #f1f1f1;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  height: 120px;
+  padding: 1rem;
   text-transform: capitalize;
+  z-index: 1;
 }
 body .app header > div {
   align-items: center;
@@ -56,8 +58,8 @@ body .app header > div:first-child button {
 body .app header > div:first-child button i {
   background: #1f1f1f;
   border: 2px groove rgba(197, 231, 226, 0.9);
-  border-radius: 5px;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.33);
+  border-radius: 50%;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
   color: #f1f1f1;
   font-size: 2rem;
   padding: 1rem;
@@ -65,7 +67,21 @@ body .app header > div:first-child button i {
 }
 body .app header > div:first-child button h1 {
   font-family: "Exo 2", sans-serif;
-  font-size: 2.5rem;
+  font-size: 2.3rem;
+  letter-spacing: 0.06rem;
+}
+body .app header > div:first-child button small {
+  align-items: center;
+  background: #1f1f1f;
+  border-radius: 5px;
+  color: #c5e7e2;
+  display: flex;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  justify-content: center;
+  letter-spacing: 0.033rem;
+  padding: 0.25rem;
 }
 body .app header > div:last-child {
   gap: 1rem;
@@ -88,9 +104,10 @@ body .app header > div:last-child button:hover {
 }
 body .app main #sidebar {
   align-items: center;
-  background: #1f1f1f;
-  border: 2px groove rgba(197, 231, 226, 0.9);
-  border-radius: 10px;
+  background: rgba(31, 31, 31, 0.8);
+  border-bottom: 2px groove rgba(197, 231, 226, 0.9);
+  border-right: 2px groove rgba(197, 231, 226, 0.9);
+  border-bottom-right-radius: 10px;
   box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
@@ -109,9 +126,6 @@ body .app main #sidebar nav {
   width: 100%;
 }
 body .app main #sidebar nav ul {
-  background: rgba(197, 231, 226, 0.25);
-  border: 1px inset #c5e7e2;
-  border-radius: 5px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -124,27 +138,30 @@ body .app main #sidebar nav ul li {
 }
 body .app main #sidebar nav ul li a {
   align-items: center;
-  background: rgba(197, 231, 226, 0.7);
-  border: 1px groove rgba(197, 231, 226, 0.8);
-  border-radius: 5px;
-  color: #1e441e;
+  background: #1f1f1f;
+  border: 1px groove rgba(241, 241, 241, 0.5);
+  border-radius: 10px;
+  color: rgba(197, 231, 226, 0.8);
   display: flex;
   gap: 0.5rem;
-  padding: 1rem;
+  padding: 0.6666666667rem;
 }
 body .app main #sidebar nav ul li a i {
   align-items: center;
   display: flex;
   font-size: 1.5rem;
+  height: 32px;
   justify-content: center;
   width: 32px;
 }
 body .app main #sidebar nav ul li a:hover {
   background: #c5e7e2;
+  color: #1f1f1f;
 }
 body .app main #sidebar nav ul li a.active {
   background: #c5e7e2;
   border: 2px outset rgba(197, 231, 226, 0.8);
+  color: #1f1f1f;
 }
 body .app main section {
   display: grid;
@@ -154,11 +171,30 @@ body .app main section h2 {
   padding: 1rem;
   text-transform: capitalize;
 }
+body .app footer button {
+  background: #000;
+  border: none;
+  border-radius: 50%;
+  bottom: 0.5rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+  height: 36px;
+  left: 0.5rem;
+  position: absolute;
+  width: 36px;
+}
+body .app footer button i {
+  color: #c5e7e2;
+}
 body .app footer div {
   align-items: center;
   display: flex;
   grid-column: 2/6;
   justify-content: center;
+  padding: 1rem;
+}
+body .app footer div span {
+  font-weight: 600;
 }
 
 footer {
@@ -172,21 +208,38 @@ header {
 }
 
 #home {
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
 }
 #home > div {
   align-items: center;
   background: #1f1f1f;
   border-radius: 10px;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.33);
   color: #f1f1f1;
   display: flex;
   flex-direction: column;
-  grid-column: 2/6;
-  grid-row: 2/6;
+  gap: 1rem;
+  grid-column: 2/5;
+  grid-row: 2/5;
   justify-content: center;
   padding: 1rem;
+}
+#home > div h2 {
+  font-size: 4rem;
+  text-align: center;
+  text-transform: none;
+}
+#home > div a {
+  color: #c5e7e2;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 0.07rem;
+  padding: 1rem;
+}
+#home > div a:hover {
+  color: #ad9baa;
+  scale: 1.1;
 }
 
 #login {

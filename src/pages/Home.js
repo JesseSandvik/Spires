@@ -1,14 +1,17 @@
 import Heading from "../components/atoms/heading/Heading";
-import Main from "../components/organisms/main/Main";
+import NavigationLink from "../components/atoms/navigationLink/NavigationLink";
 
 function Home() {
   return (
-    <Main id="home">
+    <section id="home">
       <div>
-        <Heading level="2">Spires</Heading>
-        <p>is a workflow application & management tool.</p>
+        <Heading level="2">
+          Plan & execute your next project with intent.
+        </Heading>
+        <p>With Spires, we aim higher.</p>
+        <NavigationLink to="/signup">Let&apos;s get started.</NavigationLink>
       </div>
-    </Main>
+    </section>
   );
 }
 

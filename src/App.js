@@ -31,12 +31,15 @@ function App() {
         <div>
           <Button onClick={() => navigate("/")}>
             <Icon className="fa-solid fa-backward" />
-            <Heading level="1">spires</Heading>
+            <span>
+              <Heading level="1">spires</Heading>
+              <small>aim higher</small>
+            </span>
           </Button>
         </div>
         <div>
           <Button onClick={() => navigate("/login")}>login</Button>
-          <Button onClick={() => console.log("click")}>sign up</Button>
+          <Button onClick={() => navigate("/signup")}>sign up</Button>
         </div>
       </Header>
       <Main>
@@ -74,7 +77,13 @@ function App() {
         </Routes>
       </Main>
       <Footer>
-        <div>&copy; jessesandvik {new Date().getFullYear()}</div>
+        <Button onClick={() => console.log("click")}>
+          <Icon className="fa-brands fa-github" />
+        </Button>
+        <div>
+          <span>&copy;</span> jesse<span>sandvik</span>
+          {new Date().getFullYear()}
+        </div>
       </Footer>
     </div>
   );
