@@ -150,6 +150,10 @@ body .app main section {
   display: grid;
   grid-column: 2/-1;
 }
+body .app main section h2 {
+  padding: 1rem;
+  text-transform: capitalize;
+}
 body .app footer div {
   align-items: center;
   display: flex;
@@ -200,11 +204,14 @@ header {
 }
 #login > div h2 {
   padding: 1rem;
+  text-transform: none;
+}
+#login > div:first-child {
+  border-radius: 10px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
 }
 #login > div > div {
   align-items: center;
-  border-radius: 10px;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -227,6 +234,73 @@ header {
 }
 #login > div > div button:nth-child(2) {
   background: #a0d2db;
+}
+#login > div > div a {
+  color: blue;
+  text-transform: capitalize;
+}
+#login > div > div a:visited {
+  color: blueviolet;
+}
+#login > div > div a:hover {
+  text-decoration: underline;
+}
+
+#signup {
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+}
+#signup > div {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  grid-column: 2/6;
+  grid-row: 2/6;
+  padding: 1rem;
+}
+#signup > div h2 {
+  padding: 1rem;
+  text-transform: none;
+}
+#signup > div:first-child {
+  border-radius: 10px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+}
+#signup > div > div {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 2rem;
+}
+#signup > div > div button {
+  border: 2px groove rgba(31, 31, 31, 0.1);
+  border-radius: 5px;
+  font-weight: bold;
+  letter-spacing: 0.033rem;
+  padding: 1rem 2rem;
+  width: 100%;
+}
+#signup > div > div button:hover {
+  border: 2px outset rgba(31, 31, 31, 0.1);
+  opacity: 0.9;
+}
+#signup > div > div button:first-child {
+  background: #ad9baa;
+}
+#signup > div > div button:nth-child(2) {
+  background: #a0d2db;
+}
+#signup > div > div a {
+  color: blue;
+  text-transform: capitalize;
+}
+#signup > div > div a:visited {
+  color: blueviolet;
+}
+#signup > div > div a:hover {
+  text-decoration: underline;
 }
 
 /*# sourceMappingURL=styles.css.map */

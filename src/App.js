@@ -14,6 +14,7 @@ import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Projects from "./pages/Projects";
+import SignUp from "./pages/SignUp";
 import Tasks from "./pages/Tasks";
 
 import "./css/styles.css";
@@ -68,6 +69,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/login" element={<Login />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/tasks" element={<Tasks />} />
         </Routes>
       </Main>

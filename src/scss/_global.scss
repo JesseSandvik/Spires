@@ -152,6 +152,10 @@ body {
             section {
                 display: grid;
                 grid-column: 2 / -1;
+                h2 {
+                    padding: $padding;
+                    text-transform: capitalize;
+                }
             }
         }
         footer {

@@ -4,13 +4,13 @@ import Button from "../components/atoms/button/Button";
 import Heading from "../components/atoms/heading/Heading";
 import NavigationLink from "../components/atoms/navigationLink/NavigationLink";
 
-function Login() {
+function SignUp() {
   const navigate = useNavigate();
 
   return (
-    <section id="login">
+    <section id="signup">
       <div>
-        <Heading level="2">Log in to Spires</Heading>
+        <Heading level="2">Sign up for Spires</Heading>
         <div>
           <Button onClick={() => navigate("/dashboard")}>
             continue as guest
@@ -20,12 +20,12 @@ function Login() {
           </Button>
         </div>
         <div>
-          <Heading>Don&apos;t have an account?</Heading>
-          <NavigationLink to="/signup">sign up</NavigationLink>
+          <Heading>Already have an account?</Heading>
+          <NavigationLink to="/login">log in</NavigationLink>
         </div>
       </div>
     </section>
   );
 }
 
-export default Login;
+export default SignUp;

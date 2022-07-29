@@ -1,7 +1,7 @@
 @use "../settings/" as *;
 @use "sass:math";
 
-#login {
+#signup {
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(6, 1fr);
     & > div {
