@@ -5,9 +5,9 @@ import Main from "../components/organisms/main/Main";
 import NavigationLink from "../components/atoms/navigationLink/NavigationLink";
 import Sidebar from "../components/organisms/sidebar/Sidebar";
 
-function Dashboard() {
+function Projects() {
   return (
-    <Main id="dashboard">
+    <Main id="projects">
       <Sidebar>
         <nav>
           <List>
@@ -33,4 +33,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default Projects;

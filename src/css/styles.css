@@ -9,6 +9,16 @@ button {
   text-transform: capitalize;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background: #f1f1f1;
   color: #1f1f1f;
@@ -19,12 +29,13 @@ body .app {
   min-height: 100vh;
 }
 body .app > * {
+  display: grid;
+  gap: 1rem;
   grid-template-columns: repeat(6, 1fr);
   padding: 1rem;
 }
 body .app header {
   font-family: "Exo 2", sans-serif;
-  gap: 1rem;
   text-transform: capitalize;
 }
 body .app header > div {
@@ -39,8 +50,16 @@ body .app header > div:first-child button {
   gap: 0.5rem;
 }
 body .app header > div:first-child button i {
-  color: #acfcd9;
-  font-size: 2.2rem;
+  background: #1f1f1f;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+  color: #f1f1f1;
+  font-size: 2rem;
+  padding: 0.5rem;
+  transform: rotate(90deg);
+}
+body .app header > div:first-child button h1 {
+  font-size: 2rem;
 }
 body .app header > div:last-child {
   gap: 1rem;
@@ -51,6 +70,7 @@ body .app header > div:last-child button {
   background: #1f1f1f;
   border: 3.33px solid transparent;
   border-radius: 10px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
   color: #f1f1f1;
   font-weight: bold;
   height: 36px;
@@ -60,27 +80,66 @@ body .app header > div:last-child button {
 body .app header > div:last-child button:hover {
   opacity: 0.9;
 }
+body .app main #sidebar {
+  align-items: center;
+  background: #1f1f1f;
+  border-radius: 10px;
+  box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  grid-column: 1/1;
+  padding: 1rem;
+}
+body .app main #sidebar nav {
+  font-weight: bold;
+  letter-spacing: 0.033rem;
+  padding: 2rem 0;
+  text-transform: capitalize;
+  width: 100%;
+}
+body .app main #sidebar nav ul {
+  background: rgba(197, 231, 226, 0.33);
+  border: 1px inset #c5e7e2;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  list-style: none;
+  padding: 1rem;
+}
+body .app main #sidebar nav ul li {
+  font-family: "Exo 2", sans-serif;
+  width: 100%;
+}
+body .app main #sidebar nav ul li a {
+  align-items: center;
+  background: rgba(197, 231, 226, 0.7);
+  border: 1px solid rgba(172, 252, 217, 0.8);
+  border-radius: 5px;
+  color: #1e441e;
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+}
+body .app main #sidebar nav ul li a i {
+  font-size: 1.5rem;
+}
+body .app main #sidebar nav ul li a:hover {
+  background: #c5e7e2;
+}
+body .app main #sidebar nav ul li a.active {
+  background: #c5e7e2;
+  border: 2px outset rgba(172, 252, 217, 0.8);
+}
 
 footer {
-  align-items: center;
-  display: flex;
   grid-column: 1/-1;
   grid-row: 3/-1;
-  justify-content: center;
 }
 
 header {
-  display: grid;
   grid-column: 1/-1;
   grid-row: 1/1;
-  grid-template-columns: 1fr 1fr;
-}
-
-#dashboard {
-  border: 1px solid red;
-}
-#dashboard #sidebar {
-  border: 1px solid orange;
 }
 
 #home {

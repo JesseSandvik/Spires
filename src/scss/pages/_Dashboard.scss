@@ -1,9 +1,4 @@
 @use "../settings/" as *;
 @use "sass:math";
 
-#dashboard {
-    border: 1px solid red;
-    #sidebar {
-        border: 1px solid orange;
-    }
-}
+#dashboard {}
