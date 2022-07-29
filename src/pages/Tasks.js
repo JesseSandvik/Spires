@@ -5,9 +5,9 @@ import Main from "../components/organisms/main/Main";
 import NavigationLink from "../components/atoms/navigationLink/NavigationLink";
 import Sidebar from "../components/organisms/sidebar/Sidebar";
 
-function Dashboard() {
+function Tasks() {
   return (
-    <Main id="dashboard">
+    <Main id="tasks">
       <Sidebar>
         <nav>
           <List>
@@ -33,10 +33,10 @@ function Dashboard() {
         </nav>
       </Sidebar>
       <div>
-        <Heading level="2">dashboard</Heading>
+        <Heading level="2">tasks</Heading>
       </div>
     </Main>
   );
 }
 
-export default Dashboard;
+export default Tasks;

@@ -18,6 +18,12 @@ function Projects() {
               </NavigationLink>
             </li>
             <li>
+              <NavigationLink to="/tasks">
+                <Icon className="fa-solid fa-thumbtack" />
+                tasks
+              </NavigationLink>
+            </li>
+            <li>
               <NavigationLink to="/projects">
                 <Icon className="fa-solid fa-diagram-project" />
                 projects
@@ -27,7 +33,7 @@ function Projects() {
         </nav>
       </Sidebar>
       <div>
-        <Heading level="2">dashboard</Heading>
+        <Heading level="2">projects</Heading>
       </div>
     </Main>
   );
