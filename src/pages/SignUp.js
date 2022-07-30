@@ -9,20 +9,18 @@ function SignUp() {
 
   return (
     <section id="signup">
+      <Heading level="2">Sign up for Spires</Heading>
       <div>
-        <Heading level="2">Sign up for Spires</Heading>
-        <div>
-          <Button onClick={() => navigate("/dashboard")}>
-            continue as guest
-          </Button>
-          <Button onClick={() => console.log("click")}>
-            create username & password
-          </Button>
-        </div>
-        <div>
-          <Heading>Already have an account?</Heading>
-          <NavigationLink to="/login">log in</NavigationLink>
-        </div>
+        <Button onClick={() => navigate("/dashboard")}>
+          continue as guest
+        </Button>
+        <Button onClick={() => console.log("click")}>
+          create username & password
+        </Button>
+      </div>
+      <div>
+        <Heading>Already have an account?</Heading>
+        <NavigationLink to="/login">log in</NavigationLink>
       </div>
     </section>
   );

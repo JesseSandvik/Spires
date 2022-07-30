@@ -168,8 +168,12 @@ body {
                 }
             }
             section {
+                border-radius: $border-radius;
+                box-shadow: 0 5px 5px rgba(0, 0, 0, 0.33);
                 display: grid;
                 grid-column: 2 / -1;
+                margin: $margin;
+                padding: $padding;
                 h2 {
                     padding: $padding;
                     text-transform: capitalize;
@@ -178,16 +182,20 @@ body {
         }
         footer {
             button {
-                background: #000;
+                background: $secondary;
                 border: none;
                 border-radius: 50%;
                 bottom: 0.5rem;
+                box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.4);
                 cursor: pointer;
                 font-size: 1.5rem;
-                height: 36px;
+                height: 32px;
                 left: 0.5rem;
                 position: absolute;
-                width: 36px;
+                width: 32px;
+                &:hover {
+                    scale: 1.033;
+                }
                 i {
                     color: $green-bright;
                 }

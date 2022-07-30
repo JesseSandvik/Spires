@@ -164,24 +164,32 @@ body .app main #sidebar nav ul li a.active {
   color: #1f1f1f;
 }
 body .app main section {
+  border-radius: 10px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.33);
   display: grid;
   grid-column: 2/-1;
+  margin: 1rem;
+  padding: 1rem;
 }
 body .app main section h2 {
   padding: 1rem;
   text-transform: capitalize;
 }
 body .app footer button {
-  background: #000;
+  background: #1f1f1f;
   border: none;
   border-radius: 50%;
   bottom: 0.5rem;
+  box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.4);
   cursor: pointer;
   font-size: 1.5rem;
-  height: 36px;
+  height: 32px;
   left: 0.5rem;
   position: absolute;
-  width: 36px;
+  width: 32px;
+}
+body .app footer button:hover {
+  scale: 1.033;
 }
 body .app footer button i {
   color: #c5e7e2;
@@ -205,6 +213,30 @@ footer {
 header {
   grid-column: 1/-1;
   grid-row: 1/1;
+}
+
+#dashboard {
+  grid-template-rows: auto 1fr;
+}
+#dashboard > div {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+#dashboard > div > div {
+  background: rgba(31, 31, 31, 0.9);
+  border: 2px groove rgba(197, 231, 226, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+#dashboard > div > div:first-child {
+  grid-column: 1/-1;
+  grid-row: 1/1;
+}
+#dashboard > div > div:last-child {
+  grid-column: 1/-1;
+  grid-row: 3/-1;
 }
 
 #home {
@@ -243,34 +275,23 @@ header {
 }
 
 #login {
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(6, 1fr);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  margin: 8rem;
+}
+#login h2 {
+  text-transform: none;
 }
 #login > div {
   align-items: center;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  grid-column: 2/6;
-  grid-row: 2/6;
-  padding: 1rem;
-}
-#login > div h2 {
-  padding: 1rem;
-  text-transform: none;
-}
-#login > div:first-child {
-  border-radius: 10px;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
-}
-#login > div > div {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
   gap: 0.5rem;
-  padding: 2rem;
 }
-#login > div > div button {
+#login > div button {
   border: 2px groove rgba(31, 31, 31, 0.1);
   border-radius: 5px;
   font-weight: bold;
@@ -278,56 +299,45 @@ header {
   padding: 1rem 2rem;
   width: 100%;
 }
-#login > div > div button:hover {
+#login > div button:hover {
   border: 2px outset rgba(31, 31, 31, 0.1);
   opacity: 0.9;
 }
-#login > div > div button:first-child {
+#login > div button:first-child {
   background: #ad9baa;
 }
-#login > div > div button:nth-child(2) {
+#login > div button:nth-child(2) {
   background: #a0d2db;
 }
-#login > div > div a {
+#login > div a {
   color: blue;
   text-transform: capitalize;
 }
-#login > div > div a:visited {
+#login > div a:visited {
   color: blueviolet;
 }
-#login > div > div a:hover {
+#login > div a:hover {
   text-decoration: underline;
 }
 
 #signup {
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(6, 1fr);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  margin: 8rem;
+}
+#signup h2 {
+  text-transform: none;
 }
 #signup > div {
   align-items: center;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  grid-column: 2/6;
-  grid-row: 2/6;
-  padding: 1rem;
-}
-#signup > div h2 {
-  padding: 1rem;
-  text-transform: none;
-}
-#signup > div:first-child {
-  border-radius: 10px;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
-}
-#signup > div > div {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
   gap: 0.5rem;
-  padding: 2rem;
 }
-#signup > div > div button {
+#signup > div button {
   border: 2px groove rgba(31, 31, 31, 0.1);
   border-radius: 5px;
   font-weight: bold;
@@ -335,24 +345,24 @@ header {
   padding: 1rem 2rem;
   width: 100%;
 }
-#signup > div > div button:hover {
+#signup > div button:hover {
   border: 2px outset rgba(31, 31, 31, 0.1);
   opacity: 0.9;
 }
-#signup > div > div button:first-child {
+#signup > div button:first-child {
   background: #ad9baa;
 }
-#signup > div > div button:nth-child(2) {
+#signup > div button:nth-child(2) {
   background: #a0d2db;
 }
-#signup > div > div a {
+#signup > div a {
   color: blue;
   text-transform: capitalize;
 }
-#signup > div > div a:visited {
+#signup > div a:visited {
   color: blueviolet;
 }
-#signup > div > div a:hover {
+#signup > div a:hover {
   text-decoration: underline;
 }
 

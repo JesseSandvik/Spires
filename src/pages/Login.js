@@ -9,20 +9,18 @@ function Login() {
 
   return (
     <section id="login">
+      <Heading level="2">Log in to Spires</Heading>
       <div>
-        <Heading level="2">Log in to Spires</Heading>
-        <div>
-          <Button onClick={() => navigate("/dashboard")}>
-            continue as guest
-          </Button>
-          <Button onClick={() => console.log("click")}>
-            continue with username & password
-          </Button>
-        </div>
-        <div>
-          <Heading>Don&apos;t have an account?</Heading>
-          <NavigationLink to="/signup">sign up</NavigationLink>
-        </div>
+        <Button onClick={() => navigate("/dashboard")}>
+          continue as guest
+        </Button>
+        <Button onClick={() => console.log("click")}>
+          continue with username & password
+        </Button>
+      </div>
+      <div>
+        <Heading>Don&apos;t have an account?</Heading>
+        <NavigationLink to="/signup">sign up</NavigationLink>
       </div>
     </section>
   );
