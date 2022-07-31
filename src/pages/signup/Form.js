@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
+import Icon from "../../components/atoms/icon/Icon";
+
 function SignUpForm() {
   const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%]).{8,24}$/;
 
@@ -35,8 +37,21 @@ function SignUpForm() {
 
   return (
     <form>
+      <p
+        ref={errorRef}
+        className={errorMessage ? "error-message" : "offscreen"}
+        aria-live="assertive"
+      >
+        {errorMessage}
+      </p>
       <label htmlFor="username">
         username:
+        <span className={usernameIsValid ? "valid" : "hide"}>
+          <Icon className="fa-solid fa-check" />
+        </span>
+        <span className={usernameIsValid || !username ? "hide" : "invalid"}>
+          <Icon className="fa-solid fa-xmark" />
+        </span>
         <input
           aria-describedby="username-note"
           aria-invalid={usernameIsValid ? "false" : "true"}
@@ -50,6 +65,21 @@ function SignUpForm() {
           type="text"
         />
       </label>
+      <p
+        id="username-note"
+        className={
+          usernameIsFocus && username && !usernameIsValid
+            ? "instructions"
+            : "offscreen"
+        }
+      >
+        <Icon className="fa-solid fa-circle-info" />
+        4 to 24 characters.
+        <br />
+        Must begin with letter.
+        <br />
+        Letters, numbers, underscores, hyphens allowed.
+      </p>
     </form>
   );
 }
