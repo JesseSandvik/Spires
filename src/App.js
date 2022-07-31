@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 
 import Button from "./components/atoms/button/Button";
 import Footer from "./components/organisms/footer/Footer";
@@ -14,16 +14,15 @@ import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Projects from "./pages/Projects";
-import SignUp from "./pages/SignUp";
+import SignUpForm from "./pages/signup/Form";
+import SignUpLayout from "./pages/signup/Layout";
+import SignUpHome from "./pages/signup/Home";
 import Tasks from "./pages/Tasks";
 
 import "./css/styles.css";
 
 function App() {
-  const location = useLocation();
   const navigate = useNavigate();
-
-  console.log({ location });
 
   return (
     <div className="app">
@@ -72,7 +71,10 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/login" element={<Login />} />
           <Route path="/projects" element={<Projects />} />
-          <Route path="/signup" element={<SignUp />} />
+          <Route path="signup" element={<SignUpLayout />}>
+            <Route path="" element={<SignUpHome />} />
+            <Route path="username" element={<SignUpForm />} />
+          </Route>
           <Route path="/tasks" element={<Tasks />} />
         </Routes>
       </Main>
