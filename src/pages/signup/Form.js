@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
+import Button from "../../components/atoms/button/Button";
 import Icon from "../../components/atoms/icon/Icon";
 
 function SignUpForm() {
@@ -53,13 +54,15 @@ function SignUpForm() {
         {errorMessage}
       </p>
       <label htmlFor="username">
-        username:
-        <span className={usernameIsValid ? "valid" : "hide"}>
-          <Icon className="fa-solid fa-check" />
-        </span>
-        <span className={usernameIsValid || !username ? "hide" : "invalid"}>
-          <Icon className="fa-solid fa-xmark" />
-        </span>
+        <div>
+          username:
+          <span className={usernameIsValid ? "valid" : "hide"}>
+            <Icon className="fa-solid fa-check" />
+          </span>
+          <span className={usernameIsValid || !username ? "hide" : "invalid"}>
+            <Icon className="fa-solid fa-xmark" />
+          </span>
+        </div>
         <input
           aria-describedby="username-note"
           aria-invalid={usernameIsValid ? "false" : "true"}
@@ -89,13 +92,15 @@ function SignUpForm() {
         Letters, numbers, underscores, hyphens allowed.
       </p>
       <label htmlFor="password">
-        password:
-        <span className={passwordIsValid ? "valid" : "hide"}>
-          <Icon className="fa-solid fa-check" />
-        </span>
-        <span className={passwordIsValid || !password ? "hide" : "invalid"}>
-          <Icon className="fa-solid fa-xmark" />
-        </span>
+        <div>
+          password:
+          <span className={passwordIsValid ? "valid" : "hide"}>
+            <Icon className="fa-solid fa-check" />
+          </span>
+          <span className={passwordIsValid || !password ? "hide" : "invalid"}>
+            <Icon className="fa-solid fa-xmark" />
+          </span>
+        </div>
         <input
           aria-describedby="pwdnote"
           aria-invalid={passwordIsValid ? "false" : "true"}
@@ -116,8 +121,9 @@ function SignUpForm() {
         <Icon className="fa-solid fa-circle-info" />
         8 to 24 characters.
         <br />
-        Must include uppercase and lowercase letters, a number and a special
-        character.
+        Must include uppercase and lowercase letters,
+        <br />
+        a number and a special character.
         <br />
         Allowed special characters: <span aria-label="exclamation mark">!</span>
         <span aria-label="at symbol">@</span>
@@ -125,6 +131,56 @@ function SignUpForm() {
         <span aria-label="dollar sign">$</span>
         <span aria-label="percent">%</span>
       </p>
+      <label htmlFor="matchingPassword">
+        <div>
+          confirm password:
+          <span
+            className={
+              matchingPassword && bothPasswordsMatch ? "valid" : "hide"
+            }
+          >
+            <Icon className="fa-solid fa-check" />
+          </span>
+          <span
+            className={
+              !matchingPassword || bothPasswordsMatch ? "hide" : "invalid"
+            }
+          >
+            <Icon className="fa-solid fa-xmark" />
+          </span>
+        </div>
+        <input
+          aria-describedby="confirmpwdnote"
+          aria-invalid={bothPasswordsMatch ? "false" : "true"}
+          id="matchingPassword"
+          onBlur={() => setPasswordIsFocus(false)}
+          onChange={(event) => setMatchingPassword(event.target.value)}
+          onFocus={() => setMatchingPasswordIsFocus(true)}
+          required
+          type="password"
+        />
+      </label>
+      <p
+        id="confirmpwdnote"
+        className={
+          matchingPasswordIsFocus && !bothPasswordsMatch
+            ? "instructions"
+            : "offscreen"
+        }
+      >
+        <Icon className="fa-solid fa-circle-info" />
+        Must match the first password input field.
+      </p>
+      <Button
+        className={
+          !usernameIsValid || !passwordIsValid || !bothPasswordsMatch
+            ? null
+            : "active"
+        }
+        disabled={!usernameIsValid || !passwordIsValid || !bothPasswordsMatch}
+      >
+        Sign Up
+      </Button>
     </form>
   );
 }

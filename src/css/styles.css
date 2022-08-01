@@ -326,7 +326,7 @@ header {
   flex-direction: column;
   gap: 2rem;
   justify-content: center;
-  margin: 8rem;
+  margin: 2rem;
 }
 #signup h2 {
   text-transform: none;
@@ -364,6 +364,76 @@ header {
 }
 #signup > div a:hover {
   text-decoration: underline;
+}
+#signup form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 1rem;
+  width: 100%;
+}
+#signup form input[type=text],
+#signup form input[type=password],
+#signup form button,
+#signup form textarea {
+  font-size: 22px;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+}
+#signup form button {
+  padding: 0.5rem 2rem;
+}
+#signup form button.active {
+  background: #a0d2db;
+  border: 2px outset rgba(160, 210, 219, 0.5);
+}
+#signup form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  text-transform: capitalize;
+}
+#signup form label > div {
+  display: flex;
+  justify-content: space-between;
+}
+#signup form .instructions {
+  background: #1f1f1f;
+  border-radius: 0.5rem;
+  color: #f1f1f1;
+  font-size: 0.75rem;
+  padding: 1rem;
+  position: relative;
+  width: 330px;
+}
+#signup form .instructions > i {
+  margin-right: 0.25rem;
+}
+#signup form .instructions > span {
+  margin: 0 2px;
+}
+#signup form .offscreen {
+  position: absolute;
+  left: -9999px;
+}
+#signup form .hide {
+  display: none;
+}
+#signup form .valid {
+  color: limegreen;
+  margin-left: 0.25rem;
+}
+#signup form .invalid {
+  color: red;
+  margin-left: 0.25rem;
+}
+#signup form .error-message {
+  background-color: lightpink;
+  color: firebrick;
+  font-weight: bold;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 /*# sourceMappingURL=styles.css.map */
