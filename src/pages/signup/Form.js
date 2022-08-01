@@ -3,8 +3,6 @@ import { useEffect, useRef, useState } from "react";
 import Icon from "../../components/atoms/icon/Icon";
 
 function SignUpForm() {
-  const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%]).{8,24}$/;
-
   const usernameRef = useRef();
   const errorRef = useRef();
 
@@ -34,6 +32,16 @@ function SignUpForm() {
     console.log({ username });
     setUsernameIsValid(isValid);
   }, [username]);
+
+  useEffect(() => {
+    const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%]).{8,24}$/;
+    const isValid = PASSWORD_REGEX.test(password);
+    console.log({ isValid });
+    console.log({ password });
+    setPasswordIsValid(isValid);
+    const passwordsMatch = password === matchingPassword;
+    setBothPasswordsMatch(passwordsMatch);
+  }, [matchingPassword, password]);
 
   return (
     <form>
@@ -79,6 +87,43 @@ function SignUpForm() {
         Must begin with letter.
         <br />
         Letters, numbers, underscores, hyphens allowed.
+      </p>
+      <label htmlFor="password">
+        password:
+        <span className={passwordIsValid ? "valid" : "hide"}>
+          <Icon className="fa-solid fa-check" />
+        </span>
+        <span className={passwordIsValid || !password ? "hide" : "invalid"}>
+          <Icon className="fa-solid fa-xmark" />
+        </span>
+        <input
+          aria-describedby="pwdnote"
+          aria-invalid={passwordIsValid ? "false" : "true"}
+          id="password"
+          onBlur={() => setPasswordIsFocus(false)}
+          onChange={(event) => setPassword(event.target.value)}
+          onFocus={() => setPasswordIsFocus(true)}
+          required
+          type="password"
+        />
+      </label>
+      <p
+        id="pwdnote"
+        className={
+          passwordIsFocus && !passwordIsValid ? "instructions" : "offscreen"
+        }
+      >
+        <Icon className="fa-solid fa-circle-info" />
+        8 to 24 characters.
+        <br />
+        Must include uppercase and lowercase letters, a number and a special
+        character.
+        <br />
+        Allowed special characters: <span aria-label="exclamation mark">!</span>
+        <span aria-label="at symbol">@</span>
+        <span aria-label="hashtag">#</span>
+        <span aria-label="dollar sign">$</span>
+        <span aria-label="percent">%</span>
       </p>
     </form>
   );
