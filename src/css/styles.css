@@ -111,7 +111,6 @@ body .app main #sidebar {
   box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
-  grid-column: 1/1;
   padding: 2rem 1rem;
 }
 body .app main #sidebar div:first-child {
@@ -167,7 +166,7 @@ body .app main section {
   border-radius: 10px;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.33);
   display: grid;
-  grid-column: 2/-1;
+  grid-column: 1/-1;
   margin: 1rem;
   padding: 1rem;
 }
@@ -175,23 +174,26 @@ body .app main section h2 {
   padding: 1rem;
   text-transform: capitalize;
 }
-body .app footer button {
+body .app footer a {
+  align-items: center;
   background: #1f1f1f;
   border: none;
   border-radius: 50%;
   bottom: 0.5rem;
   box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.4);
   cursor: pointer;
+  display: flex;
   font-size: 1.5rem;
   height: 32px;
+  justify-content: center;
   left: 0.5rem;
   position: absolute;
   width: 32px;
 }
-body .app footer button:hover {
+body .app footer a:hover {
   scale: 1.033;
 }
-body .app footer button i {
+body .app footer a i {
   color: #c5e7e2;
 }
 body .app footer div {
@@ -280,7 +282,7 @@ header {
   flex-direction: column;
   gap: 2rem;
   justify-content: center;
-  margin: 8rem;
+  margin: 2rem;
 }
 #login h2 {
   text-transform: none;

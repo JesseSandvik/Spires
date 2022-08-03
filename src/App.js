@@ -20,6 +20,7 @@ import SignUpHome from "./pages/signup/Home";
 import Tasks from "./pages/Tasks";
 
 import "./css/styles.css";
+import ExternalLink from "./components/atoms/externalLink/ExternalLink";
 
 function App() {
   const navigate = useNavigate();
@@ -42,7 +43,7 @@ function App() {
         </div>
       </Header>
       <Main>
-        <Sidebar>
+        {/* <Sidebar>
           <nav>
             <List>
               <li>
@@ -65,7 +66,7 @@ function App() {
               </li>
             </List>
           </nav>
-        </Sidebar>
+        </Sidebar> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/dashboard" element={<Dashboard />} />
@@ -79,9 +80,9 @@ function App() {
         </Routes>
       </Main>
       <Footer>
-        <Button onClick={() => console.log("click")}>
+        <ExternalLink href="https://github.com/JesseSandvik/spires-front-end">
           <Icon className="fa-brands fa-github" />
-        </Button>
+        </ExternalLink>
         <div>
           <span>&copy;</span> jesse<span>sandvik</span>
           {new Date().getFullYear()}
