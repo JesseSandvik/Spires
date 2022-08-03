@@ -105,78 +105,93 @@ body {
                 }
             }
         }
-        main {
-            #sidebar {
-                align-items: center;
-                background: rgba($secondary, 0.8);
-                border-bottom: 2px groove rgba($green-bright, 0.9);
-                border-right: 2px groove rgba($green-bright, 0.9);
-                border-bottom-right-radius: $border-radius;
-                box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.4);
-                display: flex;
-                flex-direction: column;
-                padding: $padding * 2 $padding;
-                div:first-child {
-                    color: $primary;
-                    font-weight: bold;
-                    padding: $padding;
-                }
-                nav {
-                    font-weight: bold;
-                    letter-spacing: 0.033rem;
-                    text-transform: capitalize;
-                    width: 100%;
-                    ul {
-                        display: flex;
-                        flex-direction: column;
-                        gap: $gap;
-                        list-style: none;
-                        padding: $padding * 2 $padding;
-                        li {
-                            font-family: 'Exo 2', sans-serif;
-                            width: 100%;
-                            a {
+        #sidebar {
+            align-items: center;
+            background: rgba($secondary, 0.8);
+            border-bottom: 2px groove rgba($green-bright, 0.9);
+            border-right: 2px groove rgba($green-bright, 0.9);
+            border-bottom-right-radius: $border-radius;
+            box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            padding: $padding * 2 $padding;
+            &.authenticated {
+                grid-column: 1 / 1;
+                grid-row: 1 / -1;
+            }
+            div:first-child {
+                color: $primary;
+                font-weight: bold;
+                padding: $padding;
+            }
+            nav {
+                font-weight: bold;
+                letter-spacing: 0.033rem;
+                text-transform: capitalize;
+                width: 100%;
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    gap: $gap;
+                    list-style: none;
+                    padding: $padding * 2 $padding;
+                    li {
+                        font-family: 'Exo 2', sans-serif;
+                        width: 100%;
+                        a {
+                            align-items: center;
+                            background: $secondary;
+                            border: 1px groove rgba($primary, 0.5);
+                            border-radius: $border-radius;
+                            color: rgba($green-bright, 0.8);
+                            display: flex;
+                            gap: math.div($gap, 2);
+                            padding: math.div($padding, 1.5);
+                            i {
                                 align-items: center;
-                                background: $secondary;
-                                border: 1px groove rgba($primary, 0.5);
-                                border-radius: $border-radius;
-                                color: rgba($green-bright, 0.8);
                                 display: flex;
-                                gap: math.div($gap, 2);
-                                padding: math.div($padding, 1.5);
-                                i {
-                                    align-items: center;
-                                    display: flex;
-                                    font-size: 1.5rem;
-                                    height: 32px;
-                                    justify-content: center;
-                                    width: 32px;
-                                }
-                                &:hover {
-                                    background: $green-bright;
-                                    color: $secondary;
-                                }
-                                &.active {
-                                    background: $green-bright;
-                                    border: 2px outset rgba($green-bright, 0.8);
-                                    color: $secondary;
-                                }
+                                font-size: 1.5rem;
+                                height: 32px;
+                                justify-content: center;
+                                width: 32px;
+                            }
+                            &:hover {
+                                background: $green-bright;
+                                color: $secondary;
+                            }
+                            &.active {
+                                background: $green-bright;
+                                border: 2px outset rgba($green-bright, 0.8);
+                                color: $secondary;
                             }
                         }
                     }
                 }
             }
-            section {
-                border-radius: $border-radius;
-                box-shadow: 0 5px 5px rgba(0, 0, 0, 0.33);
-                display: grid;
-                grid-column: 1 / -1;
-                margin: $margin;
-                padding: $padding;
-                h2 {
-                    padding: $padding;
-                    text-transform: capitalize;
+        }
+        main {
+            border-radius: $border-radius;
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.33);
+            display: grid;
+            &.unauthenticated {
+                section {
+                    &:nth-child(1) {
+                        grid-column: 1 / -1;
+                        grid-row: 1 / -1;
+                    }
                 }
+            }
+            &.authenticated {
+                section {
+                    &:nth-child(2) {
+                        grid-column: 2 / -1;
+                        grid-row: 1 / -1;
+                    }
+                }
+            }
+            h2 {
+                padding: $padding;
+                text-transform: capitalize;
             }
         }
         footer {

@@ -9,7 +9,7 @@ function Home() {
           Plan & execute your next project with intent.
         </Heading>
         <p>With Spires, we aim higher.</p>
-        <NavigationLink to="/signup">Let&apos;s get started.</NavigationLink>
+        <NavigationLink to="/login">Let&apos;s get started.</NavigationLink>
       </div>
     </section>
   );

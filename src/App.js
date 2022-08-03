@@ -1,6 +1,8 @@
 import { Routes, Route, useNavigate } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 import Button from "./components/atoms/button/Button";
+import ExternalLink from "./components/atoms/externalLink/ExternalLink";
 import Footer from "./components/organisms/footer/Footer";
 import Header from "./components/organisms/header/Header";
 import Heading from "./components/atoms/heading/Heading";
@@ -14,16 +16,13 @@ import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Projects from "./pages/Projects";
-import SignUpForm from "./pages/signup/Form";
-import SignUpLayout from "./pages/signup/Layout";
-import SignUpHome from "./pages/signup/Home";
 import Tasks from "./pages/Tasks";
 
 import "./css/styles.css";
-import ExternalLink from "./components/atoms/externalLink/ExternalLink";
 
 function App() {
   const navigate = useNavigate();
+  const { isAuthenticated, logout } = useAuth0();
 
   return (
     <div className="app">
@@ -38,44 +37,49 @@ function App() {
           </Button>
         </div>
         <div>
-          <Button onClick={() => navigate("/login")}>login</Button>
-          <Button onClick={() => navigate("/signup")}>sign up</Button>
+          {isAuthenticated ? (
+            <Button
+              onClick={() => logout({ returnTo: window.location.origin })}
+            >
+              logout
+            </Button>
+          ) : (
+            <Button onClick={() => navigate("/login")}>login</Button>
+          )}
         </div>
       </Header>
-      <Main>
-        {/* <Sidebar>
-          <nav>
-            <List>
-              <li>
-                <NavigationLink to="/dashboard">
-                  <Icon className="fa-solid fa-house" />
-                  dashboard
-                </NavigationLink>
-              </li>
-              <li>
-                <NavigationLink to="/tasks">
-                  <Icon className="fa-solid fa-thumbtack" />
-                  tasks
-                </NavigationLink>
-              </li>
-              <li>
-                <NavigationLink to="/projects">
-                  <Icon className="fa-solid fa-diagram-project" />
-                  projects
-                </NavigationLink>
-              </li>
-            </List>
-          </nav>
-        </Sidebar> */}
+      <Main className={isAuthenticated ? "authenticated" : "unauthenticated"}>
+        {isAuthenticated && (
+          <Sidebar className={isAuthenticated ? "authenticated" : ""}>
+            <nav>
+              <List>
+                <li>
+                  <NavigationLink to="/dashboard">
+                    <Icon className="fa-solid fa-house" />
+                    dashboard
+                  </NavigationLink>
+                </li>
+                <li>
+                  <NavigationLink to="/tasks">
+                    <Icon className="fa-solid fa-thumbtack" />
+                    tasks
+                  </NavigationLink>
+                </li>
+                <li>
+                  <NavigationLink to="/projects">
+                    <Icon className="fa-solid fa-diagram-project" />
+                    projects
+                  </NavigationLink>
+                </li>
+              </List>
+            </nav>
+          </Sidebar>
+        )}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/login" element={<Login />} />
           <Route path="/projects" element={<Projects />} />
-          <Route path="signup" element={<SignUpLayout />}>
-            <Route path="" element={<SignUpHome />} />
-            <Route path="username" element={<SignUpForm />} />
-          </Route>
           <Route path="/tasks" element={<Tasks />} />
         </Routes>
       </Main>

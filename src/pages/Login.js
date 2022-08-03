@@ -1,11 +1,12 @@
 import { useNavigate } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 import Button from "../components/atoms/button/Button";
 import Heading from "../components/atoms/heading/Heading";
-import NavigationLink from "../components/atoms/navigationLink/NavigationLink";
 
 function Login() {
   const navigate = useNavigate();
+  const { loginWithRedirect } = useAuth0();
 
   return (
     <section id="login">
@@ -14,13 +15,7 @@ function Login() {
         <Button onClick={() => navigate("/dashboard")}>
           continue as guest
         </Button>
-        <Button onClick={() => console.log("click")}>
-          continue with username & password
-        </Button>
-      </div>
-      <div>
-        <Heading>Don&apos;t have an account?</Heading>
-        <NavigationLink to="/signup">sign up</NavigationLink>
+        <Button onClick={() => loginWithRedirect()}>continue with Auth0</Button>
       </div>
     </section>
   );

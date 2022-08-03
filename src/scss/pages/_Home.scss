@@ -1,8 +1,10 @@
 @use "../settings/" as *;
 
 #home {
+    display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(5, 1fr);
+    padding: $padding;
     & > div {
         align-items: center;
         background: $secondary;

@@ -2,7 +2,9 @@
 @use "sass:math";
 
 #dashboard {
+    display: grid;
     grid-template-rows: auto 1fr;
+    padding: $padding;
     & > div {
         display: grid;
         gap: $gap;
