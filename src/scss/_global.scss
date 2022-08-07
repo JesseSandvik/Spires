@@ -25,6 +25,7 @@ body {
     background: $primary;
     color: $secondary;
     font-family: 'Montserrat Alternates', sans-serif;
+    overflow-x: hidden;
     .app {
         display: grid;
         grid-template-rows: auto 1fr auto;
@@ -34,7 +35,13 @@ body {
             grid-template-columns: repeat(6, 1fr);
         }
         header {
-            background: $primary;
+            background: linear-gradient(45deg,
+            rgba($secondary, 1.0),
+            rgba($secondary, 1.0),
+            rgba($secondary, 1.0),
+            rgba($secondary, 1.0),
+            rgba($secondary, 0.9),
+            rgba($secondary, 0.8));
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
             height: 120px;
             padding: $padding;
@@ -48,14 +55,14 @@ body {
                         align-items: center;
                         background: transparent;
                         border: none;
-                        color: $secondary;
+                        color: $primary;
                         display: flex;
                         gap: math.div($gap, 2);
                         padding: math.div($padding, 2);
                         width: 100%;
                         i {
                             background: $secondary;
-                            border: 2px groove rgba($green-bright, 0.9);
+                            border: 4px solid $blue-bright;
                             border-radius: 50%;
                             box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
                             color: $primary;
@@ -73,7 +80,7 @@ body {
                             align-items: center;
                             background: $secondary;
                             border-radius: math.div($border-radius, 2);
-                            color: $green-bright;
+                            color: $blue-bright;
                             display: flex;
                             font-family: 'Montserrat Alternates', sans-serif;
                             font-size: 0.8rem;
@@ -132,36 +139,37 @@ body {
                 ul {
                     display: flex;
                     flex-direction: column;
-                    gap: $gap;
+                    gap: 8px;
                     list-style: none;
                     padding: $padding * 2 $padding;
                     li {
                         font-family: 'Exo 2', sans-serif;
+                        font-size: 0.9rem;
                         width: 100%;
                         a {
                             align-items: center;
                             background: $secondary;
                             border: 1px groove rgba($primary, 0.5);
                             border-radius: $border-radius;
-                            color: rgba($green-bright, 0.8);
+                            color: $blue-bright;
                             display: flex;
                             gap: math.div($gap, 2);
-                            padding: math.div($padding, 1.5);
+                            padding: math.div($padding, 2);
                             i {
                                 align-items: center;
                                 display: flex;
-                                font-size: 1.5rem;
+                                font-size: 1.2rem;
                                 height: 32px;
                                 justify-content: center;
                                 width: 32px;
                             }
                             &:hover {
-                                background: $green-bright;
+                                background: rgba($blue-bright, 0.66);
                                 color: $secondary;
                             }
                             &.active {
-                                background: $green-bright;
-                                border: 2px outset rgba($green-bright, 0.8);
+                                background: rgba($blue-bright, 0.9);
+                                border: 2px outset rgba($blue-bright, 0.8);
                                 color: $secondary;
                             }
                         }
@@ -173,6 +181,10 @@ body {
             border-radius: $border-radius;
             box-shadow: 0 5px 5px rgba(0, 0, 0, 0.33);
             display: grid;
+            section {
+                display: grid;
+                padding: $padding;
+            }
             &.unauthenticated {
                 section {
                     &:nth-child(1) {
@@ -214,7 +226,7 @@ body {
                     scale: 1.033;
                 }
                 i {
-                    color: $green-bright;
+                    color: $blue-bright;
                 }
             }
             div {
