@@ -13,8 +13,9 @@
         max-height: 675px;
         overflow-y: auto;
         padding: $padding;
-        & > div {
+        & > button {
             background: $primary;
+            border: none;
             border-radius: math.div($border-radius, 2);
             box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
             cursor: pointer;

@@ -15,7 +15,8 @@ import Sidebar from "./components/organisms/sidebar/Sidebar";
 import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import Projects from "./pages/Projects";
+import ProjectById from "./pages/projects/ProjectById";
+import ProjectsList from "./pages/projects/List";
 import Tasks from "./pages/Tasks";
 
 import "./css/styles.css";
@@ -127,7 +128,10 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="login" element={<Login />} />
-          <Route path="projects" element={<Projects />} />
+          <Route path="projects">
+            <Route path="" element={<ProjectsList />} />
+            <Route path=":id" element={<ProjectById />} />
+          </Route>
           <Route path="tasks" element={<Tasks />} />
         </Routes>
       </Main>

@@ -353,15 +353,16 @@ header {
   overflow-y: auto;
   padding: 1rem;
 }
-#projects > div > div {
+#projects > div > button {
   background: #f1f1f1;
+  border: none;
   border-radius: 5px;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   max-height: 225px;
   padding: 1rem;
 }
-#projects > div > div:hover {
+#projects > div > button:hover {
   scale: 1.025;
 }
 
