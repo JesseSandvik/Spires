@@ -23,6 +23,24 @@ import "./css/styles.css";
 function App() {
   const navigate = useNavigate();
   const { isAuthenticated, logout } = useAuth0();
+  const guestIsLoggedIn = sessionStorage.getItem("guest");
+
+  const handleGuestUserLogout = () => {
+    sessionStorage.removeItem("guest");
+  };
+
+  const handleAuth0Logout = () => {
+    logout({ returnTo: window.location.origin });
+  };
+
+  const handleLogout = (auth0Login) => {
+    if (auth0Login) {
+      handleAuth0Logout();
+    } else {
+      handleGuestUserLogout();
+      navigate("/");
+    }
+  };
 
   return (
     <div className="app">
@@ -37,10 +55,8 @@ function App() {
           </Button>
         </div>
         <div>
-          {isAuthenticated ? (
-            <Button
-              onClick={() => logout({ returnTo: window.location.origin })}
-            >
+          {isAuthenticated || guestIsLoggedIn ? (
+            <Button onClick={() => handleLogout(isAuthenticated)}>
               logout
             </Button>
           ) : (
@@ -48,7 +64,13 @@ function App() {
           )}
         </div>
       </Header>
-      <Main className={isAuthenticated ? "authenticated" : "unauthenticated"}>
+      <Main
+        className={
+          isAuthenticated || guestIsLoggedIn
+            ? "authenticated"
+            : "unauthenticated"
+        }
+      >
         {isAuthenticated && (
           <Sidebar className={isAuthenticated ? "authenticated" : ""}>
             <nav>
@@ -75,12 +97,38 @@ function App() {
             </nav>
           </Sidebar>
         )}
+        {guestIsLoggedIn && (
+          <Sidebar className={guestIsLoggedIn ? "authenticated" : ""}>
+            <nav>
+              <List>
+                <li>
+                  <NavigationLink to="/dashboard">
+                    <Icon className="fa-solid fa-house" />
+                    dashboard
+                  </NavigationLink>
+                </li>
+                <li>
+                  <NavigationLink to="/tasks">
+                    <Icon className="fa-solid fa-thumbtack" />
+                    tasks
+                  </NavigationLink>
+                </li>
+                <li>
+                  <NavigationLink to="/projects">
+                    <Icon className="fa-solid fa-diagram-project" />
+                    projects
+                  </NavigationLink>
+                </li>
+              </List>
+            </nav>
+          </Sidebar>
+        )}
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/tasks" element={<Tasks />} />
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="login" element={<Login />} />
+          <Route path="projects" element={<Projects />} />
+          <Route path="tasks" element={<Tasks />} />
         </Routes>
       </Main>
       <Footer>
