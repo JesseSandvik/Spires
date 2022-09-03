@@ -1,0 +1,26 @@
+header {
+    background: #2f2f2f;
+    color: #ddd;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: 100px;
+    text-transform: capitalize;
+}
+
+.header-first, .header-second, .header-third {
+    align-items: center;
+    display: flex;
+    padding: 36px;
+}
+
+.header-first {
+    justify-content: flex-start;
+}
+
+.header-second {
+    justify-content: center;
+}
+
+.header-third {
+    justify-content: flex-end;
+}
