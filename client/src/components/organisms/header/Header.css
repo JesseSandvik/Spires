@@ -1,4 +1,4 @@
-header {
+.Header {
     background: #2f2f2f;
     color: #ddd;
     display: grid;
@@ -10,20 +10,26 @@ header {
     top: 0;
 }
 
-.header-first, .header-second, .header-third {
+.Header-first, .Header-second, .Header-third {
     align-items: center;
     display: flex;
     padding: 36px;
 }
 
-.header-first {
+.Header-first {
     justify-content: flex-start;
 }
 
-.header-second {
+.Header-second {
     justify-content: center;
 }
 
-.header-third {
+.Header-third {
     justify-content: flex-end;
+}
+
+.Header-auth-btn {
+    height: 32px;
+    text-transform: capitalize;
+    width: 80px;
 }

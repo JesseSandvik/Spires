@@ -1,21 +1,28 @@
 import React from 'react';
 import "./Header.css";
+import { useAuth0 } from "@auth0/auth0-react";
 
-import LoginButton from "../../atoms/loginButton/LoginButton";
+import Button from '../../atoms/button/Button';
 
-type Props = {}
+function Header() {
+  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
-function Header({}: Props) {
+  const handleAuthOnClick = (isAuthenticated: boolean): void => {
+    isAuthenticated ? logout() : loginWithRedirect();
+  }
+
   return (
-    <header>
-      <div className="header-first">
+    <header className='Header'>
+      <div className="Header-first">
         first
       </div>
-      <div className="header-second">
+      <div className="Header-second">
         second
       </div>
-      <div className="header-third">
-        <LoginButton />
+      <div className="Header-third">
+        <Button className='Header-auth-btn' onClick={() => handleAuthOnClick(isAuthenticated)}>
+          {isAuthenticated ? "log out" : "log in"}
+        </Button>
       </div>
     </header>
   );
