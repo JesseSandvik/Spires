@@ -1,0 +1,24 @@
+footer {
+    display: grid;
+    grid-row: 3 / -1;
+    grid-template-columns: repeat(3, 1fr);
+    height: 60px;
+}
+
+.footer-first, .footer-second, .footer-third {
+    align-items: center;
+    display: flex;
+    padding: 12px 36px;
+}
+
+.footer-first {
+    justify-content: flex-start;
+}
+
+.footer-second {
+    justify-content: center;
+}
+
+.footer-third {
+    justify-content: flex-end;
+}

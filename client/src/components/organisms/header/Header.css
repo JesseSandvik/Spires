@@ -2,9 +2,12 @@ header {
     background: #2f2f2f;
     color: #ddd;
     display: grid;
+    grid-row: 1 / 1;
     grid-template-columns: repeat(3, 1fr);
     height: 100px;
+    position: sticky;
     text-transform: capitalize;
+    top: 0;
 }
 
 .header-first, .header-second, .header-third {

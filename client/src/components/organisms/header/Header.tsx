@@ -1,5 +1,7 @@
-import React from 'react'
+import React from 'react';
 import "./Header.css";
+
+import LoginButton from "../../atoms/loginButton/LoginButton";
 
 type Props = {}
 
@@ -13,7 +15,7 @@ function Header({}: Props) {
         second
       </div>
       <div className="header-third">
-        third
+        <LoginButton />
       </div>
     </header>
   );

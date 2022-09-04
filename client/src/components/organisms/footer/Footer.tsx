@@ -1,10 +1,21 @@
-import React from 'react'
+import React from 'react';
+import "./Footer.css";
 
 type Props = {}
 
 function Footer({}: Props) {
   return (
-    <div>Footer</div>
+    <footer>
+      <div className='footer-first'>
+        first
+      </div>
+      <div className='footer-second'>
+        second
+      </div>
+      <div className='footer-third'>
+        third
+      </div>
+    </footer>
   )
 }
 
