@@ -7,7 +7,7 @@ type Props = {
   onClick: () => void;
 }
 
-function Button({ children, className, onClick }: Props) {
+function Button({ children, className, onClick }: Props): React.ReactElement {
   return <button className={className} onClick={onClick}>{children}</button>
 }
 
