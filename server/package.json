@@ -2,11 +2,12 @@
   "name": "spires-server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/server.js",
   "scripts": {
     "build": "npx tsc",
-    "start": "node dist/index.js",
-    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\""
+    "start": "node dist/src/server.js",
+    "dev": "concurrently -k -n COMPILER,NODEMON -c gray,blue \"tsc -w\" \"nodemon -w dist dist/server.js\""
+
   },
   "keywords": [],
   "author": "",
