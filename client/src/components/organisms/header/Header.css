@@ -1,6 +1,6 @@
 .Header {
-    background: #2f2f2f;
-    color: #ddd;
+    background: var(--primary);
+    color: var(--secondary);
     display: grid;
     grid-row: 1 / 1;
     grid-template-columns: repeat(3, 1fr);
@@ -26,10 +26,4 @@
 
 .Header-third {
     justify-content: flex-end;
-}
-
-.Header-auth-btn {
-    height: 32px;
-    text-transform: capitalize;
-    width: 80px;
 }

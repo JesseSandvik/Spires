@@ -1,9 +1,7 @@
 import React from 'react';
 import "./Footer.css";
 
-type Props = {}
-
-function Footer({}: Props) {
+function Footer(): React.ReactElement {
   return (
     <footer>
       <div className='footer-first'>

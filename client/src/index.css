@@ -2,6 +2,13 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  --primary: #2f2f2f;
+  --secondary: #eceff1;
+  --accent: #86bbd8;
+  --12px: 0.75rem;
+  --14px: 0.875rem;
+  --16px: 1rem;
+  --18px: 1.125rem;
 }
 
 body {
