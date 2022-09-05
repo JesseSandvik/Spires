@@ -1,9 +1,10 @@
+import {describe, expect, test} from '@jest/globals';
 const request = require("supertest");
-const application = require("./app");
+import app from "./app";
 
 describe('sum module', () => {
   test('renders the app route', async () => {
-    const response = await request(application).get("/");
+    const response = await request(app).get("/");
     expect(response).toBeDefined();
   });
 });

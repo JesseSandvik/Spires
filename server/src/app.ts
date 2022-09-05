@@ -1,4 +1,5 @@
-import express, { Express, Request, Response } from 'express';
+import { Express, Request, Response } from "express";
+const express = require("express");
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -9,4 +10,4 @@ app.get('/', (req: Request, res: Response) => {
   res.send(`Express + TypeScript Server is running!`);
 });
 
-module.exports = app;
+export default app;
